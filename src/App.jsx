@@ -1,6 +1,7 @@
 import React from "react";
 import Person from "./Components/Person/Person.jsx";
 import Button from "./Components/Button/Button.jsx";
+import Text from "./Components/Text/Text.jsx";
 
 function App() {
     const buttonClick = () => {
