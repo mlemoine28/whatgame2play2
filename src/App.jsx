@@ -13,7 +13,7 @@ function App() {
             <Person 
                 name="Michael" 
                 age={34} 
-                colour="blue"
+                colour="Yellow"
             />
             <Button
                 onClick={buttonClick}
