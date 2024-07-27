@@ -1,9 +1,9 @@
 import React from "react";
-
+import Text from "../Text/Text";
 function Button({ onClick, label }) {
  return (
      <button onClick={onClick}>
-         {label}
+        <Text color="purple"> {label} </Text>
      </button>
  );
 }
