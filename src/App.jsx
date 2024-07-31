@@ -4,6 +4,7 @@ import Button from "./Components/Button/Button.jsx";
 import Text from "./Components/Text/Text.jsx";
 import ListGroup from "./Components/ListGroup/ListGroup.jsx";
 import Card from "./Components/Card/Card.jsx";
+import "../src/style.css";
 
 function App() {
   const buttonClick = () => {
@@ -15,6 +16,7 @@ function App() {
       <Person name="Michael" age={34} colour="Yellow" />
       <Button onClick={buttonClick} label={"Click me! Now!"} />
       <ListGroup />
+      <Card />
     </div>
   );
 }
