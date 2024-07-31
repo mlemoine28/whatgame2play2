@@ -1,8 +1,9 @@
 import React from "react";
 import Text from "../Text/Text";
+import styles from "./Button.module.css";
 function Button({ onClick, label }) {
   return (
-    <button className="button" onClick={onClick}>
+    <button className={styles.buttonstyle} onClick={onClick}>
       <Text color="purple"> {label} </Text>
     </button>
   );

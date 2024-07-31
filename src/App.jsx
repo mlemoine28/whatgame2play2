@@ -5,6 +5,7 @@ import Button2 from "./Components/Button/Button2.jsx";
 import Text from "./Components/Text/Text.jsx";
 import ListGroup from "./Components/ListGroup/ListGroup.jsx";
 import Card from "./Components/Card/Card.jsx";
+import Student from "./Components/Student/Student.jsx";
 import "../src/style.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Card />
       <Card />
       <Button2 />
+      <Student name="Spongebob" />
     </div>
   );
 }
