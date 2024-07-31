@@ -17,6 +17,7 @@ function App() {
       <Button onClick={buttonClick} label={"Click me! Now!"} />
       <ListGroup />
       <Card />
+      <Card />
     </div>
   );
 }
