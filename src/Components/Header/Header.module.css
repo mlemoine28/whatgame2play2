@@ -1,5 +1,6 @@
 .headerstyle {
-margin: auto;
-color: orange;
-
+color: red;
+margin-left: 50%;
+margin-right: 50%;
+position: relative;
 }

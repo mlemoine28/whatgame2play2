@@ -1,6 +1,6 @@
 import React from "react";
 import GamingBackground from "../../assets/gamingbackground.png";
-import styles from "./Header.module.css"
+import styles from "./Header.module.css";
 
 function Header() {
   return (
