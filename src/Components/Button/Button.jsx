@@ -4,7 +4,10 @@ import styles from "./Button.module.css";
 function Button({ onClick, label }) {
   return (
     <button className={styles.buttonstyle} onClick={onClick}>
-      <Text color="purple"> {label} </Text>
+      <Text hero="blue" color="purple">
+        {" "}
+        {label}{" "}
+      </Text>
     </button>
   );
 }
