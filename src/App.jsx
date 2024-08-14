@@ -1,22 +1,22 @@
 import React from "react";
 import "../src/style.css";
 import Button2 from "./Components/Button/Button2";
+import Button from "react-bootstrap/Button";
 import Header from "./Components/Header/Header";
 import Text from "./Components/Text/Text";
 import { Breadcrumb, Card } from "react-bootstrap";
-import GamingBackground from "./assets/gamingbackground.png";
+import GamingConsoles from "./assets/GamingConsolesPic.jpg";
+import TitleImage from "./assets/WhatGame2Play_Header.png";
+import CardIntro from "./Components/CardIntro/CardIntro";
 
 function App() {
   return (
     <div>
-      <Header />
-      <Button2 label="Button One" />
-      <Button2 label="Button Two" />
-      <Button2 label="Button Three" />
-      <Button2 label="Button Four" />
-      <Card style={{ width: "18rem" }}>
-        <Card.Img src={GamingBackground}></Card.Img>
-        <Card.Title>Welcome To WhatGame2Play</Card.Title>
+      <Header>{TitleImage}</Header>
+      <CardIntro></CardIntro>
+      <Card style={{ width: "rem" }}>
+        <Card.Img src={GamingConsoles}></Card.Img>
+        <Card.Title>Let's Find A Game For You</Card.Title>
         <Card.Text>Hi there</Card.Text>
       </Card>
       <Card>

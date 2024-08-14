@@ -1,7 +1,8 @@
 .headerstyle {
  color: blue;
  background-color: black;
- width: 40%;  /* Set a width for the div */
+ width: 70%;  /* Set a width for the div */
+ height:auto;
  margin: 0 auto;  /* Center the div horizontally */
  position: relative;
  display: flex;
