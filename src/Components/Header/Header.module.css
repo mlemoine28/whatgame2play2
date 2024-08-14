@@ -1,6 +1,10 @@
 .headerstyle {
-color: red;
-margin-left: 50%;
-margin-right: 50%;
-position: relative;
+ color: blue;
+ background-color: black;
+ width: 40%;  /* Set a width for the div */
+ margin: 0 auto;  /* Center the div horizontally */
+ position: relative;
+ display: flex;
+ justify-content: center;  /* Center content horizontally */
+  text-align: center;
 }
