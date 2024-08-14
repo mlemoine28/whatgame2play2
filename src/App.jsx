@@ -14,17 +14,6 @@ function App() {
     <div>
       <Header>{TitleImage}</Header>
       <CardIntro></CardIntro>
-      <Card style={{ width: "rem" }}>
-        <Card.Img src={GamingConsoles}></Card.Img>
-        <Card.Title>Let's Find A Game For You</Card.Title>
-        <Card.Text>Hi there</Card.Text>
-      </Card>
-      <Card>
-        <Card.Title>The Game For You!</Card.Title>
-      </Card>
-      <Breadcrumb>
-        <Breadcrumb.Item>Test</Breadcrumb.Item>
-      </Breadcrumb>
     </div>
   );
 }

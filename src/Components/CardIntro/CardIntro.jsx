@@ -1,20 +1,27 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
+import styles from "./custom-card.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function CardIntro() {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-dark">
+      <Card
+        className="bg-secondary border-success"
+        style={{ maxWidth: "60rem", height: "auto" }}
+      >
+        <Card.Img variant="top" src={GamingConsoles} />
+        <Card.Body className="bg-dark border border-success">
+          <Card.Title className="text-primary">Welcome!</Card.Title>
+          <Card.Text className="text-white">
+            Let's find a game for you to play.
+          </Card.Text>
+          <Button variant="primary">Let's Get Started</Button>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
