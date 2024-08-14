@@ -3,8 +3,8 @@ import "../src/style.css";
 import Button2 from "./Components/Button/Button2";
 import Header from "./Components/Header/Header";
 import Text from "./Components/Text/Text";
-import Card from "./Components/Card/Card";
-import { Breadcrumb } from "react-bootstrap";
+import { Breadcrumb, Card } from "react-bootstrap";
+import GamingBackground from "./assets/gamingbackground.png";
 
 function App() {
   return (
@@ -14,7 +14,14 @@ function App() {
       <Button2 label="Button Two" />
       <Button2 label="Button Three" />
       <Button2 label="Button Four" />
-      <Card />
+      <Card style={{ width: "18rem" }}>
+        <Card.Img src={GamingBackground}></Card.Img>
+        <Card.Title>Welcome To WhatGame2Play</Card.Title>
+        <Card.Text>Hi there</Card.Text>
+      </Card>
+      <Card>
+        <Card.Title>The Game For You!</Card.Title>
+      </Card>
       <Breadcrumb>
         <Breadcrumb.Item>Test</Breadcrumb.Item>
       </Breadcrumb>
