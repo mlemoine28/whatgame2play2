@@ -1,9 +1,11 @@
 import React from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
 import styles from "./custom-card.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Button2 from "../../Components/Button/Button2";
 
 function CardIntro() {
   return (
@@ -16,9 +18,10 @@ function CardIntro() {
         <Card.Body className="bg-dark border border-success">
           <Card.Title className="text-primary">Welcome!</Card.Title>
           <Card.Text className="text-white">
-            Let's find a game for you to play.
+            Answer a few questions to find the best games for you.
           </Card.Text>
-          <Button variant="primary">Let's Get Started</Button>
+          <Button2 label="Get Started" onClick={()=> console.log("Clicked!")}
+          ></Button2>
         </Card.Body>
       </Card>
     </div>
