@@ -20,7 +20,9 @@ function CardIntro() {
           <Card.Text className="text-white">
             Answer a few questions to find the best games for you.
           </Card.Text>
-          <Button2 label="Get Started" onClick={()=> console.log("Clicked!")}
+          <Button2
+            label="Get Started"
+            onClick={() => console.log("Clicked!")}
           ></Button2>
         </Card.Body>
       </Card>
