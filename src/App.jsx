@@ -8,12 +8,14 @@ import { Breadcrumb, Card } from "react-bootstrap";
 import GamingConsoles from "./assets/GamingConsolesPic.jpg";
 import TitleImage from "./assets/WhatGame2Play_Header.png";
 import CardIntro from "./Components/CardIntro/CardIntro";
+import MainCard from "./Components/MainCard/MainCard";
 
 function App() {
   return (
     <div>
       <Header>{TitleImage}</Header>
       <CardIntro></CardIntro>
+      <MainCard/>
     </div>
   );
 }

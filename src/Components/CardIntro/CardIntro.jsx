@@ -3,7 +3,6 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
-import styles from "./custom-card.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button2 from "../../Components/Button/Button2";
 
