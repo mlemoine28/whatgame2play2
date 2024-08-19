@@ -9,7 +9,7 @@ import GamingConsoles from "./assets/GamingConsolesPic.jpg";
 import TitleImage from "./assets/WhatGame2Play_Header.png";
 import CardIntro from "./Components/CardIntro/CardIntro";
 import MainCard from "./Components/MainCard/MainCard";
-import GameList from "./Components/GameList/GameList";
+import GenreList from "./Components/GenreList/GenreList";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Header>{TitleImage}</Header>
       <CardIntro></CardIntro>
       <MainCard />
-      <GameList />
+      <GenreList />
     </div>
   );
 }
