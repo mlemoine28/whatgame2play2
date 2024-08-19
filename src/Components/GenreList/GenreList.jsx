@@ -1,7 +1,7 @@
 import React from "react";
 
 const GenreList = () => {
-  const genre = [
+  const genres = [
     "RPG",
     "Action",
     "Simulation",
@@ -15,7 +15,7 @@ const GenreList = () => {
   return (
     <div>
       <ul>
-        {genre.map((genre, i) => (
+        {genres.map((genre, i) => (
           <li key={genre}>
             The #{i} genre I've listed is {genre}.
           </li>
