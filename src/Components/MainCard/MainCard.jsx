@@ -24,6 +24,18 @@ function MainCard() {
     { value: "Fighting", label: "Fighting" },
   ];
 
+  const metacritic = [
+    { value: "96-100", label: "96-100" },
+    { value: "91-95", label: "91-95" },
+    { value: "86-90", label: "86-90" },
+    { value: "81-85", label: "81-85" },
+    { value: "76-80", label: "76-80" },
+    { value: "71-75", label: "71-75" },
+    { value: "66-70", label: "66-70" },
+    { value: "61-65", label: "61-65" },
+    { value: "<=60", label: "<=60" },
+  ];
+
   const initialQuestions = [
     {
       id: 1,
@@ -55,7 +67,7 @@ function MainCard() {
     {
       title: "Question Six",
       questionText: "oh my word",
-    }
+    },
   ];
 
   return (
@@ -75,7 +87,10 @@ function MainCard() {
                     </Card.Title>
                     <Card.Text className="text-white">
                       {question.questionText}
-                      <FormSubmit options={genres} placeholder="select a genre" />
+                      <FormSubmit
+                        options={genres}
+                        placeholder="select a genre"
+                      />
                     </Card.Text>
                   </div>
                 ))
@@ -87,7 +102,10 @@ function MainCard() {
                     <Card.Text className="text-white">
                       {question.questionText}
                     </Card.Text>
-                    <FormSubmit />
+                    <FormSubmit
+                      options={metacritic}
+                      placeholder="click to show metacritic scores"
+                    />
                   </div>
                 ))}
             <Button2 label="Submit" onClick={handleButtonClick}></Button2>
