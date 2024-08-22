@@ -36,22 +36,33 @@ function MainCard() {
     { value: "<=60", label: "<=60" },
   ];
 
+  const gamingConsole = [
+    { value: "Xbox Series X/S", label: "Xbox Series X/S", },
+    { value: "Playstation 5", label: "Playstation 5", },
+    { value: "Nintendo Switch", label: "Nintendo Switch", },
+    { value: "Sega Genesis", label: "Sega Genesis", },
+    { value: "Xbox 360", label: "Xbox 360", },
+    { value: "Playstation 3", label: "Playstation 3", },
+  ];
+
   const initialQuestions = [
     {
       id: 1,
       title: "Question One",
       questionText: "What genre of game are you looking to play?",
+      generateList: genres,
     },
     {
       id: 2,
       title: "Question Two",
       questionText: "What console are you looking to play on?",
+      generateList: gamingConsole,
     },
     {
       id: 3,
       title: "Question Three",
       questionText: "What metacritic score would you like to see?",
-      spiderman: "peter parker",
+      generateList: metacritic,
     },
   ];
 
@@ -88,9 +99,9 @@ function MainCard() {
                     <Card.Text className="text-white">
                       {question.questionText}
                       <FormSubmit
-                        options={genres}
-                        placeholder="select a genre"
-                      />
+                        options={question.generateList}
+                        placeholder="this is the list"
+                      ></FormSubmit>
                     </Card.Text>
                   </div>
                 ))
@@ -103,9 +114,9 @@ function MainCard() {
                       {question.questionText}
                     </Card.Text>
                     <FormSubmit
-                      options={metacritic}
-                      placeholder="click to show metacritic scores"
-                    />
+                      options={question.generateList}
+                      placeholder="this is the list"
+                    ></FormSubmit>
                   </div>
                 ))}
             <Button2 label="Submit" onClick={handleButtonClick}></Button2>
