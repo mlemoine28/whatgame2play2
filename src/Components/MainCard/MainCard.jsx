@@ -28,7 +28,7 @@ function MainCard() {
     {
       id: 3,
       title: "Question Three",
-      questionText: "What meta scritic score would you like to see?",
+      questionText: "What metacritic score would you like to see?",
       spiderman: "peter parker",
     },
   ];
@@ -53,25 +53,27 @@ function MainCard() {
         >
           <Card.Img variant="top" />
           <Card.Body className="bg-dark border border-success">
-            {firstQuestions ? initialQuestions.map((question, i) => (
-              <div key={i}>
-                <Card.Title className="text-primary">
-                  {question.title}
-                </Card.Title>
-                <Card.Text className="text-white">
-                  {question.questionText}
-                </Card.Text>
-              </div>
-            )) : secondQuestions.map((question, i) => (
-              <div key={i}>
-                <Card.Title className="text-primary">
-                  {question.title}
-                </Card.Title>
-                <Card.Text className="text-white">
-                  {question.questionText}
-                </Card.Text>
-              </div>
-            ))}
+            {firstQuestions
+              ? initialQuestions.map((question, i) => (
+                  <div key={i}>
+                    <Card.Title className="text-primary">
+                      {question.title}
+                    </Card.Title>
+                    <Card.Text className="text-white">
+                      {question.questionText}
+                    </Card.Text>
+                  </div>
+                ))
+              : secondQuestions.map((question, i) => (
+                  <div key={i}>
+                    <Card.Title className="text-primary">
+                      {question.title}
+                    </Card.Title>
+                    <Card.Text className="text-white">
+                      {question.questionText}
+                    </Card.Text>
+                  </div>
+                ))}
             <FormSubmit />
             <Button2 label="Submit" onClick={handleButtonClick}></Button2>
           </Card.Body>
