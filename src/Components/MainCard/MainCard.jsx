@@ -14,6 +14,16 @@ function MainCard() {
     setFirstQuestions(!firstQuestions);
   };
 
+  const genres = [
+    { value: "Action-Adventure", label: "Action-Adventure" },
+    { value: "RPG", label: "RPG" },
+    { value: "Shooter", label: "Shooter" },
+    { value: "Platformer", label: "Platformer" },
+    { value: "Sandbox", label: "Sandbox" },
+    { value: "Simulation", label: "Simulation" },
+    { value: "Fighting", label: "Fighting" },
+  ];
+
   const initialQuestions = [
     {
       id: 1,
@@ -42,6 +52,10 @@ function MainCard() {
       title: "Question Five",
       questionText: "test",
     },
+    {
+      title: "Question Six",
+      questionText: "oh my word",
+    }
   ];
 
   return (
@@ -61,6 +75,7 @@ function MainCard() {
                     </Card.Title>
                     <Card.Text className="text-white">
                       {question.questionText}
+                      <FormSubmit options={genres} placeholder="select a genre" />
                     </Card.Text>
                   </div>
                 ))
@@ -72,9 +87,9 @@ function MainCard() {
                     <Card.Text className="text-white">
                       {question.questionText}
                     </Card.Text>
+                    <FormSubmit />
                   </div>
                 ))}
-            <FormSubmit />
             <Button2 label="Submit" onClick={handleButtonClick}></Button2>
           </Card.Body>
         </Card>
