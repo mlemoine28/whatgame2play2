@@ -130,6 +130,7 @@ function MainCard() {
                 </Card.Text>
               </Card.Body>
             </Card>
+            
           ))}
           <Button2 label="Submit" onClick={submitButtonClick}></Button2>
         </div>

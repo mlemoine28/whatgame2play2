@@ -15,7 +15,6 @@ function App() {
   return (
     <div>
       <Header>{TitleImage}</Header>
-      <CardIntro></CardIntro>
       <MainCard />
       <GenreList />
     </div>
