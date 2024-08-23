@@ -10,7 +10,6 @@ function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
   const [initialQuestions, setInitialQuestions] = useState(false);
   const [nextQuestions, setNextQuestions] = useState(false);
-  
 
   const handleIntroButtonClick = () => {
     setShowIntroCard(false);
@@ -93,79 +92,74 @@ function MainCard() {
     <div className="d-flex justify-content-center align-items-center vh-100 bg-dark">
       {showIntroCard && (
         <Card
-        className="bg-secondary border-success"
-        style={{ maxWidth: "60rem", height: "auto" }}
-      >
-        <Card.Img variant="top" src={GamingConsoles} />
-        <Card.Body className="bg-dark border border-success">
-          <Card.Title className="text-primary">Welcome!</Card.Title>
-          <Card.Text className="text-white">
-            Answer a few questions to find the best games for you.
-          </Card.Text>
-          <Button2 label="Get Started" onClick={handleIntroButtonClick}></Button2>
-        </Card.Body>
-      </Card>
-    )}
-    
-             {initialQuestions && (
-              <div>
-              {firstQuestions.map((question, i) => (
-                
-               <Card
-               key={i}
-               className="bg-secondary border-success"
-               style={{ maxWidth: "60rem", height: "auto" }}
-             >
-               <Card.Body className="bg-dark border border-success">
-                 
-                 
-                    <Card.Title className="text-primary">
-                      {question.title}
-                    </Card.Title>
-                    <Card.Text className="text-white">
-                      {question.questionText}
-                      <FormSubmit
-                        options={question.generateList}
-                        placeholder="this is the list"
-                      ></FormSubmit>
-                      
-                    </Card.Text>
-                    </Card.Body>
-                    </Card>
-                    ))}
-                </div>
-                )}
-                
-              {nextQuestions && (
-                <div>
-                {secondQuestions.map((question, i) => (
-                  <Card
-                  key={i}
-                  className="bg-secondary border-success"
-                  style={{ maxWidth: "60rem", height: "auto" }}
-                  >
-                    <Card.Body className="bg-dark border border-success">
-                    <Card.Title className="text-primary">
-                      {question.title}
-                    </Card.Title>
-                    <Card.Text className="text-white">
-                      {question.questionText}
-                    
-                    <FormSubmit
-                      options={question.generateList}
-                      placeholder="this is the list"
-                    ></FormSubmit>
-                    </Card.Text>
-                    </Card.Body>
-                    </Card>
-                    ))}
-                  </div>
-              )}
-                
-            <Button2 label="Submit" onClick={handleIntroButtonClick}></Button2>
-          
-        
-      
+          className="bg-secondary border-success"
+          style={{ maxWidth: "60rem", height: "auto" }}
+        >
+          <Card.Img variant="top" src={GamingConsoles} />
+          <Card.Body className="bg-dark border border-success">
+            <Card.Title className="text-primary">Welcome!</Card.Title>
+            <Card.Text className="text-white">
+              Answer a few questions to find the best games for you.
+            </Card.Text>
+            <Button2
+              label="Get Started"
+              onClick={handleIntroButtonClick}
+            ></Button2>
+          </Card.Body>
+        </Card>
+      )}
+
+      {initialQuestions && (
+        <div>
+          {firstQuestions.map((question, i) => (
+            <Card
+              key={i}
+              className="bg-secondary border-success"
+              style={{ maxWidth: "60rem", height: "auto" }}
+            >
+              <Card.Body className="bg-dark border border-success">
+                <Card.Title className="text-primary">
+                  {question.title}
+                </Card.Title>
+                <Card.Text className="text-white">
+                  {question.questionText}
+                  <FormSubmit
+                    options={question.generateList}
+                    placeholder="this is the list"
+                  ></FormSubmit>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+          <Button2 label="Submit" onClick={submitButtonClick}></Button2>
+        </div>
+      )}
+
+      {nextQuestions && (
+        <div>
+          {secondQuestions.map((question, i) => (
+            <Card
+              key={i}
+              className="bg-secondary border-success"
+              style={{ maxWidth: "60rem", height: "auto" }}
+            >
+              <Card.Body className="bg-dark border border-success">
+                <Card.Title className="text-primary">
+                  {question.title}
+                </Card.Title>
+                <Card.Text className="text-white">
+                  {question.questionText}
+
+                  <FormSubmit
+                    options={question.generateList}
+                    placeholder="this is the list"
+                  ></FormSubmit>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
