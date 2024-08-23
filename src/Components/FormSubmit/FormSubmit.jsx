@@ -1,11 +1,13 @@
 import React from "react";
 import Select from "react-select";
+import styles from "./FormSubmit.module.css"
 
 function FormSubmit({ options, placeholder = "select an option" }) {
   return (
+    <div className={styles.formstyle}>
   
-    <Select className="bg-primary .text-danger" options={options} placeholder={placeholder} isSearchable></Select>
-  
+    <Select options={options} placeholder={placeholder} isSearchable></Select>
+  </div>
   );
 }
 

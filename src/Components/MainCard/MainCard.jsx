@@ -127,7 +127,7 @@ function MainCard() {
                   <FormSubmit
                     className=""
                     options={question.generateList}
-                    placeholder="this is the list"
+                    placeholder="Select an option"
                   ></FormSubmit>
                 </Card.Text>
               </Card.Body>
@@ -158,7 +158,7 @@ function MainCard() {
 
                   <FormSubmit
                     options={question.generateList}
-                    placeholder="this is the list"
+                    placeholder="Select an option"
                   ></FormSubmit>
                 </Card.Text>
               </Card.Body>
