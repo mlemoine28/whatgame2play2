@@ -106,14 +106,19 @@ function MainCard() {
         </Card.Body>
       </Card>
     )}
+    
              {initialQuestions && (
+              <div>
+              {firstQuestions.map((question, i) => (
+                
                <Card
+               key={i}
                className="bg-secondary border-success"
                style={{ maxWidth: "60rem", height: "auto" }}
              >
                <Card.Body className="bg-dark border border-success">
-                 firstQuestions.map((question, i) => (
-                  <div key={i}>
+                 
+                 
                     <Card.Title className="text-primary">
                       {question.title}
                     </Card.Title>
@@ -127,24 +132,36 @@ function MainCard() {
                     </Card.Text>
                     </Card.Body>
                     </Card>
-                
-                ))
+                    ))}
+                </div>
+                )}
                 
               {nextQuestions && (
-                secondQuestions.map((question, i) => (
-                  <div key={i}>
+                <div>
+                {secondQuestions.map((question, i) => (
+                  <Card
+                  key={i}
+                  className="bg-secondary border-success"
+                  style={{ maxWidth: "60rem", height: "auto" }}
+                  >
+                    <Card.Body className="bg-dark border border-success">
                     <Card.Title className="text-primary">
                       {question.title}
                     </Card.Title>
                     <Card.Text className="text-white">
                       {question.questionText}
-                    </Card.Text>
+                    
                     <FormSubmit
                       options={question.generateList}
                       placeholder="this is the list"
                     ></FormSubmit>
+                    </Card.Text>
+                    </Card.Body>
+                    </Card>
+                    ))}
                   </div>
-                )))}
+              )}
+                
             <Button2 label="Submit" onClick={handleIntroButtonClick}></Button2>
           
         
