@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button2 from "../../Components/Button/Button2";
 
 function CardIntro() {
-  const [showCard, setShowCard] = useState(true);
+  const [showCard, setShowCard] = useState(false);
 
   const handleButtonClick = () => {
     setShowCard(false);

@@ -7,11 +7,11 @@ import Form from "react-bootstrap/Form";
 
 function MainCard() {
   const [showCard, setShowCard] = useState(true);
-  const [firstQuestions, setFirstQuestions] = useState(true);
+  const [firstQuestions, setFirstQuestions] = useState(false);
 
-  const handleButtonClick = () => {
-    // setShowCard(false);
-    setFirstQuestions(!firstQuestions);
+  const handleIntroButtonClick = () => {
+    setShowCard(false);
+    setFirstQuestions(true);
   };
 
   const genres = [
@@ -37,12 +37,12 @@ function MainCard() {
   ];
 
   const gamingConsole = [
-    { value: "Xbox Series X/S", label: "Xbox Series X/S", },
-    { value: "Playstation 5", label: "Playstation 5", },
-    { value: "Nintendo Switch", label: "Nintendo Switch", },
-    { value: "Sega Genesis", label: "Sega Genesis", },
-    { value: "Xbox 360", label: "Xbox 360", },
-    { value: "Playstation 3", label: "Playstation 3", },
+    { value: "Xbox Series X/S", label: "Xbox Series X/S" },
+    { value: "Playstation 5", label: "Playstation 5" },
+    { value: "Nintendo Switch", label: "Nintendo Switch" },
+    { value: "Sega Genesis", label: "Sega Genesis" },
+    { value: "Xbox 360", label: "Xbox 360" },
+    { value: "Playstation 3", label: "Playstation 3" },
   ];
 
   const initialQuestions = [
@@ -119,7 +119,7 @@ function MainCard() {
                     ></FormSubmit>
                   </div>
                 ))}
-            <Button2 label="Submit" onClick={handleButtonClick}></Button2>
+            <Button2 label="Submit" onClick={handleIntroButtonClick}></Button2>
           </Card.Body>
         </Card>
       )}
