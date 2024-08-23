@@ -5,6 +5,7 @@ import Button2 from "../../Components/Button/Button2";
 import FormSubmit from "../../Components/FormSubmit/FormSubmit";
 import Form from "react-bootstrap/Form";
 import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
+import styles from "./MainCard.module.css";
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
@@ -89,7 +90,7 @@ function MainCard() {
   ];
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-dark">
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-dark ">
       {showIntroCard && (
         <Card
           className="bg-secondary border-success"
@@ -110,12 +111,12 @@ function MainCard() {
       )}
 
       {initialQuestions && (
-        <div>
+        <div className={styles.maincardstyle}>
           {firstQuestions.map((question, i) => (
             <Card
               key={i}
               className="bg-secondary border-success"
-              style={{ maxWidth: "60rem", height: "auto" }}
+              style={{ maxWidth: "60rem", height: "auto", margin: "50px" }}
             >
               <Card.Body className="bg-dark border border-success">
                 <Card.Title className="text-primary">
@@ -124,15 +125,19 @@ function MainCard() {
                 <Card.Text className="text-white">
                   {question.questionText}
                   <FormSubmit
+                    className=""
                     options={question.generateList}
                     placeholder="this is the list"
                   ></FormSubmit>
                 </Card.Text>
               </Card.Body>
             </Card>
-            
           ))}
-          <Button2 label="Submit" onClick={submitButtonClick}></Button2>
+          <Button2
+            className="justify-content-md-center"
+            label="Submit"
+            onClick={submitButtonClick}
+          ></Button2>
         </div>
       )}
 

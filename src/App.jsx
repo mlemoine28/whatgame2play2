@@ -7,7 +7,6 @@ import Text from "./Components/Text/Text";
 import { Breadcrumb, Card } from "react-bootstrap";
 import GamingConsoles from "./assets/GamingConsolesPic.jpg";
 import TitleImage from "./assets/WhatGame2Play_Header.png";
-import CardIntro from "./Components/CardIntro/CardIntro";
 import MainCard from "./Components/MainCard/MainCard";
 import GenreList from "./Components/GenreList/GenreList";
 
