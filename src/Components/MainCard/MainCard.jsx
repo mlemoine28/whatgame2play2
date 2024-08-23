@@ -4,14 +4,22 @@ import Card from "react-bootstrap/Card";
 import Button2 from "../../Components/Button/Button2";
 import FormSubmit from "../../Components/FormSubmit/FormSubmit";
 import Form from "react-bootstrap/Form";
+import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
 
 function MainCard() {
-  const [showCard, setShowCard] = useState(true);
-  const [firstQuestions, setFirstQuestions] = useState(false);
+  const [showIntroCard, setShowIntroCard] = useState(true);
+  const [initialQuestions, setInitialQuestions] = useState(false);
+  const [nextQuestions, setNextQuestions] = useState(false);
+  
 
   const handleIntroButtonClick = () => {
-    setShowCard(false);
-    setFirstQuestions(true);
+    setShowIntroCard(false);
+    setInitialQuestions(true);
+  };
+
+  const submitButtonClick = () => {
+    setInitialQuestions(false);
+    setNextQuestions(true);
   };
 
   const genres = [
@@ -45,7 +53,7 @@ function MainCard() {
     { value: "Playstation 3", label: "Playstation 3" },
   ];
 
-  const initialQuestions = [
+  const firstQuestions = [
     {
       id: 1,
       title: "Question One",
@@ -83,15 +91,28 @@ function MainCard() {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-dark">
-      {showCard && (
+      {showIntroCard && (
         <Card
-          className="bg-secondary border-success"
-          style={{ maxWidth: "60rem", height: "auto" }}
-        >
-          <Card.Img variant="top" />
-          <Card.Body className="bg-dark border border-success">
-            {firstQuestions
-              ? initialQuestions.map((question, i) => (
+        className="bg-secondary border-success"
+        style={{ maxWidth: "60rem", height: "auto" }}
+      >
+        <Card.Img variant="top" src={GamingConsoles} />
+        <Card.Body className="bg-dark border border-success">
+          <Card.Title className="text-primary">Welcome!</Card.Title>
+          <Card.Text className="text-white">
+            Answer a few questions to find the best games for you.
+          </Card.Text>
+          <Button2 label="Get Started" onClick={handleIntroButtonClick}></Button2>
+        </Card.Body>
+      </Card>
+    )}
+             {initialQuestions && (
+               <Card
+               className="bg-secondary border-success"
+               style={{ maxWidth: "60rem", height: "auto" }}
+             >
+               <Card.Body className="bg-dark border border-success">
+                 firstQuestions.map((question, i) => (
                   <div key={i}>
                     <Card.Title className="text-primary">
                       {question.title}
@@ -102,10 +123,15 @@ function MainCard() {
                         options={question.generateList}
                         placeholder="this is the list"
                       ></FormSubmit>
+                      
                     </Card.Text>
-                  </div>
+                    </Card.Body>
+                    </Card>
+                
                 ))
-              : secondQuestions.map((question, i) => (
+                
+              {nextQuestions && (
+                secondQuestions.map((question, i) => (
                   <div key={i}>
                     <Card.Title className="text-primary">
                       {question.title}
@@ -118,11 +144,11 @@ function MainCard() {
                       placeholder="this is the list"
                     ></FormSubmit>
                   </div>
-                ))}
+                )))}
             <Button2 label="Submit" onClick={handleIntroButtonClick}></Button2>
-          </Card.Body>
-        </Card>
-      )}
+          
+        
+      
     </div>
   );
 }
