@@ -53,6 +53,24 @@ function MainCard() {
     { value: "Playstation 3", label: "Playstation 3" },
   ];
 
+  const years = [
+    { value: "2010s", label: "2010s" },
+    { value: "2000s", label: "2000s" },
+    { value: "1990s", label: "1990s" },
+    { value: "1980s", label: "1980s" },
+    { value: "1970s", label: "1970s" },
+  ];
+
+  const gamelength = [
+    { value: "≤5 hours", label: "≤5 hours" },
+    { value: "5-9 hours", label: "5-9 hours" },
+    { value: "10-19 hours", label: "10-19 hours" },
+    { value: "20-29 hours", label: "20-29 hours" },
+    { value: "30-39 hours", label: "30-39 hours" },
+    { value: "40-49 hours", label: "40-49 hours" },
+    { value: "50+ hours", label: "50+ hours" },
+  ];
+
   const firstQuestions = [
     {
       id: 1,
@@ -77,11 +95,13 @@ function MainCard() {
   const secondQuestions = [
     {
       title: "Question Four",
-      questionText: "test again",
+      questionText: "From which decade do you want your game to be from?",
+      generateList: years,
     },
     {
       title: "Question Five",
-      questionText: "test",
+      questionText: "How long do you want this game to take you to beat?",
+      generateList: gamelength,
     },
     {
       title: "Question Six",
