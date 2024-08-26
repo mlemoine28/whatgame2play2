@@ -22,6 +22,11 @@ function MainCard() {
     setNextQuestions(true);
   };
 
+  const submitButtonClick2 = () => {
+    setNextQuestions(false);
+    setShowIntroCard(true);
+  };
+
   const genres = [
     { value: "Action-Adventure", label: "Action-Adventure" },
     { value: "RPG", label: "RPG" },
@@ -175,7 +180,7 @@ function MainCard() {
       )}
 
       {nextQuestions && (
-        <div>
+        <div className={styles.maincardstyle}>
           {secondQuestions.map((question, i) => (
             <Card
               key={i}
@@ -197,6 +202,11 @@ function MainCard() {
               </Card.Body>
             </Card>
           ))}
+          <Button2
+            className="justify-content-md-center"
+            label="Submit"
+            onClick={submitButtonClick2}
+          ></Button2>
         </div>
       )}
     </div>
