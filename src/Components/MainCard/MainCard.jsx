@@ -71,6 +71,18 @@ function MainCard() {
     { value: "50+ hours", label: "50+ hours" },
   ];
 
+  const gameprices = [
+    { value: "≤$5", label: "≤$5" },
+    { value: "$6-10", label: "$6-10" },
+    { value: "$11-15", label: "$11-15" },
+    { value: "$16-20", label: "$16-20" },
+    { value: "$21-30", label: "$21-30" },
+    { value: "$31-40", label: "$31-40" },
+    { value: "$41-50", label: "$41-50" },
+    { value: "$51-60", label: "$51-60" },
+    { value: "$61+", label: "$61+" },
+  ];
+
   const firstQuestions = [
     {
       id: 1,
@@ -105,7 +117,8 @@ function MainCard() {
     },
     {
       title: "Question Six",
-      questionText: "oh my word",
+      questionText: "What price do you want to pay for this game?",
+      generateList: gameprices,
     },
   ];
 
