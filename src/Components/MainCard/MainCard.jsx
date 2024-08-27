@@ -185,7 +185,7 @@ function MainCard() {
             <Card
               key={i}
               className="bg-secondary border-success"
-              style={{ maxWidth: "60rem", height: "auto" }}
+              style={{ maxWidth: "60rem", height: "auto", margin: "50px" }}
             >
               <Card.Body className="bg-dark border border-success">
                 <Card.Title className="text-primary">
