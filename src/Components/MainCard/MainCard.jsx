@@ -158,7 +158,7 @@ function MainCard() {
               style={{ maxWidth: "60rem", height: "auto", margin: "15px" }}
             >
               <Card.Body className="bg-dark border border-success">
-                <Card.Title className="text-primary">
+                <Card.Title className="text-primary ">
                   {question.title}
                 </Card.Title>
                 <Card.Text className="text-white">

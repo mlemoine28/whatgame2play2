@@ -18,7 +18,7 @@ function FormSubmit({ options, placeholder = "select an option" }) {
         placeholder={placeholder}
         isSearchable
         isMulti={true}
-        
+        menu="bg-dark"
       ></Select>
     </div>
   );
