@@ -13,7 +13,7 @@ import GenreList from "./Components/GenreList/GenreList";
 function App() {
   return (
     <div>
-      <Header>{TitleImage}</Header>
+      <Header></Header>
       <MainCard />
       <GenreList />
     </div>

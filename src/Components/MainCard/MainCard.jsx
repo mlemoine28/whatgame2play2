@@ -27,8 +27,6 @@ function MainCard() {
     setShowIntroCard(true);
   };
 
-  
-
   const genres = [
     { value: "Action-Adventure", label: "Action-Adventure" },
     { value: "RPG", label: "RPG" },
@@ -94,19 +92,19 @@ function MainCard() {
     {
       id: 1,
       title: "Question One",
-      questionText: "What genre of game are you looking to play?",
+      questionText: "What genre(s) of game are you looking to play?",
       generateList: genres,
     },
     {
       id: 2,
       title: "Question Two",
-      questionText: "What console are you looking to play on?",
+      questionText: "What console(s) are you looking to play on?",
       generateList: gamingConsole,
     },
     {
       id: 3,
       title: "Question Three",
-      questionText: "What metacritic score would you like to see?",
+      questionText: "What metacritic score(s) would you like to see?",
       generateList: metacritic,
     },
   ];
@@ -114,17 +112,17 @@ function MainCard() {
   const secondQuestions = [
     {
       title: "Question Four",
-      questionText: "From which decade do you want your game to be from?",
+      questionText: "From which decade(s) do you want your game to be from?",
       generateList: years,
     },
     {
       title: "Question Five",
-      questionText: "How long do you want this game to take you to beat?",
+      questionText: "How long do you want your game(s) to take you to beat?",
       generateList: gamelength,
     },
     {
       title: "Question Six",
-      questionText: "What price do you want to pay for this game?",
+      questionText: "What's your budget?",
       generateList: gameprices,
     },
   ];

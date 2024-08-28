@@ -4,7 +4,7 @@ import styles from "./FormSubmit.module.css";
 import { useState } from "react";
 
 function FormSubmit({ options, placeholder = "select an option" }) {
-  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [selectedAnswers, setSelectedAnswers] = useState(null);
   const handleChange = (selectedOption) => {
     setSelectedAnswers(selectedOption);
   };
