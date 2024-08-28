@@ -27,6 +27,8 @@ function MainCard() {
     setShowIntroCard(true);
   };
 
+  
+
   const genres = [
     { value: "Action-Adventure", label: "Action-Adventure" },
     { value: "RPG", label: "RPG" },
