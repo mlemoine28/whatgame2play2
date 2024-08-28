@@ -5,5 +5,28 @@
  border-radius: 5px;
  border: none;
  cursor: pointer;
+ transition-duration: 0.4s;
+ position: relative;
+}
+
+.buttonstyle:hover {
+ background-color: navy;
+} 
+
+.homebutton {
+ background-color: rgb(15, 15, 15);
+ color: whitesmoke;
+ font-size: 25px;
+ border-radius: 12px;
+ transition-duration: 0.4s;
+ margin: 0 auto;
+ text-align: left;
+ position: absolute;
+ left: 10%;
  
+}
+
+.homebutton:hover {
+ background-color: #04AA6D; /* Green */
+ color: white;
 }

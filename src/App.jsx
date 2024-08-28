@@ -15,7 +15,6 @@ function App() {
     <div>
       <Header></Header>
       <MainCard />
-      <GenreList />
     </div>
   );
 }

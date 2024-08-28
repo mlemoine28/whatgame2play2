@@ -1,11 +1,7 @@
 .headerstyle {
- color: red;
- background-color: black;
- width: 100%;  /* Set a width for the div */
- height:auto;
- margin: 0 auto;  /* Center the div horizontally */
- position: relative;
- display: flex;
- justify-content: center;  /* Center content horizontally */
-  text-align: center;
-}
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+ }
