@@ -18,6 +18,7 @@ function FormSubmit({ options, placeholder = "select an option" }) {
         placeholder={placeholder}
         isSearchable
         isMulti={true}
+        
       ></Select>
     </div>
   );

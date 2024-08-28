@@ -6,6 +6,7 @@ import FormSubmit from "../../Components/FormSubmit/FormSubmit";
 import Form from "react-bootstrap/Form";
 import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
 import styles from "./MainCard.module.css";
+import ButtonHome from "../Button/ButtonHome";
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
@@ -91,19 +92,19 @@ function MainCard() {
   const firstQuestions = [
     {
       id: 1,
-      title: "Question One",
+      title: "Genre",
       questionText: "What genre(s) of game are you looking to play?",
       generateList: genres,
     },
     {
       id: 2,
-      title: "Question Two",
-      questionText: "What console(s) are you looking to play on?",
+      title: "Platform",
+      questionText: "What platform(s) are you looking to play on?",
       generateList: gamingConsole,
     },
     {
       id: 3,
-      title: "Question Three",
+      title: "Metacritic",
       questionText: "What metacritic score(s) would you like to see?",
       generateList: metacritic,
     },
@@ -111,18 +112,18 @@ function MainCard() {
 
   const secondQuestions = [
     {
-      title: "Question Four",
+      title: "Release Date",
       questionText: "From which decade(s) do you want your game to be from?",
       generateList: years,
     },
     {
-      title: "Question Five",
+      title: "Length",
       questionText: "How long do you want your game(s) to take you to beat?",
       generateList: gamelength,
     },
     {
-      title: "Question Six",
-      questionText: "What's your budget?",
+      title: "Price",
+      questionText: "What price are you aiming for?",
       generateList: gameprices,
     },
   ];
@@ -134,9 +135,9 @@ function MainCard() {
           className="bg-secondary border-success"
           style={{ maxWidth: "60rem", height: "auto" }}
         >
-          <Card.Img variant="top" src={GamingConsoles} />
+          <Card.Img className="card-img-bottom" src={GamingConsoles} />
           <Card.Body className="bg-dark border border-success">
-            <Card.Title className="text-primary">Welcome!</Card.Title>
+            <Card.Title className="text-primary ">Welcome!</Card.Title>
             <Card.Text className="text-white">
               Answer a few questions to find the best games for you.
             </Card.Text>
@@ -149,12 +150,12 @@ function MainCard() {
       )}
 
       {initialQuestions && (
-        <div className={styles.maincardstyle}>
+        <div className={styles.maincardstyle } >
           {firstQuestions.map((question, i) => (
             <Card
               key={i}
               className="bg-secondary border-success"
-              style={{ maxWidth: "60rem", height: "auto", margin: "50px" }}
+              style={{ maxWidth: "60rem", height: "auto", margin: "15px" }}
             >
               <Card.Body className="bg-dark border border-success">
                 <Card.Title className="text-primary">
@@ -172,7 +173,7 @@ function MainCard() {
             </Card>
           ))}
           <Button2
-            className="justify-content-md-center"
+            className="text-center"
             label="Submit"
             onClick={submitButtonClick}
           ></Button2>
@@ -185,7 +186,7 @@ function MainCard() {
             <Card
               key={i}
               className="bg-secondary border-success"
-              style={{ maxWidth: "60rem", height: "auto", margin: "50px" }}
+              style={{ maxWidth: "60rem", margin: "15px" }}
             >
               <Card.Body className="bg-dark border border-success">
                 <Card.Title className="text-primary">

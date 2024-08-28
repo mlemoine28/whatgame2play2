@@ -1,7 +1,10 @@
 .maincardstyle {
- color: red;
- background-color: rgba(1, 1, 57, 0.138);
- padding: 50px;
- margin: 50px;
- 
+ color: blue;
+ background-color: rgb(24, 24, 24);
+ padding: 100px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 250px; 
+
 }
