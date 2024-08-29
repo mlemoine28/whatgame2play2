@@ -89,6 +89,34 @@ function MainCard() {
     { value: "$61+", label: "$61+" },
   ];
 
+  const secondQuestions = [
+    {
+      title: "Release Date",
+      questionText: "From which decade(s) do you want your game to be from?",
+      generateList: years,
+    },
+    {
+      title: "Length",
+      questionText: "How long do you want your game(s) to take you to beat?",
+      generateList: gamelength,
+    },
+    {
+      title: "Price",
+      questionText: "What price are you aiming for?",
+      generateList: gameprices,
+    },
+  ];
+
+  let genreList = [];
+
+  fetch(
+    "https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c"
+  ).then((results) =>
+    results.json().then((data) => (genreList = data.results))
+  );
+
+  console.log(genreList);
+
   const firstQuestions = [
     {
       id: 1,
@@ -110,23 +138,7 @@ function MainCard() {
     },
   ];
 
-  const secondQuestions = [
-    {
-      title: "Release Date",
-      questionText: "From which decade(s) do you want your game to be from?",
-      generateList: years,
-    },
-    {
-      title: "Length",
-      questionText: "How long do you want your game(s) to take you to beat?",
-      generateList: gamelength,
-    },
-    {
-      title: "Price",
-      questionText: "What price are you aiming for?",
-      generateList: gameprices,
-    },
-  ];
+  // https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-dark ">
@@ -137,7 +149,7 @@ function MainCard() {
         >
           <Card.Img className="card-img-bottom" src={GamingConsoles} />
           <Card.Body className="bg-dark border border-success">
-            <Card.Title className="text-primary ">Welcome!</Card.Title>
+            <Card.Title className="text-primary">Welcome!</Card.Title>
             <Card.Text className="text-white">
               Answer a few questions to find the best games for you.
             </Card.Text>
@@ -150,7 +162,7 @@ function MainCard() {
       )}
 
       {initialQuestions && (
-        <div className={styles.maincardstyle } >
+        <div className={styles.maincardstyle}>
           {firstQuestions.map((question, i) => (
             <Card
               key={i}

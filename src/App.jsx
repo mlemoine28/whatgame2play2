@@ -9,12 +9,14 @@ import GamingConsoles from "./assets/GamingConsolesPic.jpg";
 import TitleImage from "./assets/WhatGame2Play_Header.png";
 import MainCard from "./Components/MainCard/MainCard";
 import GenreList from "./Components/GenreList/GenreList";
+import MiniCard from "./Components/MiniCard/MiniCard";
 
 function App() {
   return (
     <div>
       <Header></Header>
       <MainCard />
+      {/* <MiniCard /> */}
     </div>
   );
 }
