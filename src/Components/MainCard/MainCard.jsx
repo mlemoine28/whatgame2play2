@@ -13,6 +13,7 @@ function MainCard() {
   const [initialQuestions, setInitialQuestions] = useState(false);
   const [nextQuestions, setNextQuestions] = useState(false);
   const [genreList, setGenreList] = useState([]);
+  const [platformList, setPlatformList] = useState([]);
 
   const handleIntroButtonClick = () => {
     setShowIntroCard(false);
@@ -29,8 +30,6 @@ function MainCard() {
     setShowIntroCard(true);
   };
 
-
-  
   const metacritic = [
     { value: "96-100", label: "96-100" },
     { value: "91-95", label: "91-95" },
@@ -107,10 +106,31 @@ function MainCard() {
       );
 
       const data = await response.json();
-      setGenreList(data.results);
-      console.log(data.results);
+      const formattedGenres = data.results.map((genre, i) => ({
+        value: genre.id,
+        label: genre.name,
+      }));
+
+      setGenreList(formattedGenres);
     }
     fetchGenres();
+  }, []);
+
+  useEffect(() => {
+    async function fetchPlatforms() {
+      const response = await fetch(
+        "https://api.rawg.io/api/platforms?key=0103293563a84c6cbee68284f5e8ae4c"
+      );
+
+      const data = await response.json();
+      const formattedPlatforms = data.results.map((platform, i) => ({
+        value: platform.id,
+        label: platform.name,
+      }));
+
+      setPlatformList(formattedPlatforms);
+    }
+    fetchPlatforms();
   }, []);
 
   const firstQuestions = [
@@ -118,13 +138,13 @@ function MainCard() {
       id: 1,
       title: "Genre",
       questionText: "What genre(s) of game are you looking to play?",
-      generateList: genreList
+      generateList: genreList,
     },
     {
       id: 2,
       title: "Platform",
       questionText: "What platform(s) are you looking to play on?",
-      generateList: gamingConsole,
+      generateList: platformList,
     },
     {
       id: 3,
