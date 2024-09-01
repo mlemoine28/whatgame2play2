@@ -99,38 +99,46 @@ function MainCard() {
     },
   ];
 
+  //reuseable fetch function
+  async function fetchAndFormatData(url, formatFunction) {
+    const response = await fetch(url);
+    const data = await response.json();
+    return formatFunction(data.results);
+  }
+
+  const formatGenres = (results) =>
+    results.map((genre) => ({
+      value: genre.id,
+      label: genre.name,
+    }));
+
+  const formatPlatforms = (results) =>
+    results.map((platform) => ({
+      value: platform.id,
+      label: platform.name,
+    }));
+
+  //genres
   useEffect(() => {
-    async function fetchGenres() {
-      const response = await fetch(
-        "https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c"
-      );
+    fetchAndFormatData(
+      "https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c",
+      formatGenres
+    ).then(setGenreList);
+  }, []);
 
-      const data = await response.json();
-      const formattedGenres = data.results.map((genre, i) => ({
-        value: genre.id,
-        label: genre.name,
-      }));
-
-      setGenreList(formattedGenres);
-    }
-    fetchGenres();
+  //platforms
+  useEffect(() => {
+    fetchAndFormatData(
+      "https://api.rawg.io/api/platforms?key=0103293563a84c6cbee68284f5e8ae4c",
+      formatGenres
+    ).then(setPlatformList);
   }, []);
 
   useEffect(() => {
-    async function fetchPlatforms() {
-      const response = await fetch(
-        "https://api.rawg.io/api/platforms?key=0103293563a84c6cbee68284f5e8ae4c"
-      );
-
-      const data = await response.json();
-      const formattedPlatforms = data.results.map((platform, i) => ({
-        value: platform.id,
-        label: platform.name,
-      }));
-
-      setPlatformList(formattedPlatforms);
-    }
-    fetchPlatforms();
+    fetchAndFormatData(
+      "https://api.rawg.io/api/platforms?key=0103293563a84c6cbee68284f5e8ae4c",
+      formatGenres
+    ).then(setPlatformList);
   }, []);
 
   const firstQuestions = [
