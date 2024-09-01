@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function FormSubmit({ options, placeholder = "select an option" }) {
   const [selectedAnswers, setSelectedAnswers] = useState(null);
+
   const handleChange = (selectedOption) => {
     setSelectedAnswers(selectedOption);
   };
@@ -18,8 +19,6 @@ function FormSubmit({ options, placeholder = "select an option" }) {
         placeholder={placeholder}
         isSearchable
         isMulti={true}
-        menu="bg-dark"
-        styles={{ color: 'blue'}}
       ></Select>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button2 from "../../Components/Button/Button2";
 import FormSubmit from "../../Components/FormSubmit/FormSubmit";
@@ -12,6 +12,7 @@ function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
   const [initialQuestions, setInitialQuestions] = useState(false);
   const [nextQuestions, setNextQuestions] = useState(false);
+  const [genreList, setGenreList] = useState([]);
 
   const handleIntroButtonClick = () => {
     setShowIntroCard(false);
@@ -28,16 +29,8 @@ function MainCard() {
     setShowIntroCard(true);
   };
 
-  const genres = [
-    { value: "Action-Adventure", label: "Action-Adventure" },
-    { value: "RPG", label: "RPG" },
-    { value: "Shooter", label: "Shooter" },
-    { value: "Platformer", label: "Platformer" },
-    { value: "Sandbox", label: "Sandbox" },
-    { value: "Simulation", label: "Simulation" },
-    { value: "Fighting", label: "Fighting" },
-  ];
 
+  
   const metacritic = [
     { value: "96-100", label: "96-100" },
     { value: "91-95", label: "91-95" },
@@ -107,22 +100,25 @@ function MainCard() {
     },
   ];
 
-  let genreList = [];
+  useEffect(() => {
+    async function fetchGenres() {
+      const response = await fetch(
+        "https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c"
+      );
 
-  fetch(
-    "https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c"
-  ).then((results) =>
-    results.json().then((data) => (genreList = data.results))
-  );
-
-  console.log(genreList);
+      const data = await response.json();
+      setGenreList(data.results);
+      console.log(data.results);
+    }
+    fetchGenres();
+  }, []);
 
   const firstQuestions = [
     {
       id: 1,
       title: "Genre",
       questionText: "What genre(s) of game are you looking to play?",
-      generateList: genres,
+      generateList: genreList
     },
     {
       id: 2,
