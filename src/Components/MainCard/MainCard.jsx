@@ -15,6 +15,8 @@ function MainCard() {
   const [genreList, setGenreList] = useState([]);
   const [platformList, setPlatformList] = useState([]);
   const [metacriticList, setMetacriticList] = useState([]);
+  const [selectedPlatforms, setSelectedPlatforms] = useState([]);
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
   const handleIntroButtonClick = () => {
     setShowIntroCard(false);
@@ -114,6 +116,7 @@ function MainCard() {
     }));
 
   useEffect(() => {
+    console.log("hello from useEffect!");
     if (selectedPlatforms.length > 0 || selectedGenres.length > 0) {
       const platformParams = selectedPlatforms
         .map((option) => option.value)
