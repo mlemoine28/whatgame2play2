@@ -106,13 +106,14 @@ function MainCard() {
   async function fetchAndFormatData(url, formatFunction) {
     const response = await fetch(url);
     const data = await response.json();
+    console.log(data);
     return formatFunction(data.results);
   }
 
   const formatList = (results) =>
-    results.map((genre) => ({
-      value: genre.id,
-      label: genre.name,
+    results.map((item) => ({
+      value: item.id,
+      label: item.name,
     }));
 
   useEffect(() => {
@@ -143,12 +144,12 @@ function MainCard() {
     ).then(setPlatformList);
   }, []);
 
-  //metacritic
+  //genres
   useEffect(() => {
     fetchAndFormatData(
-      " https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&metacritic=96,100",
+      " https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c",
       formatList
-    ).then(setMetacriticList);
+    ).then(setGenreList);
   }, []);
 
   const firstQuestions = [
