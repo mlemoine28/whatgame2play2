@@ -113,20 +113,25 @@ function MainCard() {
       label: genre.name,
     }));
 
-  const formatPlatforms = (results) =>
-    results.map((platform) => ({
-      value: platform.id,
-      label: platform.name,
-    }));
-
-  //genres
   useEffect(() => {
-    fetchAndFormatData(
-      "https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c",
-      formatList
-    ).then(setGenreList);
-  }, []);
+    if (selectedPlatforms.length > 0 || selectedGenres.length > 0) {
+      const platformParams = selectedPlatforms
+        .map((option) => option.value)
+        .join(",");
+      const genreParams = selectedGenres
+        .map((option) => option.value)
+        .join(",");
 
+      const apiURL = `https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c${
+        platformParams ? `&platform=${platformParams}` : ""
+      }${genreParams ? `&genres=${genreParams}` : ""}`;
+
+      fetch(apiURL)
+        .then((response) => response.json())
+        .then((data) => setResults(data.results))
+        .catch((error) => console.error("Error fetching data:", error));
+    }
+  }, [selectedPlatforms, selectedGenres]);
   //platforms
   useEffect(() => {
     fetchAndFormatData(
@@ -138,7 +143,7 @@ function MainCard() {
   //metacritic
   useEffect(() => {
     fetchAndFormatData(
-      " https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&metacritic=80,100",
+      " https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&metacritic=96,100",
       formatList
     ).then(setMetacriticList);
   }, []);
