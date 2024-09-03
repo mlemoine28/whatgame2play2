@@ -14,6 +14,7 @@ function MainCard() {
   const [nextQuestions, setNextQuestions] = useState(false);
   const [genreList, setGenreList] = useState([]);
   const [platformList, setPlatformList] = useState([]);
+  const [metacriticList, setMetacriticList] = useState([]);
 
   const handleIntroButtonClick = () => {
     setShowIntroCard(false);
@@ -106,7 +107,7 @@ function MainCard() {
     return formatFunction(data.results);
   }
 
-  const formatGenres = (results) =>
+  const formatList = (results) =>
     results.map((genre) => ({
       value: genre.id,
       label: genre.name,
@@ -122,7 +123,7 @@ function MainCard() {
   useEffect(() => {
     fetchAndFormatData(
       "https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c",
-      formatGenres
+      formatList
     ).then(setGenreList);
   }, []);
 
@@ -130,15 +131,16 @@ function MainCard() {
   useEffect(() => {
     fetchAndFormatData(
       "https://api.rawg.io/api/platforms?key=0103293563a84c6cbee68284f5e8ae4c",
-      formatGenres
+      formatList
     ).then(setPlatformList);
   }, []);
 
+  //metacritic
   useEffect(() => {
     fetchAndFormatData(
-      "https://api.rawg.io/api/platforms?key=0103293563a84c6cbee68284f5e8ae4c",
-      formatGenres
-    ).then(setPlatformList);
+      " https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&metacritic=80,100",
+      formatList
+    ).then(setMetacriticList);
   }, []);
 
   const firstQuestions = [
@@ -158,7 +160,7 @@ function MainCard() {
       id: 3,
       title: "Metacritic",
       questionText: "What metacritic score(s) would you like to see?",
-      generateList: metacritic,
+      generateList: metacriticList,
     },
   ];
 
