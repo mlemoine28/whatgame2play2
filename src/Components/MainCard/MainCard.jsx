@@ -103,10 +103,15 @@ function MainCard() {
   ];
 
   //reuseable fetch function
+
+            //Fetch Data: fetch(url) gets the data from the API.
+            //Parse JSON: response.json() converts the raw response into a JavaScript object (data).
+            //Log Data: console.log(data) lets you see the entire data structure in the console.
+            //Format Data: formatFunction(data.results) takes the results array and processes it using your formatFunction.
   async function fetchAndFormatData(url, formatFunction) {
     const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
+    const data = await response.json(); //json CONVERTS this to a useable format in Javascript
+    console.log(data.results);
     return formatFunction(data.results);
   }
 
