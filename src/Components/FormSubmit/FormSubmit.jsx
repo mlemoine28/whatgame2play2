@@ -7,7 +7,7 @@ function FormSubmit({ options, placeholder = "select an option" }) {
   const [selectedAnswers, setSelectedAnswers] = useState(null);
 
   const handleChange = (selectedOption) => {
-    setSelectedAnswers(selectedOption);
+    setSelectedAnswers(selectedOption); //this is updating the state. When you select an option, onChange occurs in the <select>. OnChange triggers handleChange! The way <select> works, the selected option is passed as an argument to HandleChange.
   };
 
   return (

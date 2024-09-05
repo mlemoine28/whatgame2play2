@@ -110,12 +110,12 @@ function MainCard() {
             //Format Data: formatFunction(data.results) takes the results array and processes it using your formatFunction.
   async function fetchAndFormatData(url, formatFunction) {
     const response = await fetch(url);
-    const data = await response.json(); //json CONVERTS this to a useable format in Javascript
+    const data = await response.json();
     console.log(data.results);
     return formatFunction(data.results);
   }
 
-  const formatList = (results) =>
+  const formatList = (results) => //the purpose of this is so that it converts the data into an array with value and label, which is needed for use in dropdown menus!
     results.map((item) => ({
       value: item.id,
       label: item.name,
@@ -124,23 +124,30 @@ function MainCard() {
   useEffect(() => {
     console.log("hello from useEffect!");
     if (selectedPlatforms.length > 0 || selectedGenres.length > 0) {
-      const platformParams = selectedPlatforms
+      const platformParams = selectedPlatforms //selectedPlatforms is from the ARRAY at the beginning (defined in the useState function).
         .map((option) => option.value)
         .join(",");
       const genreParams = selectedGenres
-        .map((option) => option.value)
-        .join(",");
+        .map((option) => option.value) //remember that the parameter after .map always refers to the items (or options) in the array. So doing option.value is mapping out all the VALUES (or ids) of what's in the array.
+        .join(","); //So, platformParams will be a string that lists all the selected platform values, separated by commas.
 
-      const apiURL = `https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c${
-        platformParams ? `&platform=${platformParams}` : ""
-      }${genreParams ? `&genres=${genreParams}` : ""}`;
+      const apiURL = `https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&platforms=${platformParams}&genres=${genreParams}`;
 
-      fetch(apiURL)
-        .then((response) => response.json())
-        .then((data) => setResults(data.results))
-        .catch((error) => console.error("Error fetching data:", error));
+   const fetchData = async () => {
+    try {
+      const response = await fetch(apiURL);
+      const data = await response.json(); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching data:', error); //use console.error BECAUSE it shows the error in red in the log.
     }
-  }, [selectedPlatforms, selectedGenres]);
+   };
+   fetchData();
+  }
+}, [selectedPlatforms, selectedGenres]);
+
+      
+  
   //platforms
   useEffect(() => {
     fetchAndFormatData(
