@@ -1,14 +1,16 @@
 import React from "react";
 import Select from "react-select";
 import styles from "./FormSubmit.module.css";
-import { useState } from "react";
+// import { useState } from "react";
 
-function FormSubmit({ options, placeholder = "select an option" }) {
-  const [selectedAnswers, setSelectedAnswers] = useState(null);
+function FormSubmit({ options, placeholder = "select an option", selectedAnswers, handleChange }) {
+  // const [selectedAnswers, setSelectedAnswers] = useState(null);
 
-  const handleChange = (selectedOption) => {
-    setSelectedAnswers(selectedOption); //this is updating the state. When you select an option, onChange occurs in the <select>. OnChange triggers handleChange! The way <select> works, the selected option is passed as an argument to HandleChange.
-  };
+  // const handleChange = (selectedOption) => {
+  //   setSelectedAnswers(selectedOption); //this is updating the state. When you select an option, onChange occurs in the <select>. OnChange triggers handleChange! The way <select> works, the selected option is passed as an argument to HandleChange.
+  // };
+
+  // console.log(selectedAnswers)
 
   return (
     <div className={styles.formstyle}>

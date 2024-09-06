@@ -17,6 +17,8 @@ function MainCard() {
   const [metacriticList, setMetacriticList] = useState([]);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
+  const [selectedMetacritic, setSelectedMetacritic] = useState([]);
+  const [selectedAnswers, setSelectedAnswers] = useState(null);
 
   const handleIntroButtonClick = () => {
     setShowIntroCard(false);
@@ -104,10 +106,10 @@ function MainCard() {
 
   //reuseable fetch function
 
-            //Fetch Data: fetch(url) gets the data from the API.
-            //Parse JSON: response.json() converts the raw response into a JavaScript object (data).
-            //Log Data: console.log(data) lets you see the entire data structure in the console.
-            //Format Data: formatFunction(data.results) takes the results array and processes it using your formatFunction.
+  //Fetch Data: fetch(url) gets the data from the API.
+  //Parse JSON: response.json() converts the raw response into a JavaScript object (data).
+  //Log Data: console.log(data) lets you see the entire data structure in the console.
+  //Format Data: formatFunction(data.results) takes the results array and processes it using your formatFunction.
   async function fetchAndFormatData(url, formatFunction) {
     const response = await fetch(url);
     const data = await response.json();
@@ -115,7 +117,9 @@ function MainCard() {
     return formatFunction(data.results);
   }
 
-  const formatList = (results) => //the purpose of this is so that it converts the data into an array with value and label, which is needed for use in dropdown menus!
+  const formatList = (
+    results //the purpose of this is so that it converts the data into an array with value and label, which is needed for use in dropdown menus!
+  ) =>
     results.map((item) => ({
       value: item.id,
       label: item.name,
@@ -126,28 +130,29 @@ function MainCard() {
     if (selectedPlatforms.length > 0 || selectedGenres.length > 0) {
       const platformParams = selectedPlatforms //selectedPlatforms is from the ARRAY at the beginning (defined in the useState function).
         .map((option) => option.value)
-        .join(",");
+        .join(","); //this converts everything in the array to a string
       const genreParams = selectedGenres
         .map((option) => option.value) //remember that the parameter after .map always refers to the items (or options) in the array. So doing option.value is mapping out all the VALUES (or ids) of what's in the array.
         .join(","); //So, platformParams will be a string that lists all the selected platform values, separated by commas.
 
       const apiURL = `https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&platforms=${platformParams}&genres=${genreParams}`;
+      console.log({
+        apiURL, platformParams, genreParams
+      })
 
-   const fetchData = async () => {
-    try {
-      const response = await fetch(apiURL);
-      const data = await response.json(); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
-      console.log(data);
-    } catch (error) {
-      console.error('Error fetching data:', error); //use console.error BECAUSE it shows the error in red in the log.
+      const fetchData = async () => {
+        try {
+          const response = await fetch(apiURL);
+          const data = await response.json(); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
+          console.log(data.results);
+        } catch (error) {
+          console.error("Error fetching data:", error); //use console.error BECAUSE it shows the error in red in the log.
+        }
+      };
+      fetchData();
     }
-   };
-   fetchData();
-  }
-}, [selectedPlatforms, selectedGenres]);
+  }, [selectedPlatforms, selectedGenres]);
 
-      
-  
   //platforms
   useEffect(() => {
     fetchAndFormatData(
@@ -170,18 +175,24 @@ function MainCard() {
       title: "Genre",
       questionText: "What genre(s) of game are you looking to play?",
       generateList: genreList,
+      selected: selectedGenres,
+      setSelected: setSelectedGenres,
     },
     {
       id: 2,
       title: "Platform",
       questionText: "What platform(s) are you looking to play on?",
       generateList: platformList,
+      selected: selectedPlatforms,
+      setSelected: setSelectedPlatforms,
     },
     {
       id: 3,
       title: "Metacritic",
       questionText: "What metacritic score(s) would you like to see?",
       generateList: metacriticList,
+      selected: selectedMetacritic,
+      setSelected: setSelectedMetacritic,
     },
   ];
 
@@ -226,6 +237,10 @@ function MainCard() {
                     className=""
                     options={question.generateList}
                     placeholder="Select an option"
+                    selectedAnswers={question.selected}
+                    handleChange={(selectedOption) =>
+                      question.setSelected(selectedOption)
+                    }
                   ></FormSubmit>
                 </Card.Text>
               </Card.Body>
