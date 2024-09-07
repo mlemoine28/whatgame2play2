@@ -186,15 +186,26 @@ function MainCard() {
       selected: selectedPlatforms,
       setSelected: setSelectedPlatforms,
     },
-    {
-      id: 3,
-      title: "Metacritic",
-      questionText: "What metacritic score(s) would you like to see?",
-      generateList: metacriticList,
-      selected: selectedMetacritic,
-      setSelected: setSelectedMetacritic,
-    },
+   // {
+    //  id: 3,
+     // title: "Metacritic",
+     // questionText: "What metacritic score(s) would you like to see?",
+     // generateList: metacriticList,
+     // selected: selectedMetacritic,
+     // setSelected: setSelectedMetacritic,
+   // },
   ];
+
+const displayPage = [
+  {
+    id: 1,
+    
+  }
+
+
+
+];
+
 
   // https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c
 
@@ -254,36 +265,7 @@ function MainCard() {
         </div>
       )}
 
-      {nextQuestions && (
-        <div className={styles.maincardstyle}>
-          {secondQuestions.map((question, i) => (
-            <Card
-              key={i}
-              className="bg-secondary border-success"
-              style={{ maxWidth: "60rem", margin: "15px" }}
-            >
-              <Card.Body className="bg-dark border border-success">
-                <Card.Title className="text-primary">
-                  {question.title}
-                </Card.Title>
-                <Card.Text className="text-white">
-                  {question.questionText}
 
-                  <FormSubmit
-                    options={question.generateList}
-                    placeholder="Select an option"
-                  ></FormSubmit>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          ))}
-          <Button2
-            className="justify-content-md-center"
-            label="Submit"
-            onClick={submitButtonClick2}
-          ></Button2>
-        </div>
-      )}
     </div>
   );
 }
