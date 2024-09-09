@@ -124,14 +124,17 @@ function MainCard() {
   useEffect(() => {
     console.log("hello from useEffect!");
     if (selectedPlatforms.length > 0 || selectedGenres.length > 0) {
-      const platformParams = selectedPlatforms //selectedPlatforms is from the ARRAY at the beginning (defined in the useState function).
+      const pageSize = 5;
+      const pageNumber = 1;
+      const platformParams = selectedPlatforms
+        //selectedPlatforms is from the ARRAY at the beginning (defined in the useState function).
         .map((option) => option.value)
         .join(","); //this converts everything in the array to a string
       const genreParams = selectedGenres
         .map((option) => option.value) //remember that the parameter after .map always refers to the items (or options) in the array. So doing option.value is mapping out all the VALUES (or ids) of what's in the array.
         .join(","); //So, platformParams will be a string that lists all the selected platform values, separated by commas.
 
-      const apiURL = `https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&platforms=${platformParams}&genres=${genreParams}`;
+      const apiURL = `https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
       console.log({
         apiURL,
         platformParams,
