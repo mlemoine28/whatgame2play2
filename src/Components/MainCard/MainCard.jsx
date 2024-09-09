@@ -11,7 +11,7 @@ import ButtonHome from "../Button/ButtonHome";
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
   const [initialQuestions, setInitialQuestions] = useState(false);
-  const [displayList, setDisplayList] = useState(false);
+  const [displayPage, setDisplayPage] = useState(false);
   const [genreList, setGenreList] = useState([]);
   const [platformList, setPlatformList] = useState([]);
   const [metacriticList, setMetacriticList] = useState([]);
@@ -19,6 +19,7 @@ function MainCard() {
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [selectedMetacritic, setSelectedMetacritic] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState(null);
+  const [games, setGames] = useState([]);
 
   const handleIntroButtonClick = () => {
     setShowIntroCard(false);
@@ -27,7 +28,7 @@ function MainCard() {
 
   const submitButtonClick = () => {
     setInitialQuestions(false);
-    setDisplayList(true);
+    setDisplayPage(true);
   };
 
   const metacritic = [
@@ -141,7 +142,7 @@ function MainCard() {
         try {
           const response = await fetch(apiURL);
           const data = await response.json(); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
-          console.log(data.results);
+          setGames(data.results);
         } catch (error) {
           console.error("Error fetching data:", error); //use console.error BECAUSE it shows the error in red in the log.
         }
@@ -193,10 +194,11 @@ function MainCard() {
     // },
   ];
 
-  const displayPage = [
+  const displayList = [
     {
       title: "The Games For You!",
-      generateList: displayList,
+      generateList: games,
+      name: "",
     },
   ];
 
@@ -258,9 +260,9 @@ function MainCard() {
         </div>
       )}
 
-      {displayList && (
+      {displayPage && (
         <div className={styles.maincardstyle}>
-          {displayPage.map((game, i) => (
+          {displayList.map((game, i) => (
             <Card
               key={i}
               className="bg-secondary border-success"
