@@ -194,14 +194,6 @@ function MainCard() {
     // },
   ];
 
-  const displayList = [
-    {
-      title: "The Games For You!",
-      generateList: games,
-      name: "",
-    },
-  ];
-
   // https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c
 
   return (
@@ -262,17 +254,17 @@ function MainCard() {
 
       {displayPage && (
         <div className={styles.maincardstyle}>
-          {displayList.map((game, i) => (
+          {games.map((game, i) => (
             <Card
               key={i}
               className="bg-secondary border-success"
               style={{ maxWidth: "60rem", height: "auto", margin: "15px" }}
             >
               <Card.Body className="bg-dark border border-success">
-                <Card.Title className="text-primary ">{game.title}</Card.Title>
-                <Card.Text className="text-white">
-                  {game.generateList}
-                </Card.Text>
+                <Card.Title className="text-primary "></Card.Title>
+                <Card.Text className="text-white">{game.name}</Card.Text>
+                <Card.Text className="text-white">{game.released}</Card.Text>
+                
               </Card.Body>
             </Card>
           ))}
