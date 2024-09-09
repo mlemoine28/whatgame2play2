@@ -273,6 +273,11 @@ function MainCard() {
                 </Card.Text>
                 <Card.Text className="text-white">
                   <b>Metacritic</b> {game.metacritic}
+                  <img
+                    src={game.background_image}
+                    alt={game.name}
+                    style={{ width: "200px" }}
+                  ></img>
                 </Card.Text>
               </Card.Body>
             </Card>
