@@ -262,9 +262,15 @@ function MainCard() {
             >
               <Card.Body className="bg-dark border border-success">
                 <Card.Title className="text-primary "></Card.Title>
-                <Card.Text className="text-white">{game.name}</Card.Text>
-                <Card.Text className="text-white">{game.released}</Card.Text>
-                
+                <Card.Text className="text-white">
+                  <b>Name:</b> {game.name}
+                </Card.Text>
+                <Card.Text className="text-white">
+                  <b>Released:</b> {game.released}
+                </Card.Text>
+                <Card.Text className="text-white">
+                  <b>Metacritic</b> {game.metacritic}
+                </Card.Text>
               </Card.Body>
             </Card>
           ))}
