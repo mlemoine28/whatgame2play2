@@ -11,7 +11,7 @@ import ButtonHome from "../Button/ButtonHome";
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
   const [initialQuestions, setInitialQuestions] = useState(false);
-  const [nextQuestions, setNextQuestions] = useState(false);
+  const [displayList, setDisplayList] = useState(false);
   const [genreList, setGenreList] = useState([]);
   const [platformList, setPlatformList] = useState([]);
   const [metacriticList, setMetacriticList] = useState([]);
@@ -27,12 +27,7 @@ function MainCard() {
 
   const submitButtonClick = () => {
     setInitialQuestions(false);
-    setNextQuestions(true);
-  };
-
-  const submitButtonClick2 = () => {
-    setNextQuestions(false);
-    setShowIntroCard(true);
+    setDisplayList(true);
   };
 
   const metacritic = [
@@ -137,8 +132,10 @@ function MainCard() {
 
       const apiURL = `https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&platforms=${platformParams}&genres=${genreParams}`;
       console.log({
-        apiURL, platformParams, genreParams
-      })
+        apiURL,
+        platformParams,
+        genreParams,
+      });
 
       const fetchData = async () => {
         try {
@@ -186,26 +183,22 @@ function MainCard() {
       selected: selectedPlatforms,
       setSelected: setSelectedPlatforms,
     },
-   // {
+    // {
     //  id: 3,
-     // title: "Metacritic",
-     // questionText: "What metacritic score(s) would you like to see?",
-     // generateList: metacriticList,
-     // selected: selectedMetacritic,
-     // setSelected: setSelectedMetacritic,
-   // },
+    // title: "Metacritic",
+    // questionText: "What metacritic score(s) would you like to see?",
+    // generateList: metacriticList,
+    // selected: selectedMetacritic,
+    // setSelected: setSelectedMetacritic,
+    // },
   ];
 
-const displayPage = [
-  {
-    id: 1,
-    
-  }
-
-
-
-];
-
+  const displayPage = [
+    {
+      title: "The Games For You!",
+      generateList: displayList,
+    },
+  ];
 
   // https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c
 
@@ -265,8 +258,26 @@ const displayPage = [
         </div>
       )}
 
-
+      {displayList && (
+        <div className={styles.maincardstyle}>
+          {displayPage.map((game, i) => (
+            <Card
+              key={i}
+              className="bg-secondary border-success"
+              style={{ maxWidth: "60rem", height: "auto", margin: "15px" }}
+            >
+              <Card.Body className="bg-dark border border-success">
+                <Card.Title className="text-primary ">{game.title}</Card.Title>
+                <Card.Text className="text-white">
+                  {game.generateList}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
+
 export default MainCard;
