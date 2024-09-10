@@ -6,7 +6,8 @@ import FormSubmit from "../../Components/FormSubmit/FormSubmit";
 import Form from "react-bootstrap/Form";
 import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
 import ButtonHome from "../Button/ButtonHome";
-import MiniCard from "../MiniCard/MiniCard";
+import MiniCardIntro from "../MiniCard/MiniCardIntro.jsx";
+import MiniCardQuestions from "../MiniCard/MiniCardQuestions.jsx";
 import styles from "../MiniCard/MiniCard.module.css";
 
 function MainCard() {
@@ -37,75 +38,6 @@ function MainCard() {
     setDisplayPage(false);
     setShowIntroCard(true);
   };
-
-  const metacritic = [
-    { value: "96-100", label: "96-100" },
-    { value: "91-95", label: "91-95" },
-    { value: "86-90", label: "86-90" },
-    { value: "81-85", label: "81-85" },
-    { value: "76-80", label: "76-80" },
-    { value: "71-75", label: "71-75" },
-    { value: "66-70", label: "66-70" },
-    { value: "61-65", label: "61-65" },
-    { value: "<=60", label: "<=60" },
-  ];
-
-  const gamingConsole = [
-    { value: "Xbox Series X/S", label: "Xbox Series X/S" },
-    { value: "Playstation 5", label: "Playstation 5" },
-    { value: "Nintendo Switch", label: "Nintendo Switch" },
-    { value: "Sega Genesis", label: "Sega Genesis" },
-    { value: "Xbox 360", label: "Xbox 360" },
-    { value: "Playstation 3", label: "Playstation 3" },
-  ];
-
-  const years = [
-    { value: "2010s", label: "2010s" },
-    { value: "2000s", label: "2000s" },
-    { value: "1990s", label: "1990s" },
-    { value: "1980s", label: "1980s" },
-    { value: "1970s", label: "1970s" },
-  ];
-
-  const gamelength = [
-    { value: "≤5 hours", label: "≤5 hours" },
-    { value: "5-9 hours", label: "5-9 hours" },
-    { value: "10-19 hours", label: "10-19 hours" },
-    { value: "20-29 hours", label: "20-29 hours" },
-    { value: "30-39 hours", label: "30-39 hours" },
-    { value: "40-49 hours", label: "40-49 hours" },
-    { value: "50+ hours", label: "50+ hours" },
-  ];
-
-  const gameprices = [
-    { value: "≤$5", label: "≤$5" },
-    { value: "$6-10", label: "$6-10" },
-    { value: "$11-15", label: "$11-15" },
-    { value: "$16-20", label: "$16-20" },
-    { value: "$21-30", label: "$21-30" },
-    { value: "$31-40", label: "$31-40" },
-    { value: "$41-50", label: "$41-50" },
-    { value: "$51-60", label: "$51-60" },
-    { value: "$61+", label: "$61+" },
-  ];
-
-  const secondQuestions = [
-    {
-      title: "Release Date",
-      questionText: "From which decade(s) do you want your game to be from?",
-      generateList: years,
-    },
-    {
-      title: "Length",
-      questionText: "How long do you want your game(s) to take you to beat?",
-      generateList: gamelength,
-    },
-    {
-      title: "Price",
-      questionText: "What price are you aiming for?",
-      generateList: gameprices,
-    },
-  ];
 
   //reuseable fetch function
 
@@ -208,38 +140,35 @@ function MainCard() {
 
   return (
     <div className={styles.container}>
-      {showIntroCard && <MiniCard text1="Welcome to WhatGame2Play" text2="Let's find a game for you.">
-        <div className={styles.titlecontainer}>
-        </div>
-        </MiniCard>}
+      {showIntroCard && (
+        <MiniCardIntro
+          text1="Welcome to WhatGame2Play"
+          text2="Let's find a game for you."
+        >
+          <div className={styles.titlecontainer}></div>
+        </MiniCardIntro>
+      )}
       <Button2
         label="Get Started"
         handleClick={handleIntroButtonClick}
       ></Button2>
 
       {initialQuestions && (
-        <div className={styles.maincardstyle}>
+        <div className={styles.containerquestions}>
           {firstQuestions.map((question, i) => (
-            <MiniCard>
-              className="bg-secondary border-success"
-              <Card.Body className="bg-dark border border-success">
-                <Card.Title className="text-primary ">
-                  {question.title}
-                </Card.Title>
-                <Card.Text className="text-white">
-                  {question.questionText}
-                  <FormSubmit
-                    className=""
-                    options={question.generateList}
-                    placeholder="Select an option"
-                    selectedAnswers={question.selected}
-                    handleChange={(selectedOption) =>
-                      question.setSelected(selectedOption)
-                    }
-                  ></FormSubmit>
-                </Card.Text>
-              </Card.Body>
-            </MiniCard>
+            <MiniCardQuestions
+              key={question.id || i}
+              text1={question.title}
+              text2={question.questionText}
+            >
+              <FormSubmit
+                options={question.generateList}
+                selectedAnswers={question.selected}
+                handleChange={(selectedOption) =>
+                  question.setSelected(selectedOption)
+                }
+              ></FormSubmit>
+            </MiniCardQuestions>
           ))}
           <Button2
             className="text-center"
@@ -250,31 +179,23 @@ function MainCard() {
       )}
 
       {displayPage && (
-        <div className={styles.maincardstyle}>
+        <div className={styles.container}>
           {games.map((game, i) => (
-            <Card
+            <MiniCardDisplay
               key={i}
-              className={"bg-secondary border-success"}
-              style={{ maxWidth: "60rem", height: "auto", margin: "15px" }}
+              gameTitle={game.name}
+              gameRelease={game.released}
+              gameMetacritic={game.metacritic}
             >
-              <Card.Body className="bg-dark border border-success">
-                <Card.Title className="text-primary "></Card.Title>
-                <Card.Text className="text-white">
-                  <b>Name:</b> {game.name}
-                </Card.Text>
-                <Card.Text className="text-white">
-                  <b>Released:</b> {game.released}
-                </Card.Text>
-                <Card.Text className="text-white">
-                  <b>Metacritic</b> {game.metacritic}
-                  <img
-                    src={game.background_image}
-                    alt={game.name}
-                    style={{ width: "300px" }}
-                  ></img>
-                </Card.Text>
-              </Card.Body>
-            </Card>
+              <b>Name:</b> {game.name}
+              <b>Released:</b> {game.released}
+              <b>Metacritic</b> {game.metacritic}
+              <img
+                src={game.background_image}
+                alt={game.name}
+                style={{ width: "300px" }}
+              ></img>
+            </MiniCardDisplay>
           ))}
           <Button2
             className="text-center"
