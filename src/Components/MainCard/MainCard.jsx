@@ -5,8 +5,9 @@ import Button2 from "../../Components/Button/Button2";
 import FormSubmit from "../../Components/FormSubmit/FormSubmit";
 import Form from "react-bootstrap/Form";
 import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
-import styles from "./MainCard.module.css";
 import ButtonHome from "../Button/ButtonHome";
+import MiniCard from "../MiniCard/MiniCard";
+import styles from "../MiniCard/MiniCard.module.css";
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
@@ -206,33 +207,21 @@ function MainCard() {
   // https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c
 
   return (
-    <div className={styles.introcardstyle}>
-      {showIntroCard && (
-        <Card
-          className={styles.boxcardstyle}
-        >
-          <Card.Img className="card-img-bottom" src={GamingConsoles} />
-          <Card.Body className="bg-dark border border-success">
-            <Card.Title className="text-primary">Welcome!</Card.Title>
-            <Card.Text className="text-white">
-              Answer a few questions to find the best games for you.
-            </Card.Text>
-            <Button2
-              label="Get Started"
-              handleClick={handleIntroButtonClick}
-            ></Button2>
-          </Card.Body>
-        </Card>
-      )}
+    <div className={styles.container}>
+      {showIntroCard && <MiniCard text1="Welcome to WhatGame2Play" text2="Let's find a game for you.">
+        <div className={styles.titlecontainer}>
+        </div>
+        </MiniCard>}
+      <Button2
+        label="Get Started"
+        handleClick={handleIntroButtonClick}
+      ></Button2>
 
       {initialQuestions && (
         <div className={styles.maincardstyle}>
           {firstQuestions.map((question, i) => (
-            <Card
-              key={i}
+            <MiniCard>
               className="bg-secondary border-success"
-              style={{ maxWidth: "60rem", height: "auto", margin: "15px" }}
-            >
               <Card.Body className="bg-dark border border-success">
                 <Card.Title className="text-primary ">
                   {question.title}
@@ -250,7 +239,7 @@ function MainCard() {
                   ></FormSubmit>
                 </Card.Text>
               </Card.Body>
-            </Card>
+            </MiniCard>
           ))}
           <Button2
             className="text-center"

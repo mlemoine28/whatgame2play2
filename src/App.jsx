@@ -15,7 +15,6 @@ function App() {
     <div>
       <Header></Header>
       <MainCard />
-      <MiniCard text1="Hello" text2="Yoo"/>
     </div>
   );
 }
