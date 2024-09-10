@@ -3,7 +3,6 @@ import "../src/style.css";
 import Button2 from "./Components/Button/Button2";
 import Button from "react-bootstrap/Button";
 import Header from "./Components/Header/Header";
-import Text from "./Components/Text/Text";
 import { Breadcrumb, Card } from "react-bootstrap";
 import GamingConsoles from "./assets/GamingConsolesPic.jpg";
 import TitleImage from "./assets/WhatGame2Play_Header.png";
@@ -16,7 +15,7 @@ function App() {
     <div>
       <Header></Header>
       <MainCard />
-      {/* <MiniCard /> */}
+      <MiniCard text1="Hello" text2="Yoo"/>
     </div>
   );
 }

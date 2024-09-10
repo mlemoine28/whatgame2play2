@@ -31,6 +31,12 @@ function MainCard() {
     setDisplayPage(true);
   };
 
+  const homeButtonClick = () => {
+    setInitialQuestions(false);
+    setDisplayPage(false);
+    setShowIntroCard(true);
+  };
+
   const metacritic = [
     { value: "96-100", label: "96-100" },
     { value: "91-95", label: "91-95" },
@@ -200,11 +206,10 @@ function MainCard() {
   // https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-dark ">
+    <div className={styles.introcardstyle}>
       {showIntroCard && (
         <Card
-          className="bg-secondary border-success"
-          style={{ maxWidth: "60rem", height: "auto" }}
+          className={styles.boxcardstyle}
         >
           <Card.Img className="card-img-bottom" src={GamingConsoles} />
           <Card.Body className="bg-dark border border-success">
@@ -214,7 +219,7 @@ function MainCard() {
             </Card.Text>
             <Button2
               label="Get Started"
-              onClick={handleIntroButtonClick}
+              handleClick={handleIntroButtonClick}
             ></Button2>
           </Card.Body>
         </Card>
@@ -250,7 +255,7 @@ function MainCard() {
           <Button2
             className="text-center"
             label="Submit"
-            onClick={submitButtonClick}
+            handleClick={submitButtonClick}
           ></Button2>
         </div>
       )}
@@ -260,7 +265,7 @@ function MainCard() {
           {games.map((game, i) => (
             <Card
               key={i}
-              className="bg-secondary border-success"
+              className={"bg-secondary border-success"}
               style={{ maxWidth: "60rem", height: "auto", margin: "15px" }}
             >
               <Card.Body className="bg-dark border border-success">
@@ -276,12 +281,17 @@ function MainCard() {
                   <img
                     src={game.background_image}
                     alt={game.name}
-                    style={{ width: "200px" }}
+                    style={{ width: "300px" }}
                   ></img>
                 </Card.Text>
               </Card.Body>
             </Card>
           ))}
+          <Button2
+            className="text-center"
+            label="Search Again"
+            handleClick={homeButtonClick}
+          ></Button2>
         </div>
       )}
     </div>

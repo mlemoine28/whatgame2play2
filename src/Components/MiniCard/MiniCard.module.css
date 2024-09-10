@@ -1,5 +1,6 @@
 .container {
-    min-width: 20rem;
+    min-width: 5rem;
+    max-width: 55rem;
     min-height: 20rem;
     display: flex;
     flex-direction: column;
@@ -7,6 +8,12 @@
     align-items: center;
     border-radius: 3rem;
     padding: 2rem;
-    background-color: #fff;
+    background-color: black
+}
+
+.titlecontainer {
+    background-color: black;
+    border-radius: 5%;
+    font-size: xx-large;
 }
 

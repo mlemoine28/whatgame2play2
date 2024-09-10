@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-function ButtonHome({ label, onClick }) {
+function ButtonHome({ label, handleClick }) {
   return (
-    <button className={styles.buttonhome} onClick={onClick}>
+    <button className={styles.buttonhome} onClick={handleClick}>
       {label}
     </button>
   );
