@@ -9,6 +9,7 @@ import ButtonHome from "../Button/ButtonHome";
 import MiniCardIntro from "../MiniCard/MiniCardIntro.jsx";
 import MiniCardQuestions from "../MiniCard/MiniCardQuestions.jsx";
 import styles from "../MiniCard/MiniCard.module.css";
+import MiniCardDisplay from "../MiniCard/MiniCardDisplay.jsx";
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
@@ -188,16 +189,8 @@ function MainCard() {
               gameTitle={game.name}
               gameRelease={game.released}
               gameMetacritic={game.metacritic}
-            >
-              <b>Name:</b> {game.name}
-              <b>Released:</b> {game.released}
-              <b>Metacritic</b> {game.metacritic}
-              <img
-                src={game.background_image}
-                alt={game.name}
-                style={{ width: "300px" }}
-              ></img>
-            </MiniCardDisplay>
+              gameImage={game.background_image}
+            ></MiniCardDisplay>
           ))}
           <Button2
             className="text-center"

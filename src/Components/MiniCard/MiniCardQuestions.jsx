@@ -2,7 +2,13 @@ import React from "react";
 import styles from "./MiniCard.module.css";
 import FormSubmit from "../FormSubmit/FormSubmit";
 
-export default function MiniCardQuestions({ title, text1, text2, options }) {
+export default function MiniCardQuestions({
+  title,
+  text1,
+  text2,
+  options,
+  children,
+}) {
   return (
     <div className={styles.container}>
       <div className={styles.titlecontainer}>
@@ -11,7 +17,7 @@ export default function MiniCardQuestions({ title, text1, text2, options }) {
       <div className={styles.textcontainer}>
         <div>
           {text2}
-          <FormSubmit options={options} />
+          {children}
         </div>
       </div>
     </div>
