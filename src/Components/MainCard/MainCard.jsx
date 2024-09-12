@@ -23,6 +23,7 @@ function MainCard() {
   const [selectedMetacritic, setSelectedMetacritic] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState(null);
   const [games, setGames] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
 
   const handleIntroButtonClick = () => {
     setShowIntroCard(false);
@@ -65,7 +66,6 @@ function MainCard() {
     console.log("hello from useEffect!");
     if (selectedPlatforms.length > 0 || selectedGenres.length > 0) {
       const pageSize = 5;
-      const pageNumber = 1;
       const platformParams = selectedPlatforms
         //selectedPlatforms is from the ARRAY at the beginning (defined in the useState function).
         .map((option) => option.value)
@@ -74,7 +74,9 @@ function MainCard() {
         .map((option) => option.value) //remember that the parameter after .map always refers to the items (or options) in the array. So doing option.value is mapping out all the VALUES (or ids) of what's in the array.
         .join(","); //So, platformParams will be a string that lists all the selected platform values, separated by commas.
 
-      const apiURL = `https://api.rawg.io/api/games?key=0103293563a84c6cbee68284f5e8ae4c&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
+      const apiURL = `https://api.rawg.io/api/games?key=${
+        import.meta.env.VITE_REACT_APP_RAWG_API_KEY
+      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
       console.log({
         apiURL,
         platformParams,
@@ -92,12 +94,14 @@ function MainCard() {
       };
       fetchData();
     }
-  }, [selectedPlatforms, selectedGenres]);
+  }, [selectedPlatforms, selectedGenres, pageNumber]); //When one of these state variables changes, the useEffect kicks in!!
 
   //platforms
   useEffect(() => {
     fetchAndFormatData(
-      "https://api.rawg.io/api/platforms?key=0103293563a84c6cbee68284f5e8ae4c",
+      `https://api.rawg.io/api/platforms?key=${
+        import.meta.env.VITE_REACT_APP_RAWG_API_KEY
+      }`,
       formatList
     ).then(setPlatformList);
   }, []);
@@ -105,7 +109,9 @@ function MainCard() {
   //genres
   useEffect(() => {
     fetchAndFormatData(
-      " https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c",
+      `https://api.rawg.io/api/genres?key=${
+        import.meta.env.VITE_REACT_APP_RAWG_API_KEY
+      }`,
       formatList
     ).then(setGenreList);
   }, []);
@@ -137,7 +143,7 @@ function MainCard() {
     // },
   ];
 
-  // https://api.rawg.io/api/genres?key=0103293563a84c6cbee68284f5e8ae4c
+  // https://api.rawg.io/api/genres?key=${process.env.RAWG_API_KEY}
 
   return (
     <div className={styles.container}>
@@ -182,7 +188,7 @@ function MainCard() {
       )}
 
       {displayPage && (
-        <div className={styles.container}>
+        <div className={styles.containerdisplay}>
           {games.map((game, i) => (
             <MiniCardDisplay
               key={i}
