@@ -9,7 +9,7 @@ export default function MiniCardDisplay({
   gameImage,
 }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.containerdisplay}>
       <div className={styles.titlecontainer}>
         <div>
           <h1> {gameTitle}</h1>
