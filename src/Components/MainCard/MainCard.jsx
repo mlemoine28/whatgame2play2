@@ -141,17 +141,19 @@ function MainCard() {
   return (
     <div className={styles.container}>
       {showIntroCard && (
-        <MiniCardIntro
-          text1="Welcome to WhatGame2Play"
-          text2="Let's find a game for you."
-        >
-          <div className={styles.titlecontainer}></div>
-        </MiniCardIntro>
+        <>
+          <MiniCardIntro
+            text1="Welcome to WhatGame2Play"
+            text2="Let's find a game for you."
+          >
+            <div className={styles.titlecontainer}></div>
+          </MiniCardIntro>
+          <Button2
+            label="Get Started"
+            handleClick={handleIntroButtonClick}
+          ></Button2>
+        </>
       )}
-      <Button2
-        label="Get Started"
-        handleClick={handleIntroButtonClick}
-      ></Button2>
 
       {initialQuestions && (
         <div className={styles.containerquestions}>
