@@ -196,14 +196,21 @@ function MainCard() {
               gameRelease={game.released}
               gameMetacritic={game.metacritic}
               gameImage={game.background_image}
+              
             ></MiniCardDisplay>
+            
           ))}
-          <Button2
+        
+         
+        </div>
+        
+      )}
+      {displayPage && (
+         <Button2
             className="text-center"
             label="Search Again"
             handleClick={homeButtonClick}
           ></Button2>
-        </div>
       )}
     </div>
   );

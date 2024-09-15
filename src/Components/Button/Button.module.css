@@ -7,7 +7,10 @@
  cursor: pointer;
  transition-duration: 0.4s;
  position: relative;
- margin-bottom: 150px
+ margin-bottom: 150px;
+ margin-top: 20px;
+ 
+
  
 }
 

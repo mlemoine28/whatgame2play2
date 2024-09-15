@@ -10,17 +10,16 @@ export default function MiniCardDisplay({
 }) {
   return (
     <div className={styles.containerdisplay}>
-      <div className={styles.titlecontainer}>
-        <div>
-          <h1> {gameTitle}</h1>
-        </div>
-      </div>
-      <div className={styles.textcontainer}>
-        <div>
-          Released: {gameRelease} <br></br>
-          Metacritic: {gameMetacritic}
-          <br></br>
-          <img src={gameImage} style={{ width: "300px" }}></img>
+      <div className={styles.displaycard}>
+        <h1 className={styles.displaycardtitle}>{gameTitle}</h1>
+        
+        <div className={styles.displaycardcontent}>
+          <div>
+            Released: {gameRelease} <br />
+            Metacritic: {gameMetacritic}
+            <br />
+          </div>
+          <img src={gameImage} style={{ width: "200px", height: "150px" }} alt="game" />
         </div>
       </div>
     </div>
