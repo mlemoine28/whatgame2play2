@@ -19,7 +19,7 @@ export default function MiniCardDisplay({
             Metacritic: {gameMetacritic}
             <br />
           </div>
-          <img src={gameImage} style={{ width: "200px", height: "150px" }} alt="game" />
+          <img src={gameImage} style={{ width: "230px", height: "180px" }} alt="game" />
         </div>
       </div>
     </div>
