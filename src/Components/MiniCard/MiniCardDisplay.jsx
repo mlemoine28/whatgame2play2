@@ -7,6 +7,7 @@ export default function MiniCardDisplay({
   gameRelease,
   gameMetacritic,
   gameImage,
+  gameStore,
 }) {
   return (
     <div className={styles.containerdisplay}>
@@ -16,7 +17,8 @@ export default function MiniCardDisplay({
         <div className={styles.displaycardcontent}>
           <div>
             Released: {gameRelease} <br />
-            Metacritic: {gameMetacritic}
+            Metacritic: {gameMetacritic} <br />
+            Store: {gameStore}
             <br />
           </div>
           <img src={gameImage} style={{ width: "230px", height: "180px" }} alt="game" />

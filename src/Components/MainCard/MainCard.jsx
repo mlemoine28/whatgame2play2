@@ -10,6 +10,7 @@ import MiniCardIntro from "../MiniCard/MiniCardIntro.jsx";
 import MiniCardQuestions from "../MiniCard/MiniCardQuestions.jsx";
 import styles from "../MiniCard/MiniCard.module.css";
 import MiniCardDisplay from "../MiniCard/MiniCardDisplay.jsx";
+import ButtonPage from "../../Components/Button/ButtonPage";
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
@@ -74,9 +75,9 @@ function MainCard() {
         .map((option) => option.value) //remember that the parameter after .map always refers to the items (or options) in the array. So doing option.value is mapping out all the VALUES (or ids) of what's in the array.
         .join(","); //So, platformParams will be a string that lists all the selected platform values, separated by commas.
 
-      const apiURL = `https://api.rawg.io/api/games?key=${
+      const apiURL = `https://api.rawg.io/api/games/?key=${
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
+      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic&stores=5,6`;
       console.log({
         apiURL,
         platformParams,
@@ -196,21 +197,28 @@ function MainCard() {
               gameRelease={game.released}
               gameMetacritic={game.metacritic}
               gameImage={game.background_image}
-              
+              gameStore={game.store}
             ></MiniCardDisplay>
-            
           ))}
-        
-         
         </div>
-        
       )}
       {displayPage && (
-         <Button2
-            className="text-center"
+        <div>
+          <ButtonPage
+            label="Previous Page"
+            handleClick={() => setPageNumber((currentPage) => currentPage - 1)}
+            //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
+            //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
+          ></ButtonPage>
+          <ButtonPage
             label="Search Again"
             handleClick={homeButtonClick}
-          ></Button2>
+          ></ButtonPage>
+          <ButtonPage
+            label="Next Page"
+            handleClick={() => setPageNumber((currentPage) => currentPage + 1)}
+          ></ButtonPage>
+        </div>
       )}
     </div>
   );
