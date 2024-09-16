@@ -9,13 +9,14 @@ import TitleImage from "./assets/WhatGame2Play_Header.png";
 import MainCard from "./Components/MainCard/MainCard";
 import GenreList from "./Components/GenreList/GenreList";
 import MiniCard from "./Components/MiniCard/MiniCardIntro";
+import Socials from "./Components/Socials/Socials";
 
 function App() {
   return (
     <div>
       <Header></Header>
       <MainCard />
-      
+      <Socials />
     </div>
   );
 }

@@ -75,7 +75,7 @@ function MainCard() {
         .map((option) => option.value) //remember that the parameter after .map always refers to the items (or options) in the array. So doing option.value is mapping out all the VALUES (or ids) of what's in the array.
         .join(","); //So, platformParams will be a string that lists all the selected platform values, separated by commas.
 
-      const apiURL = `https://api.rawg.io/api/games/?key=${
+      const apiURL = `https://api.rawg.io/api/games?key=${
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
       }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic&stores=5,6`;
       console.log({
@@ -197,7 +197,7 @@ function MainCard() {
               gameRelease={game.released}
               gameMetacritic={game.metacritic}
               gameImage={game.background_image}
-              gameStore={game.store}
+              gameLength={game.playtime}
             ></MiniCardDisplay>
           ))}
         </div>
@@ -219,8 +219,10 @@ function MainCard() {
             handleClick={() => setPageNumber((currentPage) => currentPage + 1)}
           ></ButtonPage>
         </div>
+        
       )}
     </div>
+   
   );
 }
 
