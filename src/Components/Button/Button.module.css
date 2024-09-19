@@ -7,9 +7,22 @@
  cursor: pointer;
  transition-duration: 0.4s;
  position: relative;
- margin-bottom: 250px;
- margin-top: 20px;
+ bottom: 450px;
+ 
 }
+
+.buttonsubmit {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  position: relative;
+  bottom: 5vh;
+  
+ }
 
 .buttonstyle:hover {
  background-color: navy;

@@ -11,6 +11,7 @@ import MiniCardQuestions from "../MiniCard/MiniCardQuestions.jsx";
 import styles from "../MiniCard/MiniCard.module.css";
 import MiniCardDisplay from "../MiniCard/MiniCardDisplay.jsx";
 import ButtonPage from "../../Components/Button/ButtonPage";
+import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx"
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
@@ -180,11 +181,7 @@ function MainCard() {
               ></FormSubmit>
             </MiniCardQuestions>
           ))}
-          <Button2
-            className="text-center"
-            label="Submit"
-            handleClick={submitButtonClick}
-          ></Button2>
+          <ButtonSubmit label="Submit" handleClick={submitButtonClick}></ButtonSubmit>
         </div>
       )}
 
@@ -219,10 +216,8 @@ function MainCard() {
             handleClick={() => setPageNumber((currentPage) => currentPage + 1)}
           ></ButtonPage>
         </div>
-        
       )}
     </div>
-   
   );
 }
 

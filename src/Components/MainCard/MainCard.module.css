@@ -5,7 +5,7 @@
  display: flex;
  justify-content: center;
  align-items: center;
- height: 250px; 
+ height: 100vh; 
 }
 
 .introcardstyle {
@@ -20,7 +20,7 @@
  background-color: blueviolet;
  border: black;
  border-radius: 50px;
- max-Width: 1000p
+ max-Width: 1000px;
  height: auto;
 
 
