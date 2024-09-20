@@ -1,3 +1,5 @@
+.disabledButton,
+.buttonsubmit,
 .buttonstyle {
  background-color: blue;
  color: white;
@@ -8,20 +10,14 @@
  transition-duration: 0.4s;
  position: relative;
  bottom: 450px;
- 
+}
+
+.disabledButton {
+  background-color: grey
 }
 
 .buttonsubmit {
-  background-color: blue;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  position: relative;
-  bottom: 5vh;
-  
+  bottom: 4rem;
  }
 
 .buttonstyle:hover {

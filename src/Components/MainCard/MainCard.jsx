@@ -11,7 +11,7 @@ import MiniCardQuestions from "../MiniCard/MiniCardQuestions.jsx";
 import styles from "../MiniCard/MiniCard.module.css";
 import MiniCardDisplay from "../MiniCard/MiniCardDisplay.jsx";
 import ButtonPage from "../../Components/Button/ButtonPage";
-import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx"
+import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
@@ -26,6 +26,7 @@ function MainCard() {
   const [selectedAnswers, setSelectedAnswers] = useState(null);
   const [games, setGames] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [gamesCount, setGamesCount] = useState(0);
 
   const handleIntroButtonClick = () => {
     setShowIntroCard(false);
@@ -64,10 +65,10 @@ function MainCard() {
       label: item.name,
     }));
 
+  const pageSize = 5;
   useEffect(() => {
     console.log("hello from useEffect!");
     if (selectedPlatforms.length > 0 || selectedGenres.length > 0) {
-      const pageSize = 5;
       const platformParams = selectedPlatforms
         //selectedPlatforms is from the ARRAY at the beginning (defined in the useState function).
         .map((option) => option.value)
@@ -88,8 +89,10 @@ function MainCard() {
       const fetchData = async () => {
         try {
           const response = await fetch(apiURL);
-          const data = await response.json(); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
+          const data = await response.json();
+          console.log(data); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
           setGames(data.results);
+          setGamesCount(data.count);
         } catch (error) {
           console.error("Error fetching data:", error); //use console.error BECAUSE it shows the error in red in the log.
         }
@@ -181,27 +184,35 @@ function MainCard() {
               ></FormSubmit>
             </MiniCardQuestions>
           ))}
-          <ButtonSubmit label="Submit" handleClick={submitButtonClick}></ButtonSubmit>
+          <ButtonSubmit
+            label="Submit"
+            handleClick={submitButtonClick}
+          ></ButtonSubmit>
         </div>
       )}
 
       {displayPage && (
         <div className={styles.containerdisplay}>
-          {games.map((game, i) => (
-            <MiniCardDisplay
-              key={i}
-              gameTitle={game.name}
-              gameRelease={game.released}
-              gameMetacritic={game.metacritic}
-              gameImage={game.background_image}
-              gameLength={game.playtime}
-            ></MiniCardDisplay>
-          ))}
+          {games?.length > 0 ? (
+            games.map((game, i) => (
+              <MiniCardDisplay
+                key={i}
+                gameTitle={game.name}
+                gameRelease={game.released}
+                gameMetacritic={game.metacritic}
+                gameImage={game.background_image}
+                gameLength={game.playtime}
+              ></MiniCardDisplay>
+            ))
+          ) : (
+            <div>No games to show</div>
+          )}
         </div>
       )}
       {displayPage && (
         <div>
           <ButtonPage
+            disabled={pageNumber === 1 || !games}
             label="Previous Page"
             handleClick={() => setPageNumber((currentPage) => currentPage - 1)}
             //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
@@ -212,6 +223,11 @@ function MainCard() {
             handleClick={homeButtonClick}
           ></ButtonPage>
           <ButtonPage
+            disabled={
+              games?.length < 5 ||
+              !games ||
+              gamesCount === pageSize * pageNumber
+            }
             label="Next Page"
             handleClick={() => setPageNumber((currentPage) => currentPage + 1)}
           ></ButtonPage>
