@@ -2,11 +2,17 @@
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: black;
+ background-color: #000080;
  bottom: 1rem;
  left: 59rem;
  position: fixed;
+ color: rgb(3, 135, 250);
+ height: 4rem;
 
+ }
+
+ p {
+  color: #004080;
  }
 
  .fa {
