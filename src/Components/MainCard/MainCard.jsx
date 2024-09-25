@@ -154,10 +154,7 @@ function MainCard() {
     <div className={styles.container}>
       {showIntroCard && (
         <>
-          <MiniCardIntro
-            text1="Welcome to WhatGame2Play"
-            text2="Let's find a game for you."
-          >
+          <MiniCardIntro text1="Discover your next favourite game.">
             <div className={styles.titlecontainer}></div>
           </MiniCardIntro>
           <Button2
