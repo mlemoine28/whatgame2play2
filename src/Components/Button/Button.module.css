@@ -1,6 +1,7 @@
 .disabledButton,
 .buttonsubmit,
-.buttonstyle {
+.buttonstyle,
+.buttonpage {
  background-color: blue;
  color: white;
  padding: 10px 20px;
@@ -9,11 +10,13 @@
  cursor: pointer;
  transition-duration: 0.4s;
  position: relative;
- bottom: 450px;
+ bottom: 23rem;
+ margin: 1rem;
 }
 
 .disabledButton {
-  background-color: grey
+  background-color: grey;
+  bottom: 0;
 }
 
 .buttonsubmit {
@@ -43,18 +46,9 @@
 }
 
 .buttonpage {
-  background-color: blue;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  position: relative;
-  margin-bottom: 250px;
-  margin-top: 20px;
-  margin: 20px;
- }
+  bottom: 0rem;
+}
+
 
  .buttonpage:hover  {
   background-color: navy;

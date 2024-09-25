@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MiniCard.module.css";
 import FormSubmit from "../FormSubmit/FormSubmit";
-import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
+import GamingConsoles from "../../assets/controller-background.png";
 
 export default function MiniCardIntro({ title, text1, text2, options }) {
   return (
