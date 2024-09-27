@@ -16,10 +16,14 @@ export default function MiniCardDisplay({
 
         <div className={styles.displaycardcontent}>
           <div>
-            Released: {gameRelease} <br />
-            Metacritic: {gameMetacritic} <br />
-            Length: {gameLength}
-            <br />
+            <b>Released</b>: {gameRelease} <br />
+            <b>Metacritic</b>: {gameMetacritic} <br />
+            <b>Length</b>:
+            {gameLength === 0 ? (
+              <span className={styles.pText}> Data not available</span>
+            ) : (
+              <span className={styles.pText}> {gameLength} hours</span>
+            )}
           </div>
           <img
             src={gameImage}

@@ -6,7 +6,7 @@ import githublogo from "../../assets/github-mark-white.svg";
 function Socials() {
   return (
     <div className={styles.socialstyle}>
-      <p>Created by Michael LeMoine</p>
+      <span>Created by Michael LeMoine</span>
 
       <a
         href="http://www.linkedin.com/in/michaellemoine/"
