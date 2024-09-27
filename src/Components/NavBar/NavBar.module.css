@@ -1,12 +1,13 @@
 .navBarStyle {
  background-color: #4040FF;
  position: fixed;
- border: 3px solid white; /* Change color, width, or style */
- height: 3rem;;
- left: 0;
- right: 0;
+ height: 3rem;
  width: 100%;
- padding: 0;
- 
+ color: white; /* Set desired font color */
 }
 
+
+
+.navBarStyle a, .navBarStyle p, .navBarStyle h1 {
+ color: inherit; /* Ensures child elements take the navbar's font color */
+}
