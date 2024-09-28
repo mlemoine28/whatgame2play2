@@ -10,16 +10,13 @@ import MainCard from "./Components/MainCard/MainCard";
 import GenreList from "./Components/GenreList/GenreList";
 import MiniCard from "./Components/MiniCard/MiniCardIntro";
 import Socials from "./Components/Socials/Socials";
-import BasicExample from "./Components/NavBar/NavBar";
 
 function App() {
   return (
     <div>
-     
       <Header></Header>
-      <BasicExample />
       <MainCard />
-      
+
       <Socials />
     </div>
   );

@@ -3,11 +3,20 @@
  position: fixed;
  height: 3rem;
  width: 100%;
- color: white; /* Set desired font color */
+ color: white; 
 }
 
 
 
 .navBarStyle a, .navBarStyle p, .navBarStyle h1 {
- color: inherit; /* Ensures child elements take the navbar's font color */
+ color: inherit; 
+}
+
+.NavBarPointer {
+ cursor: pointer;
+ color: white!important;
+}
+
+.NavBarPointer:hover {
+ color: black !important;
 }

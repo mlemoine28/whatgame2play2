@@ -12,6 +12,7 @@ import styles from "../MiniCard/MiniCard.module.css";
 import MiniCardDisplay from "../MiniCard/MiniCardDisplay.jsx";
 import ButtonPage from "../../Components/Button/ButtonPage";
 import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
+import NavBarTop from "../NavBar/NavBar.jsx";
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
@@ -151,85 +152,93 @@ function MainCard() {
   // https://api.rawg.io/api/genres?key=${process.env.RAWG_API_KEY}
 
   return (
-    <div className={styles.container}>
-      {showIntroCard && (
-        <>
-          <MiniCardIntro text1="Discover your next favourite game.">
-            <div className={styles.titlecontainer}></div>
-          </MiniCardIntro>
-          <Button2
-            label="Get Started"
-            handleClick={handleIntroButtonClick}
-          ></Button2>
-        </>
-      )}
+    <div>
+      <NavBarTop handleClick={homeButtonClick}></NavBarTop>
 
-      {initialQuestions && (
-        <div className={styles.containerquestions}>
-          {firstQuestions.map((question, i) => (
-            <MiniCardQuestions
-              key={question.id || i}
-              text1={question.title}
-              text2={question.questionText}
-            >
-              <FormSubmit
-                options={question.generateList}
-                selectedAnswers={question.selected}
-                handleChange={(selectedOption) =>
-                  question.setSelected(selectedOption)
-                }
-              ></FormSubmit>
-            </MiniCardQuestions>
-          ))}
-          <ButtonSubmit
-            label="Submit"
-            handleClick={submitButtonClick}
-          ></ButtonSubmit>
-        </div>
-      )}
+      <div className={styles.container}>
+        {showIntroCard && (
+          <>
+            <MiniCardIntro text1="Discover your next favourite game.">
+              <div className={styles.titlecontainer}></div>
+            </MiniCardIntro>
+            <Button2
+              label="Get Started"
+              handleClick={handleIntroButtonClick}
+            ></Button2>
+          </>
+        )}
 
-      {displayPage && (
-        <div className={styles.containerdisplay}>
-          {games?.length > 0 ? (
-            games.map((game, i) => (
-              <MiniCardDisplay
-                key={i}
-                gameTitle={game.name}
-                gameRelease={game.released}
-                gameMetacritic={game.metacritic}
-                gameImage={game.background_image}
-                gameLength={game.playtime}
-              ></MiniCardDisplay>
-            ))
-          ) : (
-            <div>No games to show</div>
-          )}
-        </div>
-      )}
-      {displayPage && (
-        <div>
-          <ButtonPage
-            disabled={pageNumber === 1 || !games}
-            label="Previous Page"
-            handleClick={() => setPageNumber((currentPage) => currentPage - 1)}
-            //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
-            //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
-          ></ButtonPage>
-          <ButtonPage
-            label="Search Again"
-            handleClick={homeButtonClick}
-          ></ButtonPage>
-          <ButtonPage
-            disabled={
-              games?.length < 5 ||
-              !games ||
-              gamesCount === pageSize * pageNumber
-            }
-            label="Next Page"
-            handleClick={() => setPageNumber((currentPage) => currentPage + 1)}
-          ></ButtonPage>
-        </div>
-      )}
+        {initialQuestions && (
+          <div className={styles.containerquestions}>
+            {firstQuestions.map((question, i) => (
+              <MiniCardQuestions
+                key={question.id || i}
+                text1={question.title}
+                text2={question.questionText}
+              >
+                <FormSubmit
+                  options={question.generateList}
+                  selectedAnswers={question.selected}
+                  handleChange={(selectedOption) =>
+                    question.setSelected(selectedOption)
+                  }
+                ></FormSubmit>
+              </MiniCardQuestions>
+            ))}
+            <ButtonSubmit
+              label="Submit"
+              handleClick={submitButtonClick}
+            ></ButtonSubmit>
+          </div>
+        )}
+
+        {displayPage && (
+          <div className={styles.containerdisplay}>
+            {games?.length > 0 ? (
+              games.map((game, i) => (
+                <MiniCardDisplay
+                  key={i}
+                  gameTitle={game.name}
+                  gameRelease={game.released}
+                  gameMetacritic={game.metacritic}
+                  gameImage={game.background_image}
+                  gameLength={game.playtime}
+                ></MiniCardDisplay>
+              ))
+            ) : (
+              <div>No games to show</div>
+            )}
+          </div>
+        )}
+        {displayPage && (
+          <div>
+            <ButtonPage
+              disabled={pageNumber === 1 || !games}
+              label="Previous Page"
+              handleClick={() =>
+                setPageNumber((currentPage) => currentPage - 1)
+              }
+              //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
+              //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
+            ></ButtonPage>
+            <ButtonPage
+              label="Search Again"
+              handleClick={homeButtonClick}
+            ></ButtonPage>
+            <ButtonPage
+              disabled={
+                games?.length < 5 ||
+                !games ||
+                gamesCount === pageSize * pageNumber
+              }
+              label="Next Page"
+              handleClick={() =>
+                setPageNumber((currentPage) => currentPage + 1)
+              }
+            ></ButtonPage>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
