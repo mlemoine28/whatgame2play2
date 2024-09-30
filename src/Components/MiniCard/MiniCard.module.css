@@ -44,7 +44,7 @@
     background-color: #222;
     color: white;
     width: 20rem;
-    height: 32rem;
+    height: 28rem;
     min-height: 300px;
     border: 1px solid white;
     display: flex;
@@ -58,7 +58,8 @@
     font-size: 20px;
     color: #39FF14;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: rem;
 }
 
 
@@ -78,6 +79,11 @@
    
     
     
+}
+
+.displayattributes {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .textcontainer {

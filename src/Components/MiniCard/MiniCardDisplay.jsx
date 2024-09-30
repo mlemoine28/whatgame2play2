@@ -16,7 +16,7 @@ export default function MiniCardDisplay({
         <h1 className={styles.displaycardtitle}>{gameTitle}</h1>
 
         <div className={styles.displaycardcontent}>
-          <div>
+          <div className={styles.displayattributes}>
             <b>Released</b>: {gameRelease} <br />
             <b>Metacritic</b>: {gameMetacritic} <br />
             <b>Length</b>:
