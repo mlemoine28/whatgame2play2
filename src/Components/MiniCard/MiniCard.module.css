@@ -37,14 +37,14 @@
     gap: 20px;
     padding: 20px;
     background-color: #000040;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .displaycard {
     background-color: #222;
     color: white;
     width: 20rem;
-    height: 28rem;
+    height: 30.5rem;
     min-height: 300px;
     border: 1px solid white;
     display: flex;
@@ -59,7 +59,7 @@
     color: #39FF14;
     text-align: center;
     margin-top: 1rem;
-    margin-bottom: rem;
+    
 }
 
 

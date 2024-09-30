@@ -2,7 +2,8 @@
 .buttonsubmit,
 .buttonstyle,
 .buttonpage,
-.buttonList {
+.buttonList,
+.buttonDetails {
  background-color: blue;
  color: white;
  padding: 10px 20px;
@@ -50,14 +51,21 @@
   bottom: 0rem;
 }
 
-.buttonList {
-  bottom: 1rem;
-  scale: 80%;
+.buttonList,
+.buttonDetails {
+  bottom: 0rem;
+  scale: 75%;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3rem;
-  display: flex;
+  background-color: #4040FF;
 }
+
+
+
+
+
+
 
 
  .buttonpage:hover  {
