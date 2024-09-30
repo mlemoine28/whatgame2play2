@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "./Navbar.module.css";
+import SearchBar from "../SearchBar/SearchBar";
 import { useState } from "react";
 
 function NavBarTop({ handleClick }) {
@@ -17,7 +18,7 @@ function NavBarTop({ handleClick }) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>My Games Playlist</Nav.Link>
-            <Nav.Link href="#link">Search Games</Nav.Link>
+        
 
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -31,9 +32,13 @@ function NavBarTop({ handleClick }) {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        <SearchBar />
       </Container>
     </Navbar>
+    
+    
   );
+  
 }
 
 export default NavBarTop;

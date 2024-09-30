@@ -14,6 +14,7 @@ import ButtonPage from "../../Components/Button/ButtonPage";
 import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
 import ButtonList from "../Button/ButtonList.jsx";
 import NavBarTop from "../NavBar/NavBar.jsx";
+import SearchBar from "../SearchBar/SearchBar.jsx";
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
