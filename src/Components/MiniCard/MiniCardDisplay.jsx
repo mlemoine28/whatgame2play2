@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./MiniCard.module.css";
 import FormSubmit from "../FormSubmit/FormSubmit";
+import ButtonList from "../Button/ButtonList";
 
 export default function MiniCardDisplay({
   gameTitle,
@@ -30,6 +31,7 @@ export default function MiniCardDisplay({
             style={{ width: "230px", height: "180px" }}
             alt="game"
           />
+          <ButtonList label="Add to List"/>
         </div>
       </div>
     </div>

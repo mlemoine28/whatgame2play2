@@ -1,7 +1,8 @@
 .disabledButton,
 .buttonsubmit,
 .buttonstyle,
-.buttonpage {
+.buttonpage,
+.buttonList {
  background-color: blue;
  color: white;
  padding: 10px 20px;
@@ -47,6 +48,15 @@
 
 .buttonpage {
   bottom: 0rem;
+}
+
+.buttonList {
+  bottom: 1rem;
+  scale: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  display: flex;
 }
 
 

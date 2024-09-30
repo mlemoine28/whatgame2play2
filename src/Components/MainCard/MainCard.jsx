@@ -12,6 +12,7 @@ import styles from "../MiniCard/MiniCard.module.css";
 import MiniCardDisplay from "../MiniCard/MiniCardDisplay.jsx";
 import ButtonPage from "../../Components/Button/ButtonPage";
 import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
+import ButtonList from "../Button/ButtonList.jsx";
 import NavBarTop from "../NavBar/NavBar.jsx";
 
 function MainCard() {

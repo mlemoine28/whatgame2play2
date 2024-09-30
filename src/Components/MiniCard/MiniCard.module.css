@@ -43,8 +43,8 @@
 .displaycard {
     background-color: #222;
     color: white;
-    width: 275px;
-    height: auto;
+    width: 20rem;
+    height: 32rem;
     min-height: 300px;
     border: 1px solid white;
     display: flex;
@@ -58,7 +58,7 @@
     font-size: 20px;
     color: #39FF14;
     text-align: center;
-    margin-bottom: 10px;
+    margin-top: 2rem;
 }
 
 
