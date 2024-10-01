@@ -47,6 +47,8 @@ function MainCard() {
     setShowIntroCard(true);
   };
 
+ 
+
   //reuseable fetch function
 
   //Fetch Data: fetch(url) gets the data from the API.
@@ -205,6 +207,7 @@ function MainCard() {
                   gameMetacritic={game.metacritic}
                   gameImage={game.background_image}
                   gameLength={game.playtime}
+                  gamePlatforms={game.platforms.platform}
                 ></MiniCardDisplay>
               ))
             ) : (
