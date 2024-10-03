@@ -12,6 +12,11 @@ export default function MiniCardDisplay({
   gameImage,
   gameLength,
   gamePlatforms,
+  gameAchievements,
+  gameTrailers,
+  gameDescription,
+  gameStore,
+  gamePublisher,
 }) {
   const [showGameCards, setShowGameCards] = useState(true);
   const [showDetailsPage, setShowDetailsPage] = useState(false);
