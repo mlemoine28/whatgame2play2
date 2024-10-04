@@ -10,15 +10,18 @@ import MainCard from "./Components/MainCard/MainCard";
 import GenreList from "./Components/GenreList/GenreList";
 import MiniCard from "./Components/MiniCard/MiniCardIntro";
 import Socials from "./Components/Socials/Socials";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <Header></Header>
-      <MainCard />
-
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/home" element={<MiniCard />} />
+        <Route path="/questions" element={<MainCard />} />
+      </Routes>
       <Socials />
-    </div>
+    </BrowserRouter>
   );
 }
 export default App;

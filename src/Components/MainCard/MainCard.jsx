@@ -15,6 +15,7 @@ import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
 import ButtonList from "../Button/ButtonList.jsx";
 import NavBarTop from "../NavBar/NavBar.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
+import { useNavigate } from "react-router-dom";
 
 function MainCard() {
   const [showIntroCard, setShowIntroCard] = useState(true);
@@ -46,6 +47,8 @@ function MainCard() {
     setDisplayPage(false);
     setShowIntroCard(true);
   };
+
+  const navigate = useNavigate() //Use this to navigate between the routes.
 
  
 
@@ -84,7 +87,7 @@ function MainCard() {
 
       const apiURL = `https://api.rawg.io/api/games?key=${
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic&stores=5,6`;
+      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
       console.log({
         apiURL,
         platformParams,

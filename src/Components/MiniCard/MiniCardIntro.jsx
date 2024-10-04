@@ -16,3 +16,7 @@ export default function MiniCardIntro({ title, text1, text2, options }) {
     </div>
   );
 }
+
+//Get the maincard components moved into this file.
+//Also move buttons, navbar, and search bar into this as well.
+//You want the MiniCard intro to have everything necessary to make it your home screen. Right now most things are in MainCard.

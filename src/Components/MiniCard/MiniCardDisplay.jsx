@@ -75,6 +75,12 @@ export default function MiniCardDisplay({
                   <span className={styles.pText}> {gameLength} hours</span>
                 )}{" "}
                 <br />
+                <b>Available Platforms</b>: {gamePlatforms} <br />
+                <b>Achievements</b>: {gameAchievements} <br />
+                <b>Description</b>: {gameDescription} <br />
+                <b>Publisher</b>: {gamePublisher} <br />
+                <b>Trailer</b>: {gameTrailers} <br />
+                <b>Where to Buy</b>: {gameStore} <br />
               </div>
               <img
                 src={gameImage}
