@@ -26,17 +26,14 @@
   bottom: 0;
 }
 
+.buttonIntro:hover, .buttonstyle:hover, .buttonsubmit:hover, .buttonpage:hover
+{
+  background-color: navy;
+}
+
 .buttonsubmit {
   bottom: 1rem;
  }
-
-.buttonstyle:hover {
- background-color: navy;
-} 
-
-.buttonsubmit:hover  {
-  background-color: navy;
- } 
 
 .buttonhome {
  background-color: rgb(15, 15, 15);
@@ -65,18 +62,6 @@
   margin-right: auto;
   background-color: #4040FF;
 }
-
-
-
-
-
-
-
-
- .buttonpage:hover  {
-  background-color: navy;
- } 
-
 
 .buttonhome:hover {
  background-color: #04AA6D; /* Green */

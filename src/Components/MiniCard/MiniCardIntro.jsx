@@ -4,8 +4,14 @@ import buttonstyles from "../Button/Button.module.css";
 import FormSubmit from "../FormSubmit/FormSubmit";
 import GamingConsoles from "../../assets/controller-background.png";
 import ButtonIntro from "../Button/ButtonIntro";
+import { useNavigate } from "react-router-dom";
 
 export default function MiniCardIntro({ title, text1, text2, options }) {
+  const navigate = useNavigate();
+
+  const handleIntroButtonClick = () => {
+    navigate("/questions");
+  };
   return (
     <div className={styles.container}>
       <img src={GamingConsoles} className={styles.cardimage}></img>
@@ -15,7 +21,9 @@ export default function MiniCardIntro({ title, text1, text2, options }) {
         </div>
       </div>
       <div className={styles.textcontainer}>
-        <ButtonIntro label="Get Started"></ButtonIntro>
+        <ButtonIntro label="Get Started" handleClick={handleIntroButtonClick}>
+          {" "}
+        </ButtonIntro>
       </div>
     </div>
   );
