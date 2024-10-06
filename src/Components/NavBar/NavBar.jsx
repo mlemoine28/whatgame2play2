@@ -6,19 +6,26 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "./Navbar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function NavBarTop({ handleClick }) {
+function NavBarTop() {
+  const navigate = useNavigate();
+  const backToHomeClick = () => {
+    navigate("/home");
+  };
   return (
     <Navbar expand="lg" className={styles.navBarStyle}>
       <Container>
-        <Navbar.Brand onClick={handleClick} className={styles.NavBarPointer}>
+        <Navbar.Brand
+          onClick={backToHomeClick}
+          className={styles.NavBarPointer}
+        >
           Home
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>My Games Playlist</Nav.Link>
-        
 
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -35,10 +42,7 @@ function NavBarTop({ handleClick }) {
         <SearchBar />
       </Container>
     </Navbar>
-    
-    
   );
-  
 }
 
 export default NavBarTop;

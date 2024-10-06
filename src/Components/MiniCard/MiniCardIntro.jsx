@@ -4,6 +4,7 @@ import buttonstyles from "../Button/Button.module.css";
 import FormSubmit from "../FormSubmit/FormSubmit";
 import GamingConsoles from "../../assets/controller-background.png";
 import ButtonIntro from "../Button/ButtonIntro";
+import NavBarTop from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 
 export default function MiniCardIntro({ title, text1, text2, options }) {
@@ -12,9 +13,12 @@ export default function MiniCardIntro({ title, text1, text2, options }) {
   const handleIntroButtonClick = () => {
     navigate("/questions");
   };
+  const homeButtonClick = () => {
+    navigate("/home");
+  };
   return (
     <div className={styles.container}>
-      <img src={GamingConsoles} className={styles.cardimage}></img>
+          <img src={GamingConsoles} className={styles.cardimage}></img>
       <div className={styles.titlecontainer}>
         <div>
           <h1>Discover your next favourite game.</h1>

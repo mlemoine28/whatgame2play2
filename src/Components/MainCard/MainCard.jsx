@@ -13,7 +13,7 @@ import MiniCardDisplay from "../MiniCard/MiniCardDisplay.jsx";
 import ButtonPage from "../../Components/Button/ButtonPage";
 import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
 import ButtonList from "../Button/ButtonList.jsx";
-import NavBarTop from "../NavBar/NavBar.jsx";
+
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import { useNavigate } from "react-router-dom";
 
@@ -158,7 +158,6 @@ function MainCard() {
 
   return (
     <div>
-      <NavBarTop handleClick={homeButtonClick}></NavBarTop>
 
       <div className={styles.container}>
         {showIntroCard && (

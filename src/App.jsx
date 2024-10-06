@@ -11,11 +11,14 @@ import GenreList from "./Components/GenreList/GenreList";
 import MiniCardIntro from "./Components/MiniCard/MiniCardIntro";
 import Socials from "./Components/Socials/Socials";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBarTop from "./Components/NavBar/NavBar";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      <NavBarTop />
       <Routes>
         <Route path="/home" element={<MiniCardIntro />} />
         <Route path="/questions" element={<MainCard />} />

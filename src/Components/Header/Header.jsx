@@ -5,8 +5,6 @@ import styles from "./Header.module.css";
 import ButtonHome from "../Button/ButtonHome";
 import { useState } from "react";
 
-
-
 function Header() {
   return (
     <div className={styles.headerstyle}>
