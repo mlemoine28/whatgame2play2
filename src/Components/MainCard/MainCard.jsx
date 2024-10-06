@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-import Button2 from "../../Components/Button/Button2";
+import Button2 from "../Button/ButtonIntro.jsx";
 import FormSubmit from "../../Components/FormSubmit/FormSubmit";
 import Form from "react-bootstrap/Form";
 import GamingConsoles from "../../assets/GamingConsolesPic.jpg";
@@ -48,9 +48,7 @@ function MainCard() {
     setShowIntroCard(true);
   };
 
-  const navigate = useNavigate() //Use this to navigate between the routes.
-
- 
+  const navigate = useNavigate(); //Use this to navigate between the routes.
 
   //reuseable fetch function
 
