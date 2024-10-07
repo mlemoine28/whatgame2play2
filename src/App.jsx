@@ -13,6 +13,7 @@ import Socials from "./Components/Socials/Socials";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBarTop from "./Components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
+import MiniCardDisplay from "./Components/MiniCard/MiniCardDisplay";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/home" element={<MiniCardIntro />} />
         <Route path="/questions" element={<MainCard />} />
+        <Route path="/results" element={<MiniCardDisplay />} />
       </Routes>
       <Socials />
     </BrowserRouter>

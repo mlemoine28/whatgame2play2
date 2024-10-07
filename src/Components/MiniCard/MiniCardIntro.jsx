@@ -7,18 +7,16 @@ import ButtonIntro from "../Button/ButtonIntro";
 import NavBarTop from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 
-export default function MiniCardIntro({ title, text1, text2, options }) {
+export default function MiniCardIntro() {
   const navigate = useNavigate();
 
   const handleIntroButtonClick = () => {
     navigate("/questions");
   };
-  const homeButtonClick = () => {
-    navigate("/home");
-  };
+
   return (
     <div className={styles.container}>
-          <img src={GamingConsoles} className={styles.cardimage}></img>
+      <img src={GamingConsoles} className={styles.cardimage}></img>
       <div className={styles.titlecontainer}>
         <div>
           <h1>Discover your next favourite game.</h1>

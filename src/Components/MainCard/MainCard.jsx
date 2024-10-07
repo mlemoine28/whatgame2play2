@@ -18,28 +18,19 @@ import SearchBar from "../SearchBar/SearchBar.jsx";
 import { useNavigate } from "react-router-dom";
 
 function MainCard() {
-  const [showIntroCard, setShowIntroCard] = useState(true);
-  const [initialQuestions, setInitialQuestions] = useState(false);
+  const navigate = useNavigate();
+  const [initialQuestions, setInitialQuestions] = useState(true);
   const [displayPage, setDisplayPage] = useState(false);
   const [genreList, setGenreList] = useState([]);
   const [platformList, setPlatformList] = useState([]);
-  const [metacriticList, setMetacriticList] = useState([]);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
-  const [selectedMetacritic, setSelectedMetacritic] = useState([]);
-  const [selectedAnswers, setSelectedAnswers] = useState(null);
   const [games, setGames] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [gamesCount, setGamesCount] = useState(0);
 
-  const handleIntroButtonClick = () => {
-    setShowIntroCard(false);
-    setInitialQuestions(true);
-  };
-
   const submitButtonClick = () => {
-    setInitialQuestions(false);
-    setDisplayPage(true);
+    navigate("/results");
   };
 
   const homeButtonClick = () => {
@@ -48,7 +39,7 @@ function MainCard() {
     setShowIntroCard(true);
   };
 
-  const navigate = useNavigate(); //Use this to navigate between the routes.
+  //Use this to navigate between the routes.
 
   //reuseable fetch function
 
@@ -158,20 +149,7 @@ function MainCard() {
 
   return (
     <div>
-
       <div className={styles.container}>
-        {showIntroCard && (
-          <>
-            <MiniCardIntro text1="Discover your next favourite game.">
-              <div className={styles.titlecontainer}></div>
-            </MiniCardIntro>
-            <Button2
-              label="Get Started"
-              handleClick={handleIntroButtonClick}
-            ></Button2>
-          </>
-        )}
-
         {initialQuestions && (
           <div className={styles.containerquestions}>
             {firstQuestions.map((question, i) => (
