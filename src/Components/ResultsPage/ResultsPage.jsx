@@ -6,11 +6,40 @@ import MiniCardDisplay from "../MiniCard/MiniCardDisplay.jsx";
 import ButtonPage from "../../Components/Button/ButtonPage";
 import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function ResultsPage() {
+  const location = useLocation();
+  const [gamesCount, setGamesCount] = useState(0);
   const [games, setGames] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
-  const [gamesCount, setGamesCount] = useState(0);
+  const { selectedPlatforms, selectedGenres, genreParams, platformParams } =
+    location.state;
+  const pageSize = 5;
+
+  useEffect(() => {
+    const apiURL = `https://api.rawg.io/api/games?key=${
+      import.meta.env.VITE_REACT_APP_RAWG_API_KEY
+    }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
+    console.log({
+      apiURL,
+      platformParams,
+      genreParams,
+    });
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(apiURL);
+        const data = await response.json();
+        console.log(data); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
+        setGames(data.results);
+        setGamesCount(data.count);
+      } catch (error) {
+        console.error("Error fetching data:", error); //use console.error BECAUSE it shows the error in red in the log.
+      }
+    };
+    fetchData();
+  }, [selectedPlatforms, selectedGenres, pageNumber]); //When one of these state variables changes, the useEffect kicks in!!
 
   return (
     <div className={styles.containerdisplay}>

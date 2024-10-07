@@ -6,7 +6,7 @@ import Header from "./Components/Header/Header";
 import { Breadcrumb, Card } from "react-bootstrap";
 import GamingConsoles from "./assets/GamingConsolesPic.jpg";
 import TitleImage from "./assets/WhatGame2Play_Header.png";
-import MainCard from "./Components/MainCard/MainCard";
+import QuestionsPage from "./Components/QuestionsPage/QuestionsPage";
 import GenreList from "./Components/GenreList/GenreList";
 import MiniCardIntro from "./Components/MiniCard/MiniCardIntro";
 import Socials from "./Components/Socials/Socials";
@@ -22,8 +22,8 @@ function App() {
       <NavBarTop />
       <Routes>
         <Route path="/home" element={<MiniCardIntro />} />
-        <Route path="/questions" element={<MainCard />} />
-        <Route path="/results" element={<MiniCardDisplay />} />
+        <Route path="/questions" element={<QuestionsPage />} />
+        <Route path="/games" element={<MiniCardDisplay />} />
       </Routes>
       <Socials />
     </BrowserRouter>
