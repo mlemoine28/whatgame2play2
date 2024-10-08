@@ -7,7 +7,7 @@ import { Breadcrumb, Card } from "react-bootstrap";
 import GamingConsoles from "./assets/GamingConsolesPic.jpg";
 import TitleImage from "./assets/WhatGame2Play_Header.png";
 import QuestionsPage from "./Components/QuestionsPage/QuestionsPage";
-import GenreList from "./Components/GenreList/GenreList";
+
 import MiniCardIntro from "./Components/MiniCard/MiniCardIntro";
 import Socials from "./Components/Socials/Socials";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
