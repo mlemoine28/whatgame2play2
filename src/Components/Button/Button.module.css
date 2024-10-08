@@ -19,8 +19,7 @@
 
 .disabledButton {
   background-color: grey;
-  bottom: 0;
-}
+ }
 
 .buttonIntro {
   bottom: 0;
@@ -47,10 +46,6 @@
  left: 10%;
  padding: 15px;
  
-}
-
-.buttonpage {
-  bottom: 0rem;
 }
 
 .buttonList,

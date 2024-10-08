@@ -37,7 +37,8 @@
     gap: 20px;
     padding: 20px;
     background-color: #000040;
-    margin-top: 3rem;
+    margin-top: 0rem;
+    min-height: 100vh;
 }
 
 .displaycard {
@@ -52,6 +53,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
+    margin-top: 3rem;
 }
 
 .displaycardtitle {
