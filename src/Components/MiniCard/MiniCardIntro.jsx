@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function MiniCardIntro() {
   const navigate = useNavigate();
-
   const handleIntroButtonClick = () => {
     navigate("/questions");
   };

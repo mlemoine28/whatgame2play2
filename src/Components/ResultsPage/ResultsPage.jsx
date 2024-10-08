@@ -10,9 +10,14 @@ import { useLocation } from "react-router-dom";
 
 function ResultsPage() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const homeButtonClick = () => {
+    navigate("/questions");
+  };
   const [gamesCount, setGamesCount] = useState(0);
   const [games, setGames] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+
   const { selectedPlatforms, selectedGenres, genreParams, platformParams } =
     location.state;
   const pageSize = 5;
