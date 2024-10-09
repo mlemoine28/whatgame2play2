@@ -5,6 +5,7 @@ import ButtonList from "../Button/ButtonList";
 import ButtonDetails from "../Button/ButtonDetails";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function MiniCardDisplay({
   gameTitle,
@@ -16,11 +17,10 @@ export default function MiniCardDisplay({
   gameAchievements,
   gameDescription,
   gameImage2,
+  handleMoreDetails,
 }) {
   const navigate = useNavigate();
-  const detailsButtonClick = () => {
-    navigate("/game");
-  };
+  const location = useLocation();
 
   return (
     <div className={styles.containerdisplay}>
@@ -51,6 +51,11 @@ export default function MiniCardDisplay({
               style={{ width: "230px", height: "180px" }}
               alt="game"
             />
+            <ButtonDetails
+              label="More Details"
+              handleClick={handleMoreDetails}
+            ></ButtonDetails>
+            <ButtonList label="Add to List" />
           </div>
         </div>
       </div>

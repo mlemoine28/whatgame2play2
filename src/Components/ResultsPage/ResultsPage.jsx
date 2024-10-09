@@ -63,12 +63,8 @@ function ResultsPage() {
               gameMetacritic={game.metacritic}
               gameImage={game.background_image}
               gameLength={game.playtime}
+              handleMoreDetails={() => handleMoreDetails(game)}
             />
-            <ButtonDetails
-              label="More Details"
-              handleClick={() => handleMoreDetails(game)}
-            ></ButtonDetails>
-            <ButtonList label="Add to List" />
           </div>
         ))
       ) : (
