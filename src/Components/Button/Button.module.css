@@ -50,12 +50,13 @@
 
 .buttonList,
 .buttonDetails {
-  bottom: 0rem;
   scale: 75%;
   display: flex;
   margin-left: auto;
   margin-right: auto;
   background-color: #4040FF;
+  
+
 }
 
 .buttonhome:hover {

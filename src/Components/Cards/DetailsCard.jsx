@@ -60,7 +60,7 @@ export default function DetailsCard({
               alt="additionalgameimage"
             />
             <ButtonList label="Add to List" />
-            <ButtonDetails label="Back" />
+            <ButtonDetails label="Back" handleClick={backButtonClick} />
           </div>
         </div>
       </div>

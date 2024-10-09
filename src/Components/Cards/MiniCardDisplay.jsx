@@ -12,7 +12,10 @@ export default function MiniCardDisplay({
   gameMetacritic,
   gameImage,
   gameLength,
-  
+  gamePlatforms,
+  gameAchievements,
+  gameDescription,
+  gameImage2,
 }) {
   const navigate = useNavigate();
   const detailsButtonClick = () => {
@@ -48,11 +51,6 @@ export default function MiniCardDisplay({
               style={{ width: "230px", height: "180px" }}
               alt="game"
             />
-            <ButtonDetails
-              label="More Details"
-              handleClick={detailsButtonClick}
-            />
-            <ButtonList label="Add to List" />
           </div>
         </div>
       </div>

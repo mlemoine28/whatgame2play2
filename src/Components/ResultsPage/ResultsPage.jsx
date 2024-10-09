@@ -7,6 +7,8 @@ import ButtonPage from "../../Components/Button/ButtonPage";
 import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import ButtonDetails from "../Button/ButtonDetails.jsx";
+import ButtonList from "../Button/ButtonList.jsx";
 
 function ResultsPage() {
   const location = useLocation();
@@ -46,18 +48,28 @@ function ResultsPage() {
     fetchData();
   }, [selectedPlatforms, selectedGenres, pageNumber]); //When one of these state variables changes, the useEffect kicks in!!
 
+  const handleMoreDetails = (game) => {
+    console.log("More Details button clicked for game:", game);
+    navigate("/game", { state: { game } });
+  };
   return (
     <div className={styles.containerdisplay}>
       {games?.length > 0 ? (
         games.map((game, i) => (
-          <MiniCardDisplay
-            key={i}
-            gameTitle={game.name}
-            gameRelease={game.released}
-            gameMetacritic={game.metacritic}
-            gameImage={game.background_image}
-            gameLength={game.playtime}
-          />
+          <div key={i}>
+            <MiniCardDisplay
+              gameTitle={game.name}
+              gameRelease={game.released}
+              gameMetacritic={game.metacritic}
+              gameImage={game.background_image}
+              gameLength={game.playtime}
+            />
+            <ButtonDetails
+              label="More Details"
+              handleClick={() => handleMoreDetails(game)}
+            ></ButtonDetails>
+            <ButtonList label="Add to List" />
+          </div>
         ))
       ) : (
         <div>No games to show</div>
