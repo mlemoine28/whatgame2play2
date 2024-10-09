@@ -15,6 +15,7 @@ import NavBarTop from "./Components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import MiniCardDisplay from "./Components/MiniCard/MiniCardDisplay";
 import ResultsPage from "./Components/ResultsPage/ResultsPage";
+import DetailsPage from "./Components/DetailsPage/DetailsPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/home" element={<MiniCardIntro />} />
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/games" element={<ResultsPage />} />
+        <Route path="/game" element={<DetailsPage />} />
       </Routes>
       <Socials />
     </BrowserRouter>

@@ -4,6 +4,7 @@ import FormSubmit from "../FormSubmit/FormSubmit";
 import ButtonList from "../Button/ButtonList";
 import ButtonDetails from "../Button/ButtonDetails";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function MiniCardDisplay({
   gameTitle,
@@ -20,10 +21,9 @@ export default function MiniCardDisplay({
 }) {
   const [showGameCards, setShowGameCards] = useState(true);
   const [showDetailsPage, setShowDetailsPage] = useState(false);
-
+  const navigate = useNavigate();
   const detailsButtonClick = () => {
-    setShowGameCards(false);
-    setShowDetailsPage(true);
+    navigate("/game");
   };
 
   return (
@@ -36,7 +36,13 @@ export default function MiniCardDisplay({
             <div className={styles.displaycardcontent}>
               <div className={styles.displayattributes}>
                 <b>Released</b>: {gameRelease} <br />
-                <b>Metacritic</b>: {gameMetacritic} <br />
+                <b>Metacritic</b>:
+                {gameMetacritic === null ? (
+                  <span className={styles.pText}> Data not available</span>
+                ) : (
+                  <span className={styles.pText}> {gameMetacritic}</span>
+                )}{" "}
+                <br />
                 <b>Length</b>:
                 {gameLength === 0 ? (
                   <span className={styles.pText}> Data not available</span>
