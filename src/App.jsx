@@ -8,12 +8,12 @@ import GamingConsoles from "./assets/GamingConsolesPic.jpg";
 import TitleImage from "./assets/WhatGame2Play_Header.png";
 import QuestionsPage from "./Components/QuestionsPage/QuestionsPage";
 
-import MiniCardIntro from "./Components/MiniCard/MiniCardIntro";
+import MiniCardIntro from "./Components/Cards/MiniCardIntro";
 import Socials from "./Components/Socials/Socials";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBarTop from "./Components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
-import MiniCardDisplay from "./Components/MiniCard/MiniCardDisplay";
+import MiniCardDisplay from "./Components/Cards/MiniCardDisplay";
 import ResultsPage from "./Components/ResultsPage/ResultsPage";
 import DetailsPage from "./Components/DetailsPage/DetailsPage";
 

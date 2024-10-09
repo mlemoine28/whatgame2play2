@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import FormSubmit from "../../Components/FormSubmit/FormSubmit";
-import styles from "../MiniCard/MiniCard.module.css";
-import MiniCardDisplay from "../MiniCard/MiniCardDisplay.jsx";
+import styles from "../Cards/MiniCard.module.css";
+import MiniCardDisplay from "../Cards/MiniCardDisplay.jsx";
 import ButtonPage from "../../Components/Button/ButtonPage";
 import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
 import { useNavigate } from "react-router-dom";
@@ -57,7 +57,6 @@ function ResultsPage() {
             gameMetacritic={game.metacritic}
             gameImage={game.background_image}
             gameLength={game.playtime}
-            gamePlatforms={game.platforms.platform}
           />
         ))
       ) : (
