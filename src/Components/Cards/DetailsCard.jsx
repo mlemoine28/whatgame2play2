@@ -23,7 +23,7 @@ export default function DetailsCard({
   };
 
   return (
-    <div className={styles.containerdisplay}>
+    <div className={styles.containerdisplay2}>
       <div>
         <div className={styles.displaycard}>
           <h1 className={styles.displaycardtitle}>{gameTitle}</h1>

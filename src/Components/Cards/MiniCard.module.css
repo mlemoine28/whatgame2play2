@@ -28,7 +28,8 @@
      
     
   
-.containerdisplay {
+.containerdisplay,
+.containerdisplay2 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -39,6 +40,11 @@
     background-color: #000040;
     margin-top: 0rem;
     min-height: 70vh;
+}
+
+.containerdisplay2 {
+    scale: 120%;
+    margin-top: 3.6rem;
 }
 
 .displaycard {
