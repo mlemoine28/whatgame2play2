@@ -50,7 +50,7 @@ function ResultsPage() {
 
   const handleMoreDetails = (game) => {
     console.log("More Details button clicked for game:", game);
-    navigate("/game", { state: { game } });
+    navigate(`/game/${game.id}`, { state: { game } });
   };
   return (
     <div className={styles.containerdisplay}>

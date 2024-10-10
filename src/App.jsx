@@ -23,10 +23,11 @@ function App() {
       <Header />
       <NavBarTop />
       <Routes>
+        <Route path="/" element={<MiniCardIntro />} />
         <Route path="/home" element={<MiniCardIntro />} />
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/games" element={<ResultsPage />} />
-        <Route path="/game" element={<DetailsPage />} />
+        <Route path="/game/:id" element={<DetailsPage />} />
       </Routes>
       <Socials />
     </BrowserRouter>
