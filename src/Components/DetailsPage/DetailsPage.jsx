@@ -67,7 +67,7 @@ export default function DetailsPage({}) {
         gameAchievements={detailedGame?.achievements_count}
         gameDescription={detailedGame?.description}
         gameImage2={detailedGame?.background_image_additional}
-        gameScreenshots={screenshots}
+        gameScreenshots={screenshots?.results}
       />
     </div>
   );
