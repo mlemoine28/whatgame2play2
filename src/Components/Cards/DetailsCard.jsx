@@ -19,6 +19,7 @@ export default function DetailsCard({
   gameAchievements,
   gameDescription,
   gameImage2,
+  gameScreenshots,
 }) {
   const navigate = useNavigate();
   const backButtonClick = () => {
@@ -53,7 +54,37 @@ export default function DetailsCard({
               <br />
               <b className={styles.greenText}>Achievements</b>:{" "}
               {gameAchievements} <br />
-              <b className={styles.greenText}>Game Website</b>: {gameWebsite}{" "}
+              <b className={styles.greenText}>Screenshots</b>:{" "}
+              <div className={styles.screenshotContainer}>
+                {gameScreenshots && gameScreenshots.length > 0 ? (
+                  gameScreenshots.map((screenshot, index) => (
+                    <img
+                      key={index}
+                      src={screenshot.image}
+                      alt={`Screenshot ${index + 1}`}
+                      className={styles.screenshotImage}
+                    />
+                  ))
+                ) : (
+                  <span className={styles.whiteText}>
+                    No screenshots available
+                  </span>
+                )}
+              </div>
+              <br />
+              <b className={styles.greenText}>Game Website: </b>
+              {gameWebsite ? (
+                <a
+                  href={gameWebsite}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.whiteText}
+                >
+                  {gameWebsite}
+                </a>
+              ) : (
+                <span className={styles.whiteText}>Data not available</span>
+              )}
               <br />
               <b className={styles.greenText}>Description</b>:{" "}
               <Markdown className={styles.whiteText}>

@@ -25,6 +25,20 @@
     
 }
 
+.screenshotContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+  }
+  
+  .screenshotImage {
+    width: 280px; /* Adjust size as needed */
+    height: auto;
+    border: 2px solid white;
+    border-radius: 5px;
+  }
+
      
     
   
@@ -47,6 +61,7 @@
     margin-top: 3.6rem;
    max-width: 100vh;
    color: white
+   
     
 }
 
