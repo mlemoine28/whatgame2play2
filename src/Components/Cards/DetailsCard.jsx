@@ -5,12 +5,15 @@ import ButtonList from "../Button/ButtonList";
 import ButtonDetails from "../Button/ButtonDetails";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Markdown from "markdown-to-jsx";
 
 export default function DetailsCard({
   gameTitle,
   gameRelease,
   gameMetacritic,
   gameImage,
+  gameTrailer,
+  gameWebsite,
   gameLength,
   gamePlatforms,
   gameAchievements,
@@ -25,29 +28,38 @@ export default function DetailsCard({
   return (
     <div className={styles.containerdisplay2}>
       <div>
-        <div className={styles.displaycard}>
-          <h1 className={styles.displaycardtitle}>{gameTitle}</h1>
+        <div>
+          <h1>{gameTitle}</h1>
 
           <div className={styles.displaycardcontent}>
             <div className={styles.displayattributes}>
-              <b>Released</b>: {gameRelease} <br />
-              <b>Metacritic</b>:
+              <b className={styles.greenText}>Released</b>: {gameRelease} <br />
+              <b className={styles.greenText}>Metacritic</b>:
               {gameMetacritic === null ? (
                 <span className={styles.pText}> Data not available</span>
               ) : (
                 <span className={styles.pText}> {gameMetacritic}</span>
               )}{" "}
               <br />
-              <b>Length</b>:
+              <b className={styles.greenText}>Length</b>:
               {gameLength === 0 ? (
                 <span className={styles.pText}> Data not available</span>
               ) : (
                 <span className={styles.pText}> {gameLength} hours</span>
               )}{" "}
               <br />
-              <b>Platforms</b>: {gamePlatforms} <br />
-              <b>Achievements</b>: {gameAchievements} <br />
-              <b>Description</b>: {gameDescription} <br />
+              <b className={styles.greenText}>Trailer</b>: {gameTrailer} <br />
+              <b className={styles.greenText}>Platforms</b>: {gamePlatforms}{" "}
+              <br />
+              <b className={styles.greenText}>Achievements</b>:{" "}
+              {gameAchievements} <br />
+              <b className={styles.greenText}>Game Website</b>: {gameWebsite}{" "}
+              <br />
+              <b className={styles.greenText}>Description</b>:{" "}
+              <Markdown className={styles.whiteText}>
+                {gameDescription}
+              </Markdown>{" "}
+              <br />
             </div>
             <img
               src={gameImage}

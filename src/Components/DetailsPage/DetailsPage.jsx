@@ -23,6 +23,7 @@ export default function DetailsPage({}) {
     }`;
 
     const fetchData = async (url) => {
+      //the URL is referring to one of the above URL variables that you made (like gameURL, or trailerURL)
       try {
         const response = await fetch(url);
         const data = await response.json();
@@ -37,13 +38,16 @@ export default function DetailsPage({}) {
     fetchData(trailerURL).then((data) => setTrailers(data));
   }, [id]);
   console.log("Received game data:", detailedGame); // For debugging
+  console.log("Trailer found:", trailers);
 
   return (
     <div className={styles.containerdisplay}>
       <DetailsCard
         gameTitle={detailedGame?.name}
         gameRelease={detailedGame?.released}
+        gameTrailer={trailers?.preview}
         gameMetacritic={detailedGame?.metacritic}
+        gameWebsite={detailedGame?.website}
         gameImage={detailedGame?.background_image}
         gameLength={detailedGame?.playtime}
         gamePlatforms={detailedGame?.platforms.platforms}

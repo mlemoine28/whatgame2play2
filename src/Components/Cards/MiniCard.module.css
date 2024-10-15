@@ -45,6 +45,9 @@
 .containerdisplay2 {
     scale: 120%;
     margin-top: 3.6rem;
+   max-width: 100vh;
+   color: white
+    
 }
 
 .displaycard {
@@ -101,6 +104,14 @@
  font-size: large;
 
  
+}
+
+.greenText {
+    color:#39FF14;
+}
+
+.whiteText {
+    color: white;
 }
 
 .cardimage {
