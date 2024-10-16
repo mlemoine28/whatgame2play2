@@ -29,7 +29,14 @@ export default function DetailsCard({
     <div className={styles.containerdisplay2}>
       <div>
         <div>
-          <h1>{gameTitle}</h1>
+          <div style={{ textAlign: "center" }}>
+            <h1>{gameTitle}</h1>
+            <img
+              src={gameImage}
+              style={{ width: "450px", height: "275px" }}
+              alt="game"
+            />
+          </div>
 
           <div className={styles.displaycardcontent}>
             <div className={styles.displayattributes}>
@@ -91,13 +98,8 @@ export default function DetailsCard({
               <br />
             </div>
             <img
-              src={gameImage}
-              style={{ width: "230px", height: "180px" }}
-              alt="game"
-            />
-            <img
               src={gameImage2}
-              style={{ width: "230px", height: "180px" }}
+              style={{ width: "350px", height: "250px" }}
               alt="additionalgameimage"
             />
             <ButtonList label="Add to List" />
