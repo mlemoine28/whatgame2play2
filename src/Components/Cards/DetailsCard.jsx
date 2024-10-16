@@ -12,7 +12,6 @@ export default function DetailsCard({
   gameRelease,
   gameMetacritic,
   gameImage,
-  gameTrailer,
   gameWebsite,
   gameLength,
   gamePlatforms,
@@ -49,7 +48,6 @@ export default function DetailsCard({
                 <span className={styles.pText}> {gameLength} hours</span>
               )}{" "}
               <br />
-              <b className={styles.greenText}>Trailer</b>: {gameTrailer} <br />
               <b className={styles.greenText}>Platforms</b>: {gamePlatforms}{" "}
               <br />
               <b className={styles.greenText}>Achievements</b>:{" "}

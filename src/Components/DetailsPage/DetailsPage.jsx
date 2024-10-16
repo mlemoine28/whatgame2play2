@@ -9,17 +9,11 @@ export default function DetailsPage({}) {
   const navigate = useNavigate();
   const { id, game_pk } = useParams(); //takes a parameter specifically from a URL
   const [detailedGame, setDetailedGame] = useState(null);
-  const [trailers, setTrailers] = useState();
-  const [screenshots, setScreenShots] = useState();
+  const [screenshots, setScreenShots] = useState(null);
 
   useEffect(
     () => {
       const gameURL = `https://api.rawg.io/api/games/${id}?key=${
-        //If I want to use multiple API requests/calls,
-        import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-      }`;
-
-      const trailerURL = `https://api.rawg.io/api/games/${id}/movies?key=${
         //If I want to use multiple API requests/calls,
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
       }`;
@@ -42,7 +36,6 @@ export default function DetailsPage({}) {
       };
 
       fetchData(gameURL).then((data) => setDetailedGame(data));
-      fetchData(trailerURL).then((data) => setTrailers(data));
       fetchData(screenshotsURL).then((data) => setScreenShots(data));
     },
     [id],
@@ -50,7 +43,7 @@ export default function DetailsPage({}) {
   );
 
   console.log("Received game data:", detailedGame); // For debugging
-  console.log("Trailer found:", trailers);
+
   console.log("Screenshots found:", screenshots);
 
   return (
@@ -58,12 +51,13 @@ export default function DetailsPage({}) {
       <DetailsCard
         gameTitle={detailedGame?.name}
         gameRelease={detailedGame?.released}
-        gameTrailer={trailers?.preview}
         gameMetacritic={detailedGame?.metacritic}
         gameWebsite={detailedGame?.website}
         gameImage={detailedGame?.background_image}
         gameLength={detailedGame?.playtime}
-        gamePlatforms={detailedGame?.platforms.platforms}
+        gamePlatforms={detailedGame?.platforms
+          ?.map((platform) => platform.platform.name)
+          .join(", ")}
         gameAchievements={detailedGame?.achievements_count}
         gameDescription={detailedGame?.description}
         gameImage2={detailedGame?.background_image_additional}
