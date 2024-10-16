@@ -18,7 +18,7 @@ export default function DetailsPage({}) {
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
       }`;
 
-      const screenshotsURL = `https://api.rawg.io/api/games/${game_pk}/screenshots?key=${
+      const screenshotsURL = `https://api.rawg.io/api/games/${id}/screenshots?key=${
         //If I want to use multiple API requests/calls,
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
       }`;
@@ -51,6 +51,12 @@ export default function DetailsPage({}) {
       <DetailsCard
         gameTitle={detailedGame?.name}
         gameRelease={detailedGame?.released}
+        gameDeveloper={detailedGame?.developers
+          ?.map((developer) => developer.name)
+          .join(", ")}
+        gamePublisher={detailedGame?.publishers
+          ?.map((publisher) => publisher.name)
+          .join(", ")}
         gameMetacritic={detailedGame?.metacritic}
         gameWebsite={detailedGame?.website}
         gameImage={detailedGame?.background_image}
@@ -59,9 +65,10 @@ export default function DetailsPage({}) {
           ?.map((platform) => platform.platform.name)
           .join(", ")}
         gameAchievements={detailedGame?.achievements_count}
-        gameDescription={detailedGame?.description}
+        gameDescription={detailedGame?.description_raw}
         gameImage2={detailedGame?.background_image_additional}
         gameScreenshots={screenshots?.results}
+        gameTags={detailedGame?.tags?.map((tag) => tag.name).join(", ")}
       />
     </div>
   );

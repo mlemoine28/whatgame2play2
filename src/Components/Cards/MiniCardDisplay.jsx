@@ -27,6 +27,11 @@ export default function MiniCardDisplay({
       <div>
         <div className={styles.displaycard}>
           <h1 className={styles.displaycardtitle}>{gameTitle}</h1>
+          <img
+              src={gameImage}
+              style={{ width: "288px", height: "162px", marginTop: "1rem", border: "1px solid white" }}
+              alt="game"
+            />
 
           <div className={styles.displaycardcontent}>
             <div className={styles.displayattributes}>
@@ -46,11 +51,7 @@ export default function MiniCardDisplay({
               )}{" "}
               <br />
             </div>
-            <img
-              src={gameImage}
-              style={{ width: "230px", height: "180px" }}
-              alt="game"
-            />
+            
             <ButtonDetails
               label="More Details"
               handleClick={handleMoreDetails}

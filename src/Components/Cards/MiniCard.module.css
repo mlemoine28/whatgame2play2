@@ -25,19 +25,37 @@
     
 }
 
-.screenshotContainer, .trailerContainer {
+.screenshotContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+   justify-content: center;
+   margin-top: 3rem;
     
   }
   
-  .screenshotImage, .trailerImage {
+  .screenshotImage {
     width: 280px;
     height: auto;
     border: 2px solid white;
     border-radius: 5px;
   }
+
+  .detailsText {
+    font-size: 1rem;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 10%;
+    height: fit-content;
+    margin-top: 2rem;
+    padding: 2rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+   
+  }
+
+ 
 
      
     
@@ -57,9 +75,9 @@
 }
 
 .containerdisplay2 {
-    scale: 120%;
-    margin-top: 12rem;
-   max-width: 100vh;
+    scale: 110%;
+    margin-top: 8rem;
+   max-width: 70vh;
    color: white
    
     
@@ -81,12 +99,17 @@
 }
 
 .displaycardtitle {
-    font-size: 20px;
+    font-size: clamp(16px, 2vw, 20px); /* Dynamically adjusts font size between 16px and 20px */
     color: #39FF14;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    white-space: nowrap; /* Prevents line breaks */
+    overflow: hidden; /* Ensures text doesn't overflow the container */
+    text-overflow: ellipsis; /* Adds '...' if text is too long */
+    width: 100%;
     
 }
+
 
 
     
@@ -108,8 +131,8 @@
 }
 
 .displayattributes {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
 }
 
 .textcontainer {
