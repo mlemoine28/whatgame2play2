@@ -51,10 +51,7 @@ export default function DetailsCard({
           <div className={styles.displaycardcontent}>
             <div className={styles.displayattributes}>
               <b className={styles.greenText}>Description</b>: <br />
-              <Markdown className={styles.whiteText}>
-                {gameDescription}
-              </Markdown>{" "}
-              <br />
+              <div className={styles.whiteText}>{gameDescription}</div> <br />
               <div className={styles.screenshotContainer}>
                 {gameScreenshots && gameScreenshots.length > 0 ? (
                   gameScreenshots.map((screenshot, index) => (
