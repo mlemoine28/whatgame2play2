@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import ButtonDetails from "../Button/ButtonDetails.jsx";
 import ButtonList from "../Button/ButtonList.jsx";
+import { Spinner } from "react-bootstrap";
 
 function ResultsPage() {
   const location = useLocation();
@@ -19,6 +20,7 @@ function ResultsPage() {
   const [gamesCount, setGamesCount] = useState(0);
   const [games, setGames] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const { selectedPlatforms, selectedGenres, genreParams, platformParams } =
     location.state;
@@ -36,12 +38,15 @@ function ResultsPage() {
 
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await fetch(apiURL);
         const data = await response.json();
         console.log(data); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
         setGames(data.results);
         setGamesCount(data.count);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.error("Error fetching data:", error); //use console.error BECAUSE it shows the error in red in the log.
       }
     };
@@ -54,7 +59,13 @@ function ResultsPage() {
   };
   return (
     <div className={styles.containerdisplay}>
-      {games?.length > 0 ? (
+      {loading ? (
+        <div>
+          <Spinner animation="border" role="status" variant="info">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      ) : games?.length > 0 ? (
         games.map((game, i) => (
           <div key={i}>
             <MiniCardDisplay

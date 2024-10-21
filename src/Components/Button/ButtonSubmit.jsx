@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-function ButtonSubmit({ label, handleClick }) {
+function ButtonSubmit({ label, handleClick, loading }) {
   return (
     <button className={styles.buttonsubmit} onClick={handleClick}>
       {label}
