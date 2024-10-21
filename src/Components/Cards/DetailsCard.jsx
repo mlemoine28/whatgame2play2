@@ -15,6 +15,7 @@ export default function DetailsCard({
   gameWebsite,
   gameLength,
   gamePlatforms,
+  gameGenres,
   gameAchievements,
   gameDescription,
   gameImage2,
@@ -90,7 +91,10 @@ export default function DetailsCard({
                 <br />
                 <br />
                 <b className={styles.greenText}>Platforms</b>:<br />{" "}
-                {gamePlatforms} <br />
+                {gamePlatforms}  <br />
+                <br />
+                <b className={styles.greenText}>Genre(s)</b>:<br /> {gameGenres}{" "}
+                <br />
                 <br />
                 <b className={styles.greenText}>Developer(s)</b>:<br />{" "}
                 {gameDeveloper} <br /> <br />

@@ -74,6 +74,9 @@ export default function DetailsPage({}) {
           gamePlatforms={detailedGame?.platforms
             ?.map((platform) => platform.platform.name)
             .join(", ")}
+          gameGenres={detailedGame?.genres
+            ?.map((genre) => genre.name)
+            .join(", ")}
           gameAchievements={detailedGame?.achievements_count}
           gameDescription={detailedGame?.description_raw}
           gameImage2={detailedGame?.background_image_additional}

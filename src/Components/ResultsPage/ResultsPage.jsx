@@ -22,18 +22,24 @@ function ResultsPage() {
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  const { selectedPlatforms, selectedGenres, genreParams, platformParams } =
-    location.state;
+  const {
+    selectedPlatforms,
+    selectedGenres,
+    genreParams,
+    platformParams,
+    tagParams,
+  } = location.state;
   const pageSize = 5;
 
   useEffect(() => {
     const apiURL = `https://api.rawg.io/api/games?key=${
       import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-    }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
+    }&platforms=${platformParams}&genres=${genreParams}&tags=${tagParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
     console.log({
       apiURL,
       platformParams,
       genreParams,
+      tagParams,
     });
 
     const fetchData = async () => {

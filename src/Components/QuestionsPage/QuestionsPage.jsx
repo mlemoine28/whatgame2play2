@@ -19,8 +19,10 @@ function QuestionsPage() {
   const navigate = useNavigate();
   const [genreList, setGenreList] = useState([]);
   const [platformList, setPlatformList] = useState([]);
+  const [tagList, setTagList] = useState([]);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
 
   //Use this to navigate between the routes.
 
@@ -65,21 +67,40 @@ function QuestionsPage() {
     ).then(setGenreList);
   }, []);
 
+  //tags
+  useEffect(() => {
+    fetchAndFormatData(
+      `https://api.rawg.io/api/tags?key=${
+        import.meta.env.VITE_REACT_APP_RAWG_API_KEY
+      }`,
+      formatList
+    ).then(setTagList);
+  }, []);
+
   const submitButtonClick = () => {
-    if (selectedPlatforms.length > 0 || selectedGenres.length > 0) {
+    if (
+      selectedPlatforms.length > 0 ||
+      selectedGenres.length > 0 ||
+      selectedTags.length > 0
+    ) {
       const platformParams = selectedPlatforms
         //selectedPlatforms is from the ARRAY at the beginning (defined in the useState function).
         .map((option) => option.value)
         .join(","); //this converts everything in the array to a string
       const genreParams = selectedGenres
         .map((option) => option.value) //remember that the parameter after .map always refers to the items (or options) in the array. So doing option.value is mapping out all the VALUES (or ids) of what's in the array.
-        .join(","); //So, platformParams will be a string that lists all the selected platform values, separated by commas.
+        .join(",");
+
+      //So, platformParams will be a string that lists all the selected platform values, separated by commas.
+      const tagParams = selectedTags.map((option) => option.value).join(",");
+
       navigate("/games", {
         state: {
           selectedPlatforms,
           selectedGenres,
           platformParams,
           genreParams,
+          tagParams,
         },
       });
     }
@@ -101,6 +122,14 @@ function QuestionsPage() {
       generateList: platformList,
       selected: selectedPlatforms,
       setSelected: setSelectedPlatforms,
+    },
+    {
+      id: 3,
+      title: "Tags",
+      questionText: "What tags or features are you looking for?",
+      generateList: tagList,
+      selected: selectedTags,
+      setSelected: setSelectedTags,
     },
   ];
 
