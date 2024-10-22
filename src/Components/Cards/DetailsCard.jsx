@@ -28,6 +28,8 @@ export default function DetailsCard({
   const backButtonClick = () => {
     navigate("/games");
   };
+  const [showMore, setShowMore] = useState(false);
+  const [showMoreTags, setShowMoreTags] = useState(false);
 
   return (
     <div className={styles.containerdisplay2}>
@@ -53,10 +55,17 @@ export default function DetailsCard({
             <div className={styles.displayattributes}>
               <div>
                 <b className={styles.greenText}>Description</b>: <br />
+                {showMore
+                  ? gameDescription
+                  : gameDescription
+                  ? `${gameDescription.substring(0, 250)}`
+                  : "Description not available"}
                 <div className={styles.whiteText}>
-                  {gameDescription}
                   <div>
-                    <ButtonDetails label="Show More" />
+                    <ButtonDetails
+                      label="Show More"
+                      handleClick={() => setShowMore(!showMore)}
+                    />
                   </div>
                 </div>
                 <br />
@@ -152,7 +161,18 @@ export default function DetailsCard({
                 </div>
                 <div>
                   <b className={styles.greenText}>Features/Tags</b>: <br />
-                  {gameTags} <br />
+                  {showMoreTags
+                    ? gameTags
+                    : gameTags
+                    ? `${gameTags.substring(0, 50)}`
+                    : "Tags not available"}
+                  <div>
+                    <ButtonDetails
+                      label="Show More"
+                      handleClick={() => setShowMoreTags(!showMoreTags)}
+                    />
+                  </div>
+                  <br />
                   <br />
                 </div>
               </div>
