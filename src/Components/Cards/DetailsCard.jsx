@@ -51,8 +51,17 @@ export default function DetailsCard({
 
           <div className={styles.displaycardcontent}>
             <div className={styles.displayattributes}>
-              <b className={styles.greenText}>Description</b>: <br />
-              <div className={styles.whiteText}>{gameDescription}</div> <br />
+              <div>
+                <b className={styles.greenText}>Description</b>: <br />
+                <div className={styles.whiteText}>
+                  {gameDescription}
+                  <div>
+                    <ButtonDetails label="Show More" />
+                  </div>
+                </div>
+                <br />
+              </div>
+
               <div className={styles.screenshotContainer}>
                 {gameScreenshots && gameScreenshots.length > 0 ? (
                   gameScreenshots.map((screenshot, index) => (
@@ -71,58 +80,81 @@ export default function DetailsCard({
               </div>
               <br />
               <div className={styles.detailsText}>
-                <b className={styles.greenText}>Released</b>:<br />{" "}
-                {gameRelease} <br />
-                <br />
-                <b className={styles.greenText}>Metacritic</b>:<br />
-                {gameMetacritic === null ? (
-                  <span className={styles.pText}> Data not available</span>
-                ) : (
-                  <span className={styles.pText}> {gameMetacritic}</span>
-                )}{" "}
-                <br />
-                <br />
-                <b className={styles.greenText}>Length</b>:<br />
-                {gameLength === 0 ? (
-                  <span className={styles.pText}> Data not available</span>
-                ) : (
-                  <span className={styles.pText}> {gameLength} hours</span>
-                )}{" "}
-                <br />
-                <br />
-                <b className={styles.greenText}>Platforms</b>:<br />{" "}
-                {gamePlatforms}  <br />
-                <br />
-                <b className={styles.greenText}>Genre(s)</b>:<br /> {gameGenres}{" "}
-                <br />
-                <br />
-                <b className={styles.greenText}>Developer(s)</b>:<br />{" "}
-                {gameDeveloper} <br /> <br />
-                <b className={styles.greenText}>Publisher(s)</b>:
-                <br /> {gamePublisher} <br />
-                <br />
-                <b className={styles.greenText}>Achievements</b>: <br />
-                {gameAchievements} <br />
-                <br />
-                <b className={styles.greenText}>Game Website: </b>
-                <br />
-                {gameWebsite ? (
-                  <a
-                    href={gameWebsite}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.whiteText}
-                  >
-                    {gameWebsite}
-                  </a>
-                ) : (
-                  <span className={styles.whiteText}>Data not available</span>
-                )}
-                <br />
-                <br />
-                <b className={styles.greenText}>Features/Tags</b>: <br />
-                {gameTags} <br />
-                <br />
+                <div className={styles.leftDetailsSection}>
+                  <div>
+                    <b className={styles.greenText}>Released</b>:<br />{" "}
+                    {gameRelease} <br />
+                    <br />{" "}
+                  </div>
+                  <div>
+                    <b className={styles.greenText}>Metacritic</b>:<br />
+                    {gameMetacritic === null ? (
+                      <span className={styles.pText}> Data not available</span>
+                    ) : (
+                      <span className={styles.pText}> {gameMetacritic}</span>
+                    )}{" "}
+                    <br />
+                    <br />
+                  </div>
+                  <div>
+                    <b className={styles.greenText}>Length</b>:<br />
+                    {gameLength === 0 ? (
+                      <span className={styles.pText}> Data not available</span>
+                    ) : (
+                      <span className={styles.pText}> {gameLength} hours</span>
+                    )}{" "}
+                    <br />
+                    <br />
+                  </div>
+                </div>
+                <div className={styles.middleDetailsSection}>
+                  <div>
+                    <b className={styles.greenText}>Platforms</b>:<br />{" "}
+                    {gamePlatforms} <br />
+                    <br />
+                  </div>
+                  <div>
+                    <b className={styles.greenText}>Genre(s)</b>:<br />{" "}
+                    {gameGenres} <br />
+                    <br />
+                  </div>
+                </div>
+
+                <div>
+                  <b className={styles.greenText}>Developer(s)</b>:<br />{" "}
+                  {gameDeveloper}
+                  <br />
+                  <br />
+                  <b className={styles.greenText}>Publisher(s)</b>:
+                  <br /> {gamePublisher} <br />
+                  <br />
+                </div>
+                <div>
+                  <b className={styles.greenText}>Achievements</b>: <br />
+                  {gameAchievements} <br />
+                  <br />
+                  <b className={styles.greenText}>Website: </b>
+                  <br />
+                  {gameWebsite ? (
+                    <a
+                      href={gameWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.whiteText}
+                    >
+                      {gameWebsite}
+                    </a>
+                  ) : (
+                    <span className={styles.whiteText}>Data not available</span>
+                  )}
+                  <br />
+                  <br />
+                </div>
+                <div>
+                  <b className={styles.greenText}>Features/Tags</b>: <br />
+                  {gameTags} <br />
+                  <br />
+                </div>
               </div>
             </div>
             <div className={styles.screenshotContainer}>
