@@ -25,6 +25,10 @@
     
 }
 
+.markdown {
+    color: white;
+}
+
 .screenshotContainer {
     display: flex;
     flex-wrap: wrap;

@@ -55,11 +55,25 @@ export default function DetailsCard({
             <div className={styles.displayattributes}>
               <div className={styles.descriptionContainer}>
                 <b className={styles.greenText}>Description</b>: <br />
-                {showMore
-                  ? gameDescription
-                  : gameDescription
-                  ? `${gameDescription.substring(0, 250)}...`
-                  : "Description not available"}
+                <div className={styles.whiteText}>
+                  <Markdown
+                    options={{
+                      overrides: {
+                        pre: {
+                          component: "p", // Replace <pre> with <p>
+                        },
+                      },
+                    }}
+                    className={styles.markdown}
+                    
+                  >
+                    {showMore
+                      ? gameDescription
+                      : gameDescription
+                      ? `${gameDescription.substring(0, 250)}...`
+                      : "Description not available"}
+                  </Markdown>
+                </div>
                 <div className={styles.whiteText}>
                   <div>
                     <ButtonDetails
