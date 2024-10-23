@@ -151,7 +151,7 @@ export default function DetailsCard({
                       rel="noopener noreferrer"
                       className={styles.whiteText}
                     >
-                      {gameWebsite}
+                      Link
                     </a>
                   ) : (
                     <span className={styles.whiteText}>Data not available</span>
