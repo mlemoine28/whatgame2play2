@@ -53,7 +53,7 @@ export default function DetailsCard({
 
           <div className={styles.displaycardcontent}>
             <div className={styles.displayattributes}>
-              <div>
+              <div className={styles.descriptionContainer}>
                 <b className={styles.greenText}>Description</b>: <br />
                 {showMore
                   ? gameDescription
@@ -63,9 +63,9 @@ export default function DetailsCard({
                 <div className={styles.whiteText}>
                   <div>
                     <ButtonDetails
-                      label="Show More"
+                      label={showMore ? "Show less" : "Show more"}
                       handleClick={() => setShowMore(!showMore)}
-                    />
+                    ></ButtonDetails>
                   </div>
                 </div>
                 <br />
@@ -168,7 +168,7 @@ export default function DetailsCard({
                     : "Tags not available"}
                   <div>
                     <ButtonDetails
-                      label="Show More"
+                      label={showMoreTags ? "Show less" : "Show more"}
                       handleClick={() => setShowMoreTags(!showMoreTags)}
                     />
                   </div>
