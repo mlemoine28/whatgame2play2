@@ -58,7 +58,7 @@ export default function DetailsCard({
                 {showMore
                   ? gameDescription
                   : gameDescription
-                  ? `${gameDescription.substring(0, 250)}`
+                  ? `${gameDescription.substring(0, 250)}...`
                   : "Description not available"}
                 <div className={styles.whiteText}>
                   <div>
@@ -164,7 +164,7 @@ export default function DetailsCard({
                   {showMoreTags
                     ? gameTags
                     : gameTags
-                    ? `${gameTags.substring(0, 50)}`
+                    ? `${gameTags.substring(0, 50)}...`
                     : "Tags not available"}
                   <div>
                     <ButtonDetails
