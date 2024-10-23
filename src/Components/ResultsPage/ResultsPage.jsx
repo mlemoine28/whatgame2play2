@@ -88,7 +88,7 @@ function ResultsPage() {
         <div>No games to show</div>
       )}
 
-      <div>
+      <div className={styles.buttoncontainer}>
         <ButtonPage
           disabled={pageNumber === 1 || !games}
           label="Previous Page"
@@ -104,7 +104,9 @@ function ResultsPage() {
           label="Next Page"
           handleClick={() => setPageNumber((currentPage) => currentPage + 1)}
         />
+        
       </div>
+      <div className={styles.bottomContainer}></div>
     </div>
   );
 }
