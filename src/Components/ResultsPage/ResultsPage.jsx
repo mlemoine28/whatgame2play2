@@ -89,23 +89,33 @@ function ResultsPage() {
       )}
 
       <div className={styles.buttoncontainer}>
-        <ButtonPage
-          disabled={pageNumber === 1 || !games}
-          label="Previous Page"
-          handleClick={() => setPageNumber((currentPage) => currentPage - 1)}
-          //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
-          //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
-        />
-        <ButtonPage label="Search Again" handleClick={homeButtonClick} />
-        <ButtonPage
-          disabled={
-            games?.length < 5 || !games || gamesCount === pageSize * pageNumber
-          }
-          label="Next Page"
-          handleClick={() => setPageNumber((currentPage) => currentPage + 1)}
-        />
-        
+        {loading ? null : (
+          <div>
+            <ButtonPage
+              disabled={pageNumber === 1 || !games}
+              label="Previous Page"
+              handleClick={() =>
+                setPageNumber((currentPage) => currentPage - 1)
+              }
+              //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
+              //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
+            />
+            <ButtonPage label="Search Again" handleClick={homeButtonClick} />
+            <ButtonPage
+              disabled={
+                games?.length < 5 ||
+                !games ||
+                gamesCount === pageSize * pageNumber
+              }
+              label="Next Page"
+              handleClick={() =>
+                setPageNumber((currentPage) => currentPage + 1)
+              }
+            />
+          </div>
+        )}
       </div>
+
       <div className={styles.bottomContainer}></div>
     </div>
   );
