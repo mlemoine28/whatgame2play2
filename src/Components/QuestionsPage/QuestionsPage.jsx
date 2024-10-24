@@ -70,7 +70,7 @@ function QuestionsPage() {
   //tags
   useEffect(() => {
     fetchAndFormatData(
-      `https://api.rawg.io/api/tags?key=${
+      `https://api.rawg.io/api/tags?page_size=40&key=${
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
       }`,
       formatList
