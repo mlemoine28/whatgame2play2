@@ -1,6 +1,6 @@
 .container {
  color: rgb(0, 119, 255);
-background-color: #000040;
+background-color: #010622;
 display: flex;
 flex-direction: column;
 
@@ -36,7 +36,7 @@ height: 100vh;
  align-items: flex-start;
  gap: 20px;
  padding: 20px;
- background-color: #000040;
+ background-color: #010622;
  margin-top: 0rem;
  min-height: 100vh;
 }

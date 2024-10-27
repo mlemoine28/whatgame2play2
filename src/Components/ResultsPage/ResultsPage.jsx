@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 import ButtonDetails from "../Button/ButtonDetails.jsx";
 import ButtonList from "../Button/ButtonList.jsx";
 import { Spinner } from "react-bootstrap";
+import Pagination from "react-bootstrap/Pagination";
 
 function ResultsPage() {
   const location = useLocation();
@@ -87,6 +88,26 @@ function ResultsPage() {
       ) : (
         <div>No games to show</div>
       )}
+      <Pagination>
+        <Pagination.First onClick={() => setPageNumber(1)} />
+        <Pagination.Prev
+          onClick={() => setPageNumber((currentPage) => currentPage - 1)}
+        />
+        <Pagination.Item>{1}</Pagination.Item>
+        <Pagination.Item>{2}</Pagination.Item>
+        <Pagination.Item>{3}</Pagination.Item>
+        <Pagination.Ellipsis />
+        <Pagination.Item>{5}</Pagination.Item>
+        <Pagination.Item disabled>{14}</Pagination.Item>
+
+        <Pagination.Ellipsis />
+        <Pagination.Item>{20}</Pagination.Item>
+        <Pagination.Next
+          onClick={() => setPageNumber((currentPage) => currentPage + 1)}
+        />
+        <Pagination.Last />
+      </Pagination>
+      <br />
 
       <div className={styles.buttoncontainer}>
         {loading ? null : (
