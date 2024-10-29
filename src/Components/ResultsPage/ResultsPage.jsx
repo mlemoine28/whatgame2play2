@@ -88,44 +88,65 @@ function ResultsPage() {
       ) : (
         <div>No games to show</div>
       )}
-      <Pagination>
-        <Pagination.First onClick={() => setPageNumber(1)} />
-        <Pagination.Prev
-          onClick={() => setPageNumber((currentPage) => currentPage - 1)}
-        />
-        <Pagination.Item onClick={() => setPageNumber(1)}>{1}</Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(2)}>{2}</Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(3)}>{3}</Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(4)}>{4}</Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(5)}>{5}</Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(6)}>{6}</Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(7)}>{7}</Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(8)}>{8}</Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(9)}>{9}</Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(10)}>
-          {10}
-        </Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(11)}>
-          {11}
-        </Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(12)}>
-          {12}
-        </Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(13)}>
-          {13}
-        </Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(14)}>
-          {14}
-        </Pagination.Item>
-        <Pagination.Item onClick={() => setPageNumber(15)}>
-          {15}
-        </Pagination.Item>
 
-        <Pagination.Next
-          onClick={() => setPageNumber((currentPage) => currentPage + 1)}
-        />
-        <Pagination.Last />
-      </Pagination>
+      {loading ? null : (
+        <Pagination>
+          <Pagination.First onClick={() => setPageNumber(1)} />
+          <Pagination.Prev
+            onClick={() => setPageNumber((currentPage) => currentPage - 1)}
+          />
+          <Pagination.Item onClick={() => setPageNumber(1)}>
+            {1}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(2)}>
+            {2}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(3)}>
+            {3}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(4)}>
+            {4}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(5)}>
+            {5}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(6)}>
+            {6}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(7)}>
+            {7}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(8)}>
+            {8}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(9)}>
+            {9}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(10)}>
+            {10}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(11)}>
+            {11}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(12)}>
+            {12}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(13)}>
+            {13}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(14)}>
+            {14}
+          </Pagination.Item>
+          <Pagination.Item onClick={() => setPageNumber(15)}>
+            {15}
+          </Pagination.Item>
+
+          <Pagination.Next
+            onClick={() => setPageNumber((currentPage) => currentPage + 1)}
+          />
+          <Pagination.Last />
+        </Pagination>
+      )}
       <br />
 
       <div className={styles.buttoncontainer}>
