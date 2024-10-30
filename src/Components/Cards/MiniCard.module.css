@@ -46,8 +46,19 @@
   }
 .buttoncontainer {
        display: flex;
+      
+       justify-content: center;
+       align-items: center;
   
 }
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    
+}
+
   .detailsText {
     font-size: 1rem;
    text-align: center;
@@ -77,17 +88,18 @@
     
   
 .containerdisplay,
-.containerdisplay2 {
+.containerdisplay2
+.containerdisplay3 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
-    padding: 20px;
+    padding: 15px;
     background-color: #010622;
     margin-top: 0rem;
-    min-height: 20vh;
+    min-height: 10vh;
     
 }
 
@@ -95,8 +107,12 @@
     margin-top: 3rem;
    max-width: 115vh;
    color: white
-   
     
+}
+
+.containerdisplay3 {
+    
+    background-color: #010622;
 }
 
 .bottomContainer {
@@ -106,7 +122,7 @@
 .displaycard {
     background-color: #222;
     color: white;
-    width: 20rem;
+    width: 19rem;
     height: 30.5rem;
     min-height: 300px;
     border: 1px solid white;
@@ -115,7 +131,8 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
-    margin-top: 3rem;
+    
+    scale: 90%;
 }
 
 .displaycardtitle {

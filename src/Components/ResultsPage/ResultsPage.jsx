@@ -22,6 +22,11 @@ function ResultsPage() {
   const [games, setGames] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [activePage, setActivePage] = useState(1);
+  const handlePageClick = (page) => {
+    setPageNumber(page);
+    setActivePage(page);
+  };
 
   const {
     selectedPlatforms,
@@ -64,90 +69,78 @@ function ResultsPage() {
     console.log("More Details button clicked for game:", game);
     navigate(`/game/${game.id}`, { state: { game } });
   };
+
+  const totalPages = Math.ceil(gamesCount / pageSize);
+  const maxDisplayedPages = 25;
+
   return (
-    <div className={styles.containerdisplay}>
-      {loading ? (
-        <div>
-          <Spinner animation="border" role="status" variant="info">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
-      ) : games?.length > 0 ? (
-        games.map((game, i) => (
-          <div key={i}>
-            <MiniCardDisplay
-              gameTitle={game.name}
-              gameRelease={game.released}
-              gameMetacritic={game.metacritic}
-              gameImage={game.background_image}
-              gameLength={game.playtime}
-              handleMoreDetails={() => handleMoreDetails(game)}
-            />
+    <div className={styles.containerdisplay} style={{ paddingTop: "3rem" }}>
+      <div className={styles.pagination}>
+      {loading
+        ? null
+        : (() => {
+            let items = [];
+
+            items.push(
+              <Pagination.Item
+                key={1}
+                active={pageNumber === 1}
+                onClick={() => setPageNumber(1)}
+              >
+                1
+              </Pagination.Item>
+            );
+
+            const pagesToShow = Math.min(totalPages - 2, maxDisplayedPages - 2);
+
+            for (let page = 2; page <= totalPages - 1; page++) {
+              if (items.length < pagesToShow + 2) {
+                items.push(
+                  <Pagination.Item
+                    key={page}
+                    active={page === pageNumber}
+                    onClick={() => setPageNumber(page)}
+                  >
+                    {page}
+                  </Pagination.Item>
+                );
+              }
+            }
+
+            return (
+              <div>
+                <Pagination>{items}</Pagination>
+              </div>
+            );
+          })()}
           </div>
-        ))
-      ) : (
-        <div>No games to show</div>
-      )}
 
-      {loading ? null : (
-        <Pagination>
-          <Pagination.First onClick={() => setPageNumber(1)} />
-          <Pagination.Prev
-            onClick={() => setPageNumber((currentPage) => currentPage - 1)}
-          />
-          <Pagination.Item onClick={() => setPageNumber(1)}>
-            {1}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(2)}>
-            {2}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(3)}>
-            {3}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(4)}>
-            {4}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(5)}>
-            {5}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(6)}>
-            {6}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(7)}>
-            {7}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(8)}>
-            {8}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(9)}>
-            {9}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(10)}>
-            {10}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(11)}>
-            {11}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(12)}>
-            {12}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(13)}>
-            {13}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(14)}>
-            {14}
-          </Pagination.Item>
-          <Pagination.Item onClick={() => setPageNumber(15)}>
-            {15}
-          </Pagination.Item>
+      <div className={styles.containerdisplay} style={{ paddingTop: "0rem" }}>
+        {loading ? (
+          <div>
+            <Spinner animation="border" role="status" variant="info">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        ) : games?.length > 0 ? (
+          games.map((game, i) => (
+            <div key={i}>
+              <MiniCardDisplay
+                gameTitle={game.name}
+                gameRelease={game.released}
+                gameMetacritic={game.metacritic}
+                gameImage={game.background_image}
+                gameLength={game.playtime}
+                handleMoreDetails={() => handleMoreDetails(game)}
+              />
+            </div>
+          ))
+        ) : (
+          <div>No games to show</div>
+        )}
 
-          <Pagination.Next
-            onClick={() => setPageNumber((currentPage) => currentPage + 1)}
-          />
-          <Pagination.Last />
-        </Pagination>
-      )}
-      <br />
+        <br />
+      </div>
 
       <div className={styles.buttoncontainer}>
         {loading ? null : (
@@ -163,11 +156,7 @@ function ResultsPage() {
             />
             <ButtonPage label="Search Again" handleClick={homeButtonClick} />
             <ButtonPage
-              disabled={
-                games?.length < 5 ||
-                !games ||
-                gamesCount === pageSize * pageNumber
-              }
+              disabled={pageNumber === 25 || !games}
               label="Next Page"
               handleClick={() =>
                 setPageNumber((currentPage) => currentPage + 1)
@@ -176,7 +165,6 @@ function ResultsPage() {
           </div>
         )}
       </div>
-
       <div className={styles.bottomContainer}></div>
     </div>
   );
