@@ -4,3 +4,5 @@ import { useEffect, useState } from "react";
 function PlaylistPage() {
 
 }
+
+export default PlaylistPage;

@@ -9,6 +9,7 @@ import NavBarTop from "./Components/NavBar/NavBar";
 import ResultsPage from "./Components/ResultsPage/ResultsPage";
 import DetailsPage from "./Components/DetailsPage/DetailsPage";
 import EnableScroll from "./Components/EnableScroll/EnableScroll";
+import PlaylistPage from "./Components/PlaylistPage/PlaylistPage";
 
 function App() {
   return (
