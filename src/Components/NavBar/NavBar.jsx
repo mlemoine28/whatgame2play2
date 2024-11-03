@@ -13,6 +13,11 @@ function NavBarTop() {
   const backToHomeClick = () => {
     navigate("/home");
   };
+
+  const playlistButtonClick = () => {
+    navigate("/playlist");
+  };
+
   return (
     <Navbar expand="lg" className={styles.navBarStyle}>
       <Container>
@@ -25,7 +30,10 @@ function NavBarTop() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>My Games Playlist</Nav.Link>
+            <Nav.Link onClick={playlistButtonClick}>
+              {" "}
+              My Games Playlist
+            </Nav.Link>
 
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

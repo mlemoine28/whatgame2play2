@@ -18,6 +18,7 @@ function ResultsPage() {
   const homeButtonClick = () => {
     navigate("/questions");
   };
+  
   const [gamesCount, setGamesCount] = useState(0);
   const [games, setGames] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
