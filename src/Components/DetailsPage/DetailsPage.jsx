@@ -4,6 +4,7 @@ import MiniCardDisplay from "../Cards/MiniCardDisplay";
 import styles from "./DetailsPage.module.css";
 import DetailsCard from "../Cards/DetailsCard";
 import { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
 import { Spinner } from "react-bootstrap";
 
 export default function DetailsPage({}) {
@@ -58,31 +59,37 @@ export default function DetailsPage({}) {
           <Spinner animation="border" variant="info" />
         </div>
       ) : (
-        <DetailsCard
-          gameTitle={detailedGame?.name}
-          gameRelease={detailedGame?.released}
-          gameDeveloper={detailedGame?.developers
-            ?.map((developer) => developer.name)
-            .join(", ")}
-          gamePublisher={detailedGame?.publishers
-            ?.map((publisher) => publisher.name)
-            .join(", ")}
-          gameMetacritic={detailedGame?.metacritic}
-          gameWebsite={detailedGame?.website}
-          gameImage={detailedGame?.background_image}
-          gameLength={detailedGame?.playtime}
-          gamePlatforms={detailedGame?.platforms
-            ?.map((platform) => platform.platform.name)
-            .join(", ")}
-          gameGenres={detailedGame?.genres
-            ?.map((genre) => genre.name)
-            .join(", ")}
-          gameAchievements={detailedGame?.achievements_count}
-          gameDescription={detailedGame?.description_raw}
-          gameImage2={detailedGame?.background_image_additional}
-          gameScreenshots={screenshots?.results}
-          gameTags={detailedGame?.tags?.map((tag) => tag.name).join(", ")}
-        />
+        <div>
+          <Button variant="primary" size="sm" style={{ marginLeft: "55rem", marginTop: "2rem", scale: "70%" }}>
+            <h1>+Add to Playlist</h1>
+          </Button>
+
+          <DetailsCard
+            gameTitle={detailedGame?.name}
+            gameRelease={detailedGame?.released}
+            gameDeveloper={detailedGame?.developers
+              ?.map((developer) => developer.name)
+              .join(", ")}
+            gamePublisher={detailedGame?.publishers
+              ?.map((publisher) => publisher.name)
+              .join(", ")}
+            gameMetacritic={detailedGame?.metacritic}
+            gameWebsite={detailedGame?.website}
+            gameImage={detailedGame?.background_image}
+            gameLength={detailedGame?.playtime}
+            gamePlatforms={detailedGame?.platforms
+              ?.map((platform) => platform.platform.name)
+              .join(", ")}
+            gameGenres={detailedGame?.genres
+              ?.map((genre) => genre.name)
+              .join(", ")}
+            gameAchievements={detailedGame?.achievements_count}
+            gameDescription={detailedGame?.description_raw}
+            gameImage2={detailedGame?.background_image_additional}
+            gameScreenshots={screenshots?.results}
+            gameTags={detailedGame?.tags?.map((tag) => tag.name).join(", ")}
+          />
+        </div>
       )}
     </div>
   );
