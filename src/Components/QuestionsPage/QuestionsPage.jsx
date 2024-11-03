@@ -78,11 +78,7 @@ function QuestionsPage() {
   }, []);
 
   const submitButtonClick = () => {
-    if (
-      selectedPlatforms.length > 0 ||
-      selectedGenres.length > 0 ||
-      selectedTags.length > 0
-    ) {
+    if (selectedPlatforms.length > 0 && selectedGenres.length > 0) {
       const platformParams = selectedPlatforms
         //selectedPlatforms is from the ARRAY at the beginning (defined in the useState function).
         .map((option) => option.value)
@@ -92,6 +88,7 @@ function QuestionsPage() {
         .join(",");
 
       //So, platformParams will be a string that lists all the selected platform values, separated by commas.
+
       const tagParams = selectedTags.map((option) => option.value).join(",");
 
       navigate("/games", {
@@ -125,7 +122,7 @@ function QuestionsPage() {
     },
     {
       id: 3,
-      title: "Tags",
+      title: "Tags (optional)",
       questionText: "What tags or features are you looking for?",
       generateList: tagList,
       selected: selectedTags,
@@ -154,10 +151,13 @@ function QuestionsPage() {
               ></FormSubmit>
             </MiniCardQuestions>
           ))}
-          <ButtonSubmit
+          <ButtonPage
+            disabled={
+              selectedPlatforms.length === 0 || selectedGenres.length === 0
+            }
             label="Submit"
             handleClick={submitButtonClick}
-          ></ButtonSubmit>
+          ></ButtonPage>
         </div>
       </div>
     </div>

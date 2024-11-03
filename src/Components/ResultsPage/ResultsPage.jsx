@@ -38,15 +38,27 @@ function ResultsPage() {
   const pageSize = 5;
 
   useEffect(() => {
-    const apiURL = `https://api.rawg.io/api/games?key=${
-      import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-    }&platforms=${platformParams}&genres=${genreParams}&tags=${tagParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
-    console.log({
-      apiURL,
-      platformParams,
-      genreParams,
-      tagParams,
-    });
+    let apiURL;
+    if (tagParams) {
+      apiURL = `https://api.rawg.io/api/games?key=${
+        import.meta.env.VITE_REACT_APP_RAWG_API_KEY
+      }&platforms=${platformParams}&genres=${genreParams}&tags=${tagParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
+      console.log({
+        apiURL,
+        platformParams,
+        genreParams,
+        tagParams,
+      });
+    } else {
+      apiURL = `https://api.rawg.io/api/games?key=${
+        import.meta.env.VITE_REACT_APP_RAWG_API_KEY
+      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
+      console.log({
+        apiURL,
+        platformParams,
+        genreParams,
+      });
+    }
 
     const fetchData = async () => {
       try {
@@ -76,44 +88,47 @@ function ResultsPage() {
   return (
     <div className={styles.containerdisplay} style={{ paddingTop: "3rem" }}>
       <div className={styles.pagination}>
-      {loading
-        ? null
-        : (() => {
-            let items = [];
+        {loading
+          ? null
+          : (() => {
+              let items = [];
 
-            items.push(
-              <Pagination.Item
-                key={1}
-                active={pageNumber === 1}
-                onClick={() => setPageNumber(1)}
-              >
-                1
-              </Pagination.Item>
-            );
+              items.push(
+                <Pagination.Item
+                  key={1}
+                  active={pageNumber === 1}
+                  onClick={() => setPageNumber(1)}
+                >
+                  1
+                </Pagination.Item>
+              );
 
-            const pagesToShow = Math.min(totalPages - 2, maxDisplayedPages - 2);
+              const pagesToShow = Math.min(
+                totalPages - 2,
+                maxDisplayedPages - 2
+              );
 
-            for (let page = 2; page <= totalPages - 1; page++) {
-              if (items.length < pagesToShow + 2) {
-                items.push(
-                  <Pagination.Item
-                    key={page}
-                    active={page === pageNumber}
-                    onClick={() => setPageNumber(page)}
-                  >
-                    {page}
-                  </Pagination.Item>
-                );
+              for (let page = 2; page <= totalPages - 1; page++) {
+                if (items.length < pagesToShow + 2) {
+                  items.push(
+                    <Pagination.Item
+                      key={page}
+                      active={page === pageNumber}
+                      onClick={() => setPageNumber(page)}
+                    >
+                      {page}
+                    </Pagination.Item>
+                  );
+                }
               }
-            }
 
-            return (
-              <div>
-                <Pagination>{items}</Pagination>
-              </div>
-            );
-          })()}
-          </div>
+              return (
+                <div>
+                  <Pagination>{items}</Pagination>
+                </div>
+              );
+            })()}
+      </div>
 
       <div className={styles.containerdisplay} style={{ paddingTop: "0rem" }}>
         {loading ? (

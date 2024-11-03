@@ -22,6 +22,7 @@ function App() {
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/games" element={<ResultsPage />} />
         <Route path="/game/:id" element={<DetailsPage />} />
+        <Route path="/playlist" element={<PlaylistPage />} />
       </Routes>
       <Socials />
     </BrowserRouter>
