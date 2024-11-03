@@ -13,6 +13,7 @@ export default function DetailsPage({}) {
   const [detailedGame, setDetailedGame] = useState(null);
   const [screenshots, setScreenShots] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [gameAdd, setGameAdd] = useState(null);
 
   useEffect(
     () => {
@@ -52,6 +53,11 @@ export default function DetailsPage({}) {
 
   console.log("Screenshots found:", screenshots);
 
+  const playlistButtonClick = (game) => {
+    setGameAdd(game);
+    navigate(`/playlist/`, { state: { game } });
+    console.log(gameAdd);
+  };
   return (
     <div className={styles.containerdisplay}>
       {loading ? (
@@ -60,7 +66,12 @@ export default function DetailsPage({}) {
         </div>
       ) : (
         <div>
-          <Button variant="primary" size="sm" style={{ marginLeft: "55rem", marginTop: "2rem", scale: "70%" }}>
+          <Button
+            variant="primary"
+            size="sm"
+            style={{ marginLeft: "55rem", marginTop: "2rem", scale: "70%" }}
+            onClick={playlistButtonClick}
+          >
             <h1>+Add to Playlist</h1>
           </Button>
 
