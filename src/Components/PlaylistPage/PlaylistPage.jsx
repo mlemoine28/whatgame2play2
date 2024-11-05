@@ -3,25 +3,36 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../Cards/MiniCard.module.css";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
+import MiniCardDisplay from "../Cards/MiniCardDisplay";
+import { Spinner } from "react-bootstrap";
 
 function PlaylistPage() {
   const { playlist } = usePlaylist();
+  const [loading, setLoading] = useState(false);
 
   return (
-    <div
-      className={styles.container}
-      style={{ paddingTop: "2rem", color: "#39FF14" }}
-    >
-      <h1>My Games2Play</h1>
-      {playlist.length === 0 ? (
-        <p>No games added yet!</p>
-      ) : (
-        playlist.map((game, index) => (
-          <div key={index}>
-            <h2>{game.name}</h2>
-            <p>{game.description}</p>
+    <div className={styles.containerdisplay} style={{ paddingTop: "0rem" }}>
+      {loading ? (
+        <div>
+          <Spinner animation="border" role="status" variant="info">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      ) : playlist?.length > 0 ? (
+        playlist.map((game, i) => (
+          <div key={i}>
+            <MiniCardDisplay
+              gameTitle={game.name}
+              gameRelease={game.released}
+              gameMetacritic={game.metacritic}
+              gameImage={game.background_image}
+              gameLength={game.playtime}
+              handleMoreDetails={() => handleMoreDetails(game)}
+            />
           </div>
         ))
+      ) : (
+        <div>No games to show</div>
       )}
     </div>
   );
