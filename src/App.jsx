@@ -10,23 +10,26 @@ import ResultsPage from "./Components/ResultsPage/ResultsPage";
 import DetailsPage from "./Components/DetailsPage/DetailsPage";
 import EnableScroll from "./Components/EnableScroll/EnableScroll";
 import PlaylistPage from "./Components/PlaylistPage/PlaylistPage";
+import { PlaylistProvider } from "./assets/Contexts/PlaylistContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <NavBarTop />
-      <EnableScroll />
-      <Routes>
-        <Route path="/" element={<MiniCardIntro />} />
-        <Route path="/home" element={<MiniCardIntro />} />
-        <Route path="/questions" element={<QuestionsPage />} />
-        <Route path="/games" element={<ResultsPage />} />
-        <Route path="/game/:id" element={<DetailsPage />} />
-        <Route path="/playlist" element={<PlaylistPage />} />
-      </Routes>
-      <Socials />
-    </BrowserRouter>
+    <PlaylistProvider>
+      <BrowserRouter>
+        <Header />
+        <NavBarTop />
+        <EnableScroll />
+        <Routes>
+          <Route path="/" element={<MiniCardIntro />} />
+          <Route path="/home" element={<MiniCardIntro />} />
+          <Route path="/questions" element={<QuestionsPage />} />
+          <Route path="/games" element={<ResultsPage />} />
+          <Route path="/game/:id" element={<DetailsPage />} />
+          <Route path="/playlist" element={<PlaylistPage />} />
+        </Routes>
+        <Socials />
+      </BrowserRouter>
+    </PlaylistProvider>
   );
 }
 export default App;

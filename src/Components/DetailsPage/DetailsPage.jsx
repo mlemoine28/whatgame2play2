@@ -6,6 +6,7 @@ import DetailsCard from "../Cards/DetailsCard";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import { Spinner } from "react-bootstrap";
+import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
 
 export default function DetailsPage({}) {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function DetailsPage({}) {
   const [detailedGame, setDetailedGame] = useState(null);
   const [screenshots, setScreenShots] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [gameAdd, setGameAdd] = useState(null);
+  const { addToPlaylist } = usePlaylist();
 
   useEffect(
     () => {
@@ -53,11 +54,13 @@ export default function DetailsPage({}) {
 
   console.log("Screenshots found:", screenshots);
 
-  const playlistButtonClick = (game) => {
-    setGameAdd(game);
-    navigate(`/playlist/`, { state: { game } });
-    console.log(gameAdd);
+  const playlistButtonClick = () => {
+    if (detailedGame) {
+      addToPlaylist(detailedGame);
+      console.log("Added to playlist:", detailedGame);
+    }
   };
+
   return (
     <div className={styles.containerdisplay}>
       {loading ? (
