@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../Cards/MiniCard.module.css";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
-import MiniCardDisplay from "../Cards/MiniCardDisplay";
+import PlaylistDisplay from "./PlaylistCard";
 import { Spinner } from "react-bootstrap";
 
 function PlaylistPage() {
@@ -21,12 +21,10 @@ function PlaylistPage() {
       ) : playlist?.length > 0 ? (
         playlist.map((game, i) => (
           <div key={i}>
-            <MiniCardDisplay
+            <PlaylistDisplay
               gameTitle={game.name}
-              gameRelease={game.released}
               gameMetacritic={game.metacritic}
               gameImage={game.background_image}
-              gameLength={game.playtime}
               handleMoreDetails={() => handleMoreDetails(game)}
             />
           </div>
