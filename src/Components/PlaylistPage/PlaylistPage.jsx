@@ -5,6 +5,7 @@ import styles from "../Cards/MiniCard.module.css";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
 import PlaylistDisplay from "./PlaylistCard";
 import { Spinner } from "react-bootstrap";
+import MiniCardDisplay from "../Cards/MiniCardDisplay";
 
 function PlaylistPage() {
   const { playlist } = usePlaylist();
@@ -21,11 +22,12 @@ function PlaylistPage() {
       ) : playlist?.length > 0 ? (
         playlist.map((game, i) => (
           <div key={i}>
-            <PlaylistDisplay
+            <MiniCardDisplay
               gameTitle={game.name}
               gameMetacritic={game.metacritic}
               gameImage={game.background_image}
               handleMoreDetails={() => handleMoreDetails(game)}
+              buttonText="Remove From List"
             />
           </div>
         ))

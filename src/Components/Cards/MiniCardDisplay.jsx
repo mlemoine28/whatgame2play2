@@ -18,6 +18,7 @@ export default function MiniCardDisplay({
   gameDescription,
   gameImage2,
   handleMoreDetails,
+  buttonText = "Add to List",
 }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,10 +29,15 @@ export default function MiniCardDisplay({
         <div className={styles.displaycard}>
           <h1 className={styles.displaycardtitle}>{gameTitle}</h1>
           <img
-              src={gameImage}
-              style={{ width: "288px", height: "162px", marginTop: "1rem", border: "1px solid white" }}
-              alt="game"
-            />
+            src={gameImage}
+            style={{
+              width: "288px",
+              height: "162px",
+              marginTop: "1rem",
+              border: "1px solid white",
+            }}
+            alt="game"
+          />
 
           <div className={styles.displaycardcontent}>
             <div className={styles.displayattributes}>
@@ -51,12 +57,12 @@ export default function MiniCardDisplay({
               )}{" "}
               <br />
             </div>
-            
+
             <ButtonDetails
               label="More Details"
               handleClick={handleMoreDetails}
             ></ButtonDetails>
-            <ButtonList label="Add to List" />
+            <ButtonList label={buttonText} />
           </div>
         </div>
       </div>
