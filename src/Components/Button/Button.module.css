@@ -4,7 +4,9 @@
 .buttonpage,
 .buttonList,
 .buttonDetails,
-.buttonIntro {
+.buttonIntro,
+.buttonAdd,
+.buttonBack {
  background-color: blue;
  color: white;
  padding: 10px 20px;
@@ -64,6 +66,16 @@
   
 
 }
+
+.buttonAdd, 
+.buttonBack {
+  scale: 85%;
+  background-color: #4040FF;
+  
+  width: 8rem;
+}
+
+
 
 .buttonhome:hover {
  background-color: #04AA6D; /* Green */

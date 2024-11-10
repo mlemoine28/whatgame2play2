@@ -3,7 +3,7 @@ import styles from "./Button.module.css";
 
 function ButtonList({ label, handleClick }) {
   return (
-    <button className={styles.buttonList} onClick={handleClick}>
+    <button className={styles.buttonAdd} onClick={handleClick}>
       {label}
     </button>
   );

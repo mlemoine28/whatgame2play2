@@ -3,6 +3,7 @@ import styles from "./MiniCard.module.css";
 import FormSubmit from "../FormSubmit/FormSubmit";
 import ButtonList from "../Button/ButtonList";
 import ButtonDetails from "../Button/ButtonDetails";
+import ButtonBack from "../Button/ButtonBack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Markdown from "markdown-to-jsx";
@@ -65,7 +66,6 @@ export default function DetailsCard({
                       },
                     }}
                     className={styles.markdown}
-                    
                   >
                     {showMore
                       ? gameDescription
@@ -191,20 +191,10 @@ export default function DetailsCard({
                 </div>
               </div>
             </div>
-            <div className={styles.screenshotContainer}>
-              <img
-                src={gameImage2}
-                style={{
-                  width: "396px",
-                  height: "216px",
-                  border: "2px solid white",
-                  borderRadius: "5px",
-                }}
-                alt="additionalgameimage"
-              />
-            </div>
+            <div className={styles.buttoncontainer}>
             <ButtonList label={"Add to List"} />
-            <ButtonDetails label="Back" handleClick={backButtonClick} />
+            <ButtonBack label="Back" handleClick={backButtonClick} />
+            </div>
           </div>
         </div>
       </div>
