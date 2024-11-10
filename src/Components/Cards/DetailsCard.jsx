@@ -34,7 +34,7 @@ export default function DetailsCard({
 
   return (
     <div className={styles.containerdisplay2}>
-      <div style={{ textAlign: "center", marginTop: "-2rem" }}>
+      <div style={{ textAlign: "center", marginTop: "-5rem" }}>
         <div>
           <div style={{ textAlign: "center", marginTop: "2rem" }}>
             <h1 style={{ marginBottom: "2.5rem", color: "#39FF14" }}>
