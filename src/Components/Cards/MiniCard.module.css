@@ -46,7 +46,7 @@
   }
 .buttoncontainer {
        display: flex;
-      
+      background-color: #010622;
        justify-content: center;
        align-items: center;
   

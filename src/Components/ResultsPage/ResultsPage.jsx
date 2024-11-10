@@ -159,7 +159,9 @@ function ResultsPage() {
           <br />
         </div>
 
-        <div className={styles.buttoncontainer}>
+        
+      </div>
+      <div className={styles.buttoncontainer}>
           {loading ? null : (
             <div>
               <ButtonPage
@@ -182,7 +184,6 @@ function ResultsPage() {
             </div>
           )}
         </div>
-      </div>
     </div>
   );
 }
