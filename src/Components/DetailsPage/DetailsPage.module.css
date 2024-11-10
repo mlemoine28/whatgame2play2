@@ -105,3 +105,21 @@ display: flex;
 .pText {
  color: white;
 }
+
+.buttonPlaylist {
+  margin-left: 55rem;
+  margin-top: 1rem;
+  scale: 60%;
+  border-radius: 20%;
+  height: 10rem;
+  color: white;
+  transition-duration: 0.4s !important;
+  background-color: blue;
+}
+
+.buttonPlaylist:hover
+{
+  background-color: red !important;
+  
+}
+
