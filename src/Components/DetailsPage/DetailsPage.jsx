@@ -72,10 +72,13 @@ export default function DetailsPage({}) {
           <Button
             variant="primary"
             size="sm"
-            style={{ marginLeft: "55rem", marginTop: "2rem", scale: "70%" }}
+            style={{ marginLeft: "55rem", marginTop: "1rem", scale: "60%", borderRadius: "20%", height: "10rem" }}
             onClick={playlistButtonClick}
           >
-            <h1>+Add to Playlist</h1>
+            <h1 style={{ scale: "250%", paddingBottom:
+              "0.5rem"
+            }}>+</h1>
+            <h3>Add To Playlist</h3>
           </Button>
 
           <DetailsCard

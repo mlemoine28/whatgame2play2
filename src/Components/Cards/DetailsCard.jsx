@@ -34,9 +34,9 @@ export default function DetailsCard({
 
   return (
     <div className={styles.containerdisplay2}>
-      <div>
+      <div style={{ textAlign: "center", marginTop: "-2rem" }}>
         <div>
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center", marginTop: "2rem" }}>
             <h1 style={{ marginBottom: "2.5rem", color: "#39FF14" }}>
               {gameTitle}
             </h1>
@@ -192,7 +192,7 @@ export default function DetailsCard({
               </div>
             </div>
             <div className={styles.buttoncontainer2}>
-              <ButtonList label={"Add to List"} />
+              <ButtonBack label={"Add to List"} />
               <ButtonBack label="Back" handleClick={backButtonClick} />
             </div>
           </div>
