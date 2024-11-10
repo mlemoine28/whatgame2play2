@@ -18,7 +18,7 @@ function ResultsPage() {
   const homeButtonClick = () => {
     navigate("/questions");
   };
-  
+
   const [gamesCount, setGamesCount] = useState(0);
   const [games, setGames] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
@@ -87,7 +87,7 @@ function ResultsPage() {
   const maxDisplayedPages = 25;
 
   return (
-    <div className={styles.containerdisplay} style={{ paddingTop: "3rem" }}>
+    <div>
       <div className={styles.pagination}>
         {loading
           ? null
@@ -131,57 +131,58 @@ function ResultsPage() {
             })()}
       </div>
 
-      <div className={styles.containerdisplay} style={{ paddingTop: "0rem" }}>
-        {loading ? (
-          <div>
-            <Spinner animation="border" role="status" variant="info">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-          </div>
-        ) : games?.length > 0 ? (
-          games.map((game, i) => (
-            <div key={i}>
-              <MiniCardDisplay
-                gameTitle={game.name}
-                gameRelease={game.released}
-                gameMetacritic={game.metacritic}
-                gameImage={game.background_image}
-                gameLength={game.playtime}
-                handleMoreDetails={() => handleMoreDetails(game)}
+      <div className={styles.containerdisplay} style={{ paddingTop: "3rem" }}>
+        <div className={styles.containerdisplay} style={{ paddingTop: "0rem" }}>
+          {loading ? (
+            <div>
+              <Spinner animation="border" role="status" variant="info">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            </div>
+          ) : games?.length > 0 ? (
+            games.map((game, i) => (
+              <div key={i}>
+                <MiniCardDisplay
+                  gameTitle={game.name}
+                  gameRelease={game.released}
+                  gameMetacritic={game.metacritic}
+                  gameImage={game.background_image}
+                  gameLength={game.playtime}
+                  handleMoreDetails={() => handleMoreDetails(game)}
+                />
+              </div>
+            ))
+          ) : (
+            <div>No games to show</div>
+          )}
+
+          <br />
+        </div>
+
+        <div className={styles.buttoncontainer}>
+          {loading ? null : (
+            <div>
+              <ButtonPage
+                disabled={pageNumber === 1 || !games}
+                label="Previous Page"
+                handleClick={() =>
+                  setPageNumber((currentPage) => currentPage - 1)
+                }
+                //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
+                //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
+              />
+              <ButtonPage label="Search Again" handleClick={homeButtonClick} />
+              <ButtonPage
+                disabled={pageNumber === 25 || !games}
+                label="Next Page"
+                handleClick={() =>
+                  setPageNumber((currentPage) => currentPage + 1)
+                }
               />
             </div>
-          ))
-        ) : (
-          <div>No games to show</div>
-        )}
-
-        <br />
+          )}
+        </div>
       </div>
-
-      <div className={styles.buttoncontainer}>
-        {loading ? null : (
-          <div>
-            <ButtonPage
-              disabled={pageNumber === 1 || !games}
-              label="Previous Page"
-              handleClick={() =>
-                setPageNumber((currentPage) => currentPage - 1)
-              }
-              //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
-              //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
-            />
-            <ButtonPage label="Search Again" handleClick={homeButtonClick} />
-            <ButtonPage
-              disabled={pageNumber === 25 || !games}
-              label="Next Page"
-              handleClick={() =>
-                setPageNumber((currentPage) => currentPage + 1)
-              }
-            />
-          </div>
-        )}
-      </div>
-      <div className={styles.bottomContainer}></div>
     </div>
   );
 }
