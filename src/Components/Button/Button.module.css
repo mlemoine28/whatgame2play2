@@ -21,6 +21,7 @@
 
 .disabledButton {
   background-color: grey;
+  margin-bottom: 2.3rem;
   
  }
 
@@ -37,6 +38,10 @@
 
 .buttonsubmit {
   bottom: 1rem;
+ }
+
+ .buttonpage {
+  margin-bottom: 2.3rem;
  }
 
 .buttonhome {
