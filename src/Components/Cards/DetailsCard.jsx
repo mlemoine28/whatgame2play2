@@ -191,9 +191,9 @@ export default function DetailsCard({
                 </div>
               </div>
             </div>
-            <div className={styles.buttoncontainer}>
-            <ButtonList label={"Add to List"} />
-            <ButtonBack label="Back" handleClick={backButtonClick} />
+            <div className={styles.buttoncontainer2}>
+              <ButtonList label={"Add to List"} />
+              <ButtonBack label="Back" handleClick={backButtonClick} />
             </div>
           </div>
         </div>

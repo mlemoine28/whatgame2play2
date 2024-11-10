@@ -24,15 +24,13 @@
   
  }
 
- .buttonpage {
  
- }
 
 .buttonIntro {
   bottom: 0;
 }
 
-.buttonIntro:hover, .buttonstyle:hover, .buttonsubmit:hover, .buttonpage:hover
+.buttonIntro:hover, .buttonstyle:hover, .buttonsubmit:hover, .buttonpage:hover, .buttonList:hover, .buttonAdd:hover, .buttonBack:hover, .buttonDetails:hover
 {
   background-color: navy;
 }
@@ -71,7 +69,7 @@
 .buttonBack {
   scale: 85%;
   background-color: #4040FF;
-  
+  margin: 0;
   width: 8rem;
 }
 

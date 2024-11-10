@@ -48,11 +48,21 @@
 .buttoncontainer {
        display: flex;
       background-color: #010622;
-       justify-content: right;
+       justify-content: center;
        align-items: center;
        
        
   
+}
+
+.buttoncontainer2 {
+    display: flex;
+   background-color: #010622;
+    justify-content: right;
+    align-items: center;
+    
+    
+
 }
 
 
