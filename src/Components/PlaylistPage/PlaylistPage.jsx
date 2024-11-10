@@ -12,7 +12,7 @@ function PlaylistPage() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className={styles.containerdisplay} style={{ paddingTop: "0rem" }}>
+    <div className={styles.containerdisplay} style={{ paddingTop: "0rem", minHeight: "100vh" }}>
       {loading ? (
         <div>
           <Spinner animation="border" role="status" variant="info">
