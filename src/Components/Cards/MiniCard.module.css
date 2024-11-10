@@ -49,6 +49,7 @@
       background-color: #010622;
        justify-content: center;
        align-items: center;
+       
   
 }
 
@@ -101,7 +102,7 @@
     padding: 15px;
     background-color: #010622;
     margin-top: 0rem;
-    min-height: 10vh;
+    
     
 }
 
@@ -150,7 +151,10 @@
 }
 
 
-
+.resultsBottom {
+    min-height: 15vh;
+    background-color: #010622;
+}
     
 
  

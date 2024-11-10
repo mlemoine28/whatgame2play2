@@ -134,7 +134,7 @@ function ResultsPage() {
       <div className={styles.containerdisplay} style={{ paddingTop: "3rem" }}>
         <div className={styles.containerdisplay} style={{ paddingTop: "0rem" }}>
           {loading ? (
-            <div>
+            <div className={styles.bottomContainer}>
               <Spinner animation="border" role="status" variant="info">
                 <span className="visually-hidden">Loading...</span>
               </Spinner>
@@ -158,32 +158,31 @@ function ResultsPage() {
 
           <br />
         </div>
-
-        
       </div>
       <div className={styles.buttoncontainer}>
-          {loading ? null : (
-            <div>
-              <ButtonPage
-                disabled={pageNumber === 1 || !games}
-                label="Previous Page"
-                handleClick={() =>
-                  setPageNumber((currentPage) => currentPage - 1)
-                }
-                //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
-                //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
-              />
-              <ButtonPage label="Search Again" handleClick={homeButtonClick} />
-              <ButtonPage
-                disabled={pageNumber === 25 || !games}
-                label="Next Page"
-                handleClick={() =>
-                  setPageNumber((currentPage) => currentPage + 1)
-                }
-              />
-            </div>
-          )}
-        </div>
+        {loading ? null : (
+          <div>
+            <ButtonPage
+              disabled={pageNumber === 1 || !games}
+              label="Previous Page"
+              handleClick={() =>
+                setPageNumber((currentPage) => currentPage - 1)
+              }
+              //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
+              //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
+            />
+            <ButtonPage label="Search Again" handleClick={homeButtonClick} />
+            <ButtonPage
+              disabled={pageNumber === 25 || !games}
+              label="Next Page"
+              handleClick={() =>
+                setPageNumber((currentPage) => currentPage + 1)
+              }
+            />
+          </div>
+        )}
+      </div>
+      <div className={styles.resultsBottom}></div>
     </div>
   );
 }
