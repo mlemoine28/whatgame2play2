@@ -99,6 +99,7 @@ function ResultsPage() {
                   key={1}
                   active={pageNumber === 1}
                   onClick={() => setPageNumber(1)}
+                  data-bs-theme="dark"
                 >
                   1
                 </Pagination.Item>
@@ -125,7 +126,7 @@ function ResultsPage() {
 
               return (
                 <div>
-                  <Pagination>{items}</Pagination>
+                  <Pagination data-bs-theme="dark">{items}</Pagination>
                 </div>
               );
             })()}

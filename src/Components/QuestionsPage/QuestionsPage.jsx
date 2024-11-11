@@ -147,6 +147,7 @@ function QuestionsPage() {
                 selectedAnswers={question.selected}
                 handleChange={(selectedOption) =>
                   question.setSelected(selectedOption)
+                  
                 }
               ></FormSubmit>
             </MiniCardQuestions>

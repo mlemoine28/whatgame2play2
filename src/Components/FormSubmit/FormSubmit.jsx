@@ -20,13 +20,52 @@ function FormSubmit({
   return (
     <div className={styles.formstyle}>
       <Select
-        value={selectedAnswers}
-        onChange={handleChange}
-        options={options}
-        placeholder={placeholder}
-        isSearchable
-        isMulti={true}
-      ></Select>
+  value={selectedAnswers}
+  onChange={handleChange}
+  options={options}
+  placeholder={placeholder}
+  isSearchable
+  isMulti={true}
+  styles={{
+    control: (base) => ({
+      ...base,
+      backgroundColor: "#345", // Dark background for the select box
+      color: "blue", // Text color
+      borderColor: "#555", // Border color
+    }),
+    menu: (base) => ({
+      ...base,
+      backgroundColor: "#345", // Dark background for the options menu
+      color: "white",
+    }),
+    singleValue: (base) => ({
+      ...base,
+      color: "green", // Selected option color
+    }),
+
+    multiValue: (base) => ({
+      ...base,
+      backgroundColor: "green", // Dark background for selected items
+      color: "white",
+    }),
+    multiValueLabel: (base) => ({
+      ...base,
+      color: "white", // Text color for selected item labels
+    }),
+    option: (base, { isFocused, isSelected }) => ({
+      ...base,
+      backgroundColor: isSelected ? "green" : isFocused ? "green" : "#345",
+      color: "white",
+      "&:hover": {
+        backgroundColor: "green",
+      },
+    }),
+    placeholder: (base) => ({
+      ...base,
+      color: "grey", // Lighter color for placeholder text
+    }),
+  }}
+/>
     </div>
   );
 }
