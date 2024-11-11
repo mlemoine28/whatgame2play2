@@ -77,25 +77,40 @@ export default function DetailsPage({}) {
       ) : (
         <div>
           <Button
-          className={styles.buttonPlaylist}
+            className={styles.buttonPlaylist}
             variant="primary"
             size="sm"
             style={{
-              
-              backgroundColor: clicked ? "rgb(57, 255, 20)" : "#4040FF",
-          
+              color: clicked ? "rgb(57, 255, 20)" : "white",
+
             }}
             onClick={playlistButtonClick}
             disabled={clicked}
           >
             {clicked ? (
               <div>
-                <h1 style={{ scale: "250%", paddingBottom: "0.5rem", width: "14rem" }}>✓</h1>
+                <h1
+                  style={{
+                    scale: "250%",
+                    paddingBottom: "0.5rem",
+                    width: "14rem",
+                  }}
+                >
+                  ✓
+                </h1>
                 <h3>Added!</h3>
               </div>
             ) : (
               <div>
-                <h1 style={{ scale: "250%", paddingBottom: "0.5rem", width: "14rem" }}>+</h1>
+                <h1
+                  style={{
+                    scale: "250%",
+                    paddingBottom: "0.5rem",
+                    width: "14rem",
+                  }}
+                >
+                  +
+                </h1>
                 <h3>Add To Playlist</h3>
               </div>
             )}

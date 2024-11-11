@@ -113,13 +113,13 @@ display: flex;
   border-radius: 20%;
   height: 10rem;
   color: white;
-  transition-duration: 0.4s !important;
-  background-color: blue;
+  transition: 0.4s ease !important;
+  background-color: #000080!important;
 }
 
 .buttonPlaylist:hover
 {
-  background-color: red !important;
+  background-color: rgb(0, 119, 255) !important;
   
 }
 
