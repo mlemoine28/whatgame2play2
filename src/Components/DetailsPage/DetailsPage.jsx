@@ -17,6 +17,8 @@ export default function DetailsPage({}) {
   const [loading, setLoading] = useState(false);
   const { addToPlaylist } = usePlaylist();
   const [clicked, setClicked] = useState(false);
+  const { playlistButtonClick } = usePlaylist();
+
   const backButtonClick = () => {
     navigate("/games");
   };
@@ -58,15 +60,6 @@ export default function DetailsPage({}) {
   console.log("Received game data:", detailedGame); // For debugging
 
   console.log("Screenshots found:", screenshots);
-
-  const playlistButtonClick = () => {
-    if (detailedGame) {
-      addToPlaylist(detailedGame);
-      setClicked(true);
-
-      console.log("Added to playlist:", detailedGame);
-    }
-  };
 
   return (
     <div className={styles.containerdisplay}>

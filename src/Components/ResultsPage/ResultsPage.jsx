@@ -11,6 +11,7 @@ import ButtonDetails from "../Button/ButtonDetails.jsx";
 import ButtonList from "../Button/ButtonList.jsx";
 import { Spinner } from "react-bootstrap";
 import Pagination from "react-bootstrap/Pagination";
+import { usePlaylist } from "../../assets/Contexts/PlaylistContext.jsx";
 
 function ResultsPage() {
   const location = useLocation();
@@ -24,6 +25,8 @@ function ResultsPage() {
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(false);
   const [activePage, setActivePage] = useState(1);
+  const [clicked, setClicked] = useState(false);
+  const { playlistButtonClick } = usePlaylist();
   const handlePageClick = (page) => {
     setPageNumber(page);
     setActivePage(page);

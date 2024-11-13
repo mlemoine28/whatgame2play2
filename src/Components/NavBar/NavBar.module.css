@@ -11,7 +11,7 @@
 
 .navBarStyle a, .navBarStyle p, .navBarStyle h1 {
  color: inherit; 
- scale: 150%;
+ scale: 125%;
  margin-left: 5rem;
  text-decoration: underline !important;
  text-decoration-color: transparent !important;
@@ -22,7 +22,7 @@
 .NavBarPointer, .navBarStyle a, .navBarStyle p, .navBarStyle h1 {
  cursor: pointer;
  color: white!important;
- scale: 150%;
+ scale: 125%;
  border-style: solid;
  border-radius: 25%;
  border-color: #39FF14;

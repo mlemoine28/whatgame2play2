@@ -10,8 +10,19 @@ export const PlaylistProvider = ({ children }) => {
     setPlaylist((prevPlaylist) => [...prevPlaylist, game]);
   };
 
+  const playlistButtonClick = (detailedGame, setClicked) => {
+    if (detailedGame) {
+      addToPlaylist(detailedGame);
+      setClicked(true);
+
+      console.log("Added to playlist:", detailedGame);
+    }
+  };
+
   return (
-    <PlaylistContext.Provider value={{ playlist, addToPlaylist }}>
+    <PlaylistContext.Provider
+      value={{ playlist, addToPlaylist, playlistButtonClick }}
+    >
       {children}
     </PlaylistContext.Provider>
   );

@@ -6,6 +6,7 @@ import ButtonDetails from "../Button/ButtonDetails";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
 
 export default function MiniCardDisplay({
   gameTitle,
@@ -22,6 +23,15 @@ export default function MiniCardDisplay({
 }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { addToPlaylist } = usePlaylist();
+  
+  const playlistButtonClick = () => {
+    if (detailedGame) {
+      addToPlaylist(detailedGame);
+
+      console.log("Added to playlist:", detailedGame);
+    }
+  };
 
   return (
     <div className={styles.containerdisplay}>
@@ -62,7 +72,7 @@ export default function MiniCardDisplay({
               label="More Details"
               handleClick={handleMoreDetails}
             ></ButtonDetails>
-            <ButtonList label={buttonText} />
+            <ButtonList label={buttonText} handleClick={playlistButtonClick} />
           </div>
         </div>
       </div>
