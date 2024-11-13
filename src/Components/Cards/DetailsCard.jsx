@@ -5,7 +5,8 @@ import ButtonList from "../Button/ButtonList";
 import ButtonDetails from "../Button/ButtonDetails";
 import ButtonBack from "../Button/ButtonBack";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
 import Markdown from "markdown-to-jsx";
 
 export default function DetailsCard({
@@ -26,11 +27,21 @@ export default function DetailsCard({
   gameTags,
 }) {
   const navigate = useNavigate();
-  const backButtonClick = () => {
-    navigate("/games");
-  };
+  const location = useLocation();
+  
   const [showMore, setShowMore] = useState(false);
   const [showMoreTags, setShowMoreTags] = useState(false);
+  const { detailedGame } = location.state;
+  const [clicked, setClicked] = useState(false);
+
+  const playlistButtonClick = () => {
+    if (detailedGame) {
+      addToPlaylist(detailedGame);
+      setClicked(true);
+
+      console.log("Added to playlist:", detailedGame);
+    }
+  };
 
   return (
     <div className={styles.containerdisplay2}>
@@ -191,10 +202,7 @@ export default function DetailsCard({
                 </div>
               </div>
             </div>
-            <div className={styles.buttoncontainer2}>
-              <ButtonBack label={"Add to List"} />
-              <ButtonBack label="Back" handleClick={backButtonClick} />
-            </div>
+            
           </div>
         </div>
       </div>

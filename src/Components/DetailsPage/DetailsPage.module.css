@@ -123,3 +123,15 @@ display: flex;
   
 }
 
+.buttoncontainer2 {
+  
+ background-color: #010622;
+  justify-content: left;
+  align-items: center;
+  display: block;
+  
+  
+
+}
+
+

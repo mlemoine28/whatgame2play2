@@ -5,6 +5,7 @@ import styles from "./DetailsPage.module.css";
 import DetailsCard from "../Cards/DetailsCard";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
+import ButtonBack from "../Button/ButtonBack";
 import { Spinner } from "react-bootstrap";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
 
@@ -16,6 +17,9 @@ export default function DetailsPage({}) {
   const [loading, setLoading] = useState(false);
   const { addToPlaylist } = usePlaylist();
   const [clicked, setClicked] = useState(false);
+  const backButtonClick = () => {
+    navigate("/games");
+  };
 
   useEffect(
     () => {
@@ -82,7 +86,6 @@ export default function DetailsPage({}) {
             size="sm"
             style={{
               color: clicked ? "rgb(57, 255, 20)" : "white",
-
             }}
             onClick={playlistButtonClick}
             disabled={clicked}
