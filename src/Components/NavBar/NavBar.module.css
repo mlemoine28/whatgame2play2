@@ -1,7 +1,7 @@
 .navBarStyle {
  background-color: #4040FF;
  position: fixed;
- height: 3.5rem;
+ height: 4.5rem;
  width: 100%;
  color: white; 
  padding-left: 50px;
@@ -16,12 +16,21 @@
  text-decoration: underline !important;
  text-decoration-color: transparent !important;
  transition: 0.4s;
+ 
 }
 
-.NavBarPointer {
+.NavBarPointer, .navBarStyle a, .navBarStyle p, .navBarStyle h1 {
  cursor: pointer;
  color: white!important;
  scale: 150%;
+ border-style: solid;
+ border-radius: 25%;
+ border-color: #39FF14;
+ border-bottom-left-radius: 0%;
+ width: fit-content;
+ padding: 0.5rem;
+ background-color: navy;
+ 
  
  text-decoration: underline !important;
  text-decoration-color: transparent !important;
