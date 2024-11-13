@@ -28,20 +28,13 @@ export default function DetailsCard({
 }) {
   const navigate = useNavigate();
   const location = useLocation();
-  
+  const backButtonClick = () => {
+    navigate("/games");
+  };
   const [showMore, setShowMore] = useState(false);
   const [showMoreTags, setShowMoreTags] = useState(false);
   const { detailedGame } = location.state;
   const [clicked, setClicked] = useState(false);
-
-  const playlistButtonClick = () => {
-    if (detailedGame) {
-      addToPlaylist(detailedGame);
-      setClicked(true);
-
-      console.log("Added to playlist:", detailedGame);
-    }
-  };
 
   return (
     <div className={styles.containerdisplay2}>
@@ -202,7 +195,9 @@ export default function DetailsCard({
                 </div>
               </div>
             </div>
-            
+            <div className={styles.buttoncontainer2}>
+              <ButtonBack label="Back" handleClick={backButtonClick} />
+            </div>
           </div>
         </div>
       </div>

@@ -1,9 +1,10 @@
 .navBarStyle {
  background-color: #4040FF;
  position: fixed;
- height: 3rem;
+ height: 3.5rem;
  width: 100%;
  color: white; 
+ padding-left: 50px;
 }
 
 
@@ -15,6 +16,8 @@
 .NavBarPointer {
  cursor: pointer;
  color: white!important;
+ scale: 150%;
+ padding-right: 15rem;
 }
 
 .NavBarPointer:hover {
