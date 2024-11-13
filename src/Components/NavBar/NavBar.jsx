@@ -31,6 +31,8 @@ function NavBarTop() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={playlistButtonClick}>My Playlist</Nav.Link>
+
+           
           </Nav>
         </Navbar.Collapse>
         <SearchBar />

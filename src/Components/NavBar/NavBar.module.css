@@ -11,15 +11,30 @@
 
 .navBarStyle a, .navBarStyle p, .navBarStyle h1 {
  color: inherit; 
+ scale: 150%;
+ margin-left: 5rem;
+ text-decoration: underline !important;
+ text-decoration-color: transparent !important;
+ transition: 0.4s;
 }
 
 .NavBarPointer {
  cursor: pointer;
  color: white!important;
  scale: 150%;
- padding-right: 15rem;
+ 
+ text-decoration: underline !important;
+ text-decoration-color: transparent !important;
+ transition: 0.4s;
+ 
+ 
 }
 
-.NavBarPointer:hover {
- color: black !important;
+.NavBarPointer:hover, .navBarStyle a:hover {
+ color: #39FF14 !important;
+ text-decoration-color: #39FF14 !important;
+ text-decoration: underline;
+ 
+ 
+
 }
