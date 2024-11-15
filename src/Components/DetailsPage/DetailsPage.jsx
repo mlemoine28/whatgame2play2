@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import MiniCardDisplay from "../Cards/MiniCardDisplay";
 import styles from "./DetailsPage.module.css";
 import DetailsCard from "../Cards/DetailsCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonBack from "../Button/ButtonBack";
 import { Spinner } from "react-bootstrap";
@@ -17,45 +17,72 @@ export default function DetailsPage({}) {
   const [loading, setLoading] = useState(false);
   const { addToPlaylist } = usePlaylist();
   const [clicked, setClicked] = useState(false);
-  const { playlistButtonClick } = usePlaylist();
+  const { playlistButtonClick, playlist } = usePlaylist();
 
   const backButtonClick = () => {
     navigate("/games");
   };
 
-  useEffect(
-    () => {
-      const gameURL = `https://api.rawg.io/api/games/${id}?key=${
-        //If I want to use multiple API requests/calls,
-        import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-      }`;
+  const handlePlaylistClick = () => {
+    playlistButtonClick(detailedGame);
+    setClicked(true);
+  };
 
-      const screenshotsURL = `https://api.rawg.io/api/games/${id}/screenshots?key=${
-        //If I want to use multiple API requests/calls,
-        import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-      }`;
+  const isGameInPlaylist = useMemo(() => {
+    /*
+      playlist is an array
 
-      const fetchData = async (url) => {
-        //the URL is referring to one of the above URL variables that you made (like gameURL, or trailerURL)
-        try {
-          setLoading(true);
-          const response = await fetch(url);
-          const data = await response.json();
-          console.log(data); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
-          setLoading(false);
-          return data;
-        } catch (error) {
-          setLoading(false);
-          console.error("Error fetching data:", error); //use console.error BECAUSE it shows the error in red in the log.
-        }
-      };
+      arrays have MANY functions you can use on them in javascript, some is just one of them
 
-      fetchData(gameURL).then((data) => setDetailedGame(data));
-      fetchData(screenshotsURL).then((data) => setScreenShots(data));
-    },
-    [id],
-    [game_pk]
-  );
+      for example:
+      forEach --> lets you perform a function "for each" item in the array
+      map --> applies a functino to an array and returns a modified array
+      some --> runs a function on every item of the array and returns true or false based on the condition
+      etc.
+    */
+
+    // playlist currently looks like: [{id: 1}, {id: 2}, {id: 4}]
+    // const playlistIds = playlist.map((game) => game.id); // returned value: [1, 2, 4 .. etc]
+    // const check = playlistIds.includes(detailedGame.id);
+
+    // const test = playlist.map(({ id }) => id).includes(detailedGame.id);
+
+    const playlistCheck = playlist.some(
+      (game) => game?.id === detailedGame?.id
+    );
+
+    return playlistCheck;
+  }, [playlist]);
+
+  useEffect(() => {
+    const gameURL = `https://api.rawg.io/api/games/${id}?key=${
+      //If I want to use multiple API requests/calls,
+      import.meta.env.VITE_REACT_APP_RAWG_API_KEY
+    }`;
+
+    const screenshotsURL = `https://api.rawg.io/api/games/${id}/screenshots?key=${
+      //If I want to use multiple API requests/calls,
+      import.meta.env.VITE_REACT_APP_RAWG_API_KEY
+    }`;
+
+    const fetchData = async (url) => {
+      //the URL is referring to one of the above URL variables that you made (like gameURL, or trailerURL)
+      try {
+        setLoading(true);
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data); //you're waiting for the fetch to finish, and you're CONVERTING that fetch response into a Javascript object.
+        setLoading(false);
+        return data;
+      } catch (error) {
+        setLoading(false);
+        console.error("Error fetching data:", error); //use console.error BECAUSE it shows the error in red in the log.
+      }
+    };
+
+    fetchData(gameURL).then((data) => setDetailedGame(data));
+    fetchData(screenshotsURL).then((data) => setScreenShots(data));
+  }, [id, game_pk]);
 
   console.log("Received game data:", detailedGame); // For debugging
 
@@ -80,8 +107,8 @@ export default function DetailsPage({}) {
             style={{
               color: clicked ? "rgb(57, 255, 20)" : "white",
             }}
-            onClick={playlistButtonClick}
-            disabled={clicked}
+            onClick={handlePlaylistClick}
+            disabled={isGameInPlaylist}
           >
             {clicked ? (
               <div>

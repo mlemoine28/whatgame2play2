@@ -12,7 +12,10 @@ function PlaylistPage() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className={styles.containerdisplay} style={{ paddingTop: "0rem", minHeight: "100vh" }}>
+    <div
+      className={styles.containerdisplay}
+      style={{ paddingTop: "0rem", minHeight: "100vh" }}
+    >
       {loading ? (
         <div>
           <Spinner animation="border" role="status" variant="info">
@@ -23,9 +26,7 @@ function PlaylistPage() {
         playlist.map((game, i) => (
           <div key={i}>
             <MiniCardDisplay
-              gameTitle={game.name}
-              gameMetacritic={game.metacritic}
-              gameImage={game.background_image}
+              gameDetails={game}
               handleMoreDetails={() => handleMoreDetails(game)}
               buttonText="Remove From List"
             />

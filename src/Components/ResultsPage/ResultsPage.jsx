@@ -146,11 +146,12 @@ function ResultsPage() {
             games.map((game, i) => (
               <div key={i}>
                 <MiniCardDisplay
-                  gameTitle={game.name}
-                  gameRelease={game.released}
-                  gameMetacritic={game.metacritic}
-                  gameImage={game.background_image}
-                  gameLength={game.playtime}
+                gameDetails={game}
+                  // gameTitle={game.name}
+                  // gameRelease={game.released}
+                  // gameMetacritic={game.metacritic}
+                  // gameImage={game.background_image}
+                  // gameLength={game.playtime}
                   handleMoreDetails={() => handleMoreDetails(game)}
                 />
               </div>
