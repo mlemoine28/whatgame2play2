@@ -100,12 +100,12 @@ export default function DetailsPage({}) {
             variant="primary"
             size="sm"
             style={{
-              color: clicked ? "rgb(57, 255, 20)" : "white",
+              color: isGameInPlaylist || clicked ? "rgb(57, 255, 20)" : "white",
             }}
             onClick={handlePlaylistClick}
             disabled={isGameInPlaylist}
           >
-            {clicked ? (
+            {isGameInPlaylist || clicked ? (
               <div>
                 <h1
                   style={{

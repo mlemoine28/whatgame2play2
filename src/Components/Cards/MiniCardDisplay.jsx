@@ -21,12 +21,18 @@ export default function MiniCardDisplay({
   // gameDescription,
   // gameImage2,
   handleMoreDetails,
-  buttonText = "Add to List",
+  buttonText = "Add To List",
 }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { playlist, playlistButtonClick } = usePlaylist();
   const isGameInPlaylist = usePlaylistCheck(playlist, detailedGame);
+  const [clicked, setClicked] = useState(false);
+
+  const handlePlaylistButtonClick = (detailedGame) => {
+    playlistButtonClick(detailedGame);
+    setClicked(true);
+  };
 
   return (
     <div className={styles.containerdisplay}>
@@ -71,10 +77,14 @@ export default function MiniCardDisplay({
               handleClick={handleMoreDetails}
             ></ButtonDetails>
             <ButtonList
-              label={buttonText}
-              handleClick={() => playlistButtonClick(detailedGame)}
-              disabled={isGameInPlaylist}
-            />
+              label={isGameInPlaylist || clicked ? "Added! ✓" : buttonText}
+              handleClick={() => handlePlaylistButtonClick(detailedGame)}
+              disabled={isGameInPlaylist || clicked}
+              style={{
+                backgroundColor: isGameInPlaylist || clicked ? "gray" : "#4040FF",
+                color: isGameInPlaylist || clicked ? "rgb(57, 255, 20)" : "white",
+              }}
+            ></ButtonList>
           </div>
         </div>
       </div>
