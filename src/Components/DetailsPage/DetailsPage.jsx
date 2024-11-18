@@ -41,18 +41,13 @@ export default function DetailsPage({}) {
       etc.
     */
 
-    // playlist currently looks like: [{id: 1}, {id: 2}, {id: 4}]
-    // const playlistIds = playlist.map((game) => game.id); // returned value: [1, 2, 4 .. etc]
-    // const check = playlistIds.includes(detailedGame.id);
-
-    // const test = playlist.map(({ id }) => id).includes(detailedGame.id);
-
-    const playlistCheck = playlist.some(
-      (game) => game?.id === detailedGame?.id
-    );
+    //playlist currently looks like: [{id: 1}, {id: 2}, {id: 4}]
+    const playlistIds = playlist.map((game) => game.id); // returned value: [1, 2, 4 .. etc]
+    const playlistCheck = playlistIds.includes(detailedGame?.id);
+    console.log("Detailed Game:", detailedGame);
 
     return playlistCheck;
-  }, [playlist]);
+  }, [playlist, detailedGame]);
 
   useEffect(() => {
     const gameURL = `https://api.rawg.io/api/games/${id}?key=${
