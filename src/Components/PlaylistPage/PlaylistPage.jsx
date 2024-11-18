@@ -26,7 +26,7 @@ function PlaylistPage() {
         playlist.map((game, i) => (
           <div key={i}>
             <MiniCardDisplay
-              gameDetails={game}
+              detailedGame={game}
               handleMoreDetails={() => handleMoreDetails(game)}
               buttonText="Remove From List"
             />

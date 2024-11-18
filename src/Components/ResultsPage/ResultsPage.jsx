@@ -146,7 +146,7 @@ function ResultsPage() {
             games.map((game, i) => (
               <div key={i}>
                 <MiniCardDisplay
-                gameDetails={game}
+                detailedGame={game}
                   // gameTitle={game.name}
                   // gameRelease={game.released}
                   // gameMetacritic={game.metacritic}

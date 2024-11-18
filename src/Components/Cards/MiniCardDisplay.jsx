@@ -7,9 +7,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
+import usePlaylistCheck from "../Button/UsePlaylistCheck/usePlaylistCheck";
 
 export default function MiniCardDisplay({
-  gameDetails,
+  detailedGame,
   // gameTitle,
   // gameRelease,
   // gameMetacritic,
@@ -24,18 +25,16 @@ export default function MiniCardDisplay({
 }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { addToPlaylist, playlistButtonClick } = usePlaylist();
-  const handleClick = () => {
-    playlistButtonClick(gameDetails);
-  };
+  const { playlist, playlistButtonClick } = usePlaylist();
+  const isGameInPlaylist = usePlaylistCheck(playlist, detailedGame);
 
   return (
     <div className={styles.containerdisplay}>
       <div>
         <div className={styles.displaycard}>
-          <h1 className={styles.displaycardtitle}>{gameDetails.name}</h1>
+          <h1 className={styles.displaycardtitle}>{detailedGame.name}</h1>
           <img
-            src={gameDetails.background_image}
+            src={detailedGame.background_image}
             style={{
               width: "288px",
               height: "162px",
@@ -47,21 +46,21 @@ export default function MiniCardDisplay({
 
           <div className={styles.displaycardcontent}>
             <div className={styles.displayattributes}>
-              <b>Released</b>: {gameDetails.released} <br />
+              <b>Released</b>: {detailedGame.released} <br />
               <b>Metacritic</b>:
-              {gameDetails.metacritic === null ? (
+              {detailedGame.metacritic === null ? (
                 <span className={styles.pText}> Data not available</span>
               ) : (
-                <span className={styles.pText}> {gameDetails.metacritic}</span>
+                <span className={styles.pText}> {detailedGame.metacritic}</span>
               )}{" "}
               <br />
               <b>Length</b>:
-              {gameDetails.playtime === 0 ? (
+              {detailedGame.playtime === 0 ? (
                 <span className={styles.pText}> Data not available</span>
               ) : (
                 <span className={styles.pText}>
                   {" "}
-                  {gameDetails.playtime} hours
+                  {detailedGame.playtime} hours
                 </span>
               )}{" "}
               <br />
@@ -71,7 +70,11 @@ export default function MiniCardDisplay({
               label="More Details"
               handleClick={handleMoreDetails}
             ></ButtonDetails>
-            <ButtonList label={buttonText} handleClick={handleClick} />
+            <ButtonList
+              label={buttonText}
+              handleClick={() => playlistButtonClick(detailedGame)}
+              disabled={isGameInPlaylist}
+            />
           </div>
         </div>
       </div>

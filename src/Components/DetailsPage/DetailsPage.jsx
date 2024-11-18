@@ -15,7 +15,7 @@ export default function DetailsPage({}) {
   const [detailedGame, setDetailedGame] = useState(null);
   const [screenshots, setScreenShots] = useState(null);
   const [loading, setLoading] = useState(false);
-  const { addToPlaylist } = usePlaylist();
+
   const [clicked, setClicked] = useState(false);
   const { playlistButtonClick, playlist } = usePlaylist();
 
@@ -47,7 +47,7 @@ export default function DetailsPage({}) {
     console.log("Detailed Game:", detailedGame);
 
     return playlistCheck;
-  }, [playlist, detailedGame]);
+  }, [playlist, detailedGame]); //This is the key point here - needs to have detailedGame in the dependency array to work.
 
   useEffect(() => {
     const gameURL = `https://api.rawg.io/api/games/${id}?key=${
