@@ -8,24 +8,24 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 export default function PlaylistCard({
-  gameTitle,
-  gameMetacritic,
-  gameImage,
+  detailedGame,
   handleMoreDetails,
+  buttonText = "Add To List",
+  removeGame,
 }) {
   const navigate = useNavigate();
   const location = useLocation();
   const removeCardClick = () => {
-    
+    removeGame(detailedGame.id);
   };
 
   return (
     <div className={styles.containerdisplay}>
       <div>
         <div className={styles.displaycard}>
-          <h1 className={styles.displaycardtitle}>{gameTitle}</h1>
+          <h1 className={styles.displaycardtitle}>{detailedGame.name}</h1>
           <img
-            src={gameImage}
+            src={detailedGame.background_image}
             style={{
               width: "288px",
               height: "162px",
@@ -36,27 +36,36 @@ export default function PlaylistCard({
           />
 
           <div className={styles.displaycardcontent}>
-            <div
-              className={styles.displayattributes}
-              style={{ textAlign: "center" }}
-            >
+            <div className={styles.displayattributes}>
+              <b>Released</b>: {detailedGame.released} <br />
               <b>Metacritic</b>:
-              {gameMetacritic === null ? (
+              {detailedGame.metacritic === null ? (
                 <span className={styles.pText}> Data not available</span>
               ) : (
-                <span className={styles.pText}> {gameMetacritic}</span>
+                <span className={styles.pText}> {detailedGame.metacritic}</span>
+              )}{" "}
+              <br />
+              <b>Length</b>:
+              {detailedGame.playtime === 0 ? (
+                <span className={styles.pText}> Data not available</span>
+              ) : (
+                <span className={styles.pText}>
+                  {" "}
+                  {detailedGame.playtime} hours
+                </span>
               )}{" "}
               <br />
             </div>
 
             <ButtonDetails
               label="More Details"
-              handleClick={handleMoreDetails}
-            ></ButtonDetails>
-            <ButtonDetails
-              label="Remove from List"
-              handleClick={removeCardClick}
+              handleClick={() =>
+                navigate(`/game/${detailedGame.id}`, {
+                  state: { detailedGame },
+                })
+              }
             />
+            <ButtonDetails label={buttonText} handleClick={removeCardClick} />
           </div>
         </div>
       </div>

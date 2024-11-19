@@ -10,6 +10,10 @@ export const PlaylistProvider = ({ children }) => {
     setPlaylist((prevPlaylist) => [...prevPlaylist, game]);
   };
 
+  const removeFromPlaylist = (gameId) => {
+    setPlaylist((prev) => prev.filter((game) => game.id !== gameId));
+  };
+
   const playlistButtonClick = (detailedGame) => {
     if (detailedGame) {
       addToPlaylist(detailedGame);
@@ -20,7 +24,7 @@ export const PlaylistProvider = ({ children }) => {
 
   return (
     <PlaylistContext.Provider
-      value={{ playlist, addToPlaylist, playlistButtonClick }}
+      value={{ playlist, addToPlaylist, playlistButtonClick, removeFromPlaylist }}
     >
       {children}
     </PlaylistContext.Provider>

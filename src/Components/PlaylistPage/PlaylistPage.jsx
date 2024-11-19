@@ -6,9 +6,10 @@ import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
 import PlaylistDisplay from "./PlaylistCard";
 import { Spinner } from "react-bootstrap";
 import MiniCardDisplay from "../Cards/MiniCardDisplay";
+import PlaylistCard from "./PlaylistCard";
 
 function PlaylistPage() {
-  const { playlist } = usePlaylist();
+  const { playlist, removeFromPlaylist } = usePlaylist();
   const [loading, setLoading] = useState(false);
 
   return (
@@ -25,10 +26,11 @@ function PlaylistPage() {
       ) : playlist?.length > 0 ? (
         playlist.map((game, i) => (
           <div key={i}>
-            <MiniCardDisplay
+            <PlaylistCard
               detailedGame={game}
               handleMoreDetails={() => handleMoreDetails(game)}
               buttonText="Remove From List"
+              removeGame={removeFromPlaylist}
             />
           </div>
         ))
