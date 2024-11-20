@@ -25,7 +25,7 @@
  scale: 125%;
  border-style: solid;
  border-radius: 25%;
- border-color: #39FF14;
+ 
  border-bottom-left-radius: 0%;
  width: fit-content;
  padding: 0.5rem;
@@ -50,7 +50,8 @@
 .playlistButton {
  
  font-weight: bold !important;
- border-color: teal !important;
+ border-color: #39FF14 !important;
+ 
 }
 
 .NavBarPointer {
@@ -58,11 +59,9 @@
   border: 2px solid transparent;
 }
 
-.NavBarPointer:hover {
-  border-color: #aaa; /* Optional: Border color on hover */
-}
+
 
 .active {
-  border-color: teal; /* Active border color */
+  border-color: #39FF14; /* Active border color */
   font-weight: bold;  /* Optional: Emphasize active link */
 }
