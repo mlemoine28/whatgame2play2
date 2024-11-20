@@ -39,7 +39,7 @@ function NavBarTop() {
           <Nav className="me-auto">
             <Nav.Link
               onClick={playlistButtonClick}
-              className={active === "/playlist" ? styles.playlistButton : ""}
+              className={active === "/playlist" ? styles.playlistButton : ""} //no idea why .active doesn't work!!
             >
               {console.log("Active state for Playlist:", active)}
               My Playlist
