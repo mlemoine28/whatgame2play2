@@ -43,7 +43,26 @@
  color: #39FF14 !important;
  text-decoration-color: #39FF14 !important;
  text-decoration: underline;
- 
- 
+}
 
+
+
+.playlistButton {
+ 
+ font-weight: bold !important;
+ border-color: teal !important;
+}
+
+.NavBarPointer {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.NavBarPointer:hover {
+  border-color: #aaa; /* Optional: Border color on hover */
+}
+
+.active {
+  border-color: teal; /* Active border color */
+  font-weight: bold;  /* Optional: Emphasize active link */
 }

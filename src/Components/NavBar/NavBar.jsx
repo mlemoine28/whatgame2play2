@@ -11,10 +11,15 @@ import { useNavigate } from "react-router-dom";
 function NavBarTop() {
   const navigate = useNavigate();
   const backToHomeClick = () => {
+    setActive("/home");
     navigate("/home");
   };
 
+  const [active, setActive] = useState(null);
+
   const playlistButtonClick = () => {
+    setActive("/playlist");
+    console.log("After setting active:", "/playlist");
     navigate("/playlist");
   };
 
@@ -23,16 +28,22 @@ function NavBarTop() {
       <Container>
         <Navbar.Brand
           onClick={backToHomeClick}
-          className={styles.NavBarPointer}
+          className={`${styles.NavBarPointer} ${
+            active === "/home" ? styles.active : ""
+          }`}
         >
           Home
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={playlistButtonClick}>My Playlist</Nav.Link>
-
-           
+            <Nav.Link
+              onClick={playlistButtonClick}
+              className={active === "/playlist" ? styles.playlistButton : ""}
+            >
+              {console.log("Active state for Playlist:", active)}
+              My Playlist
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <SearchBar />
