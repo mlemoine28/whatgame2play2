@@ -47,7 +47,7 @@ function NavBarTop() {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <a className={styles.test}>Heyoooooooooo</a>
+        {/* <a className={styles.test}>Heyoooooooooo</a> */}
         <SearchBar />
       </Container>
     </Navbar>
