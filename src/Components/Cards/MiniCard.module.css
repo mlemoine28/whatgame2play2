@@ -234,3 +234,9 @@
      
      gap: 6rem;
 }
+
+.nogames {
+    font-size: 2rem;
+    color: white;
+    margin-top: 3rem;
+}

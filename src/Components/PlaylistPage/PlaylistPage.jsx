@@ -35,7 +35,7 @@ function PlaylistPage() {
           </div>
         ))
       ) : (
-        <div>No games to show</div>
+        <div className={styles.nogames}>No games added</div>
       )}
     </div>
   );
