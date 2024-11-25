@@ -6,26 +6,46 @@ import GamingConsoles from "../../assets/controller-background.png";
 import ButtonIntro from "../Button/ButtonIntro";
 import NavBarTop from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
+import { useState } from "react";
 
 export default function MiniCardIntro() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const handleIntroButtonClick = () => {
     navigate("/questions");
   };
 
   return (
     <div className={styles.container}>
-      <img src={GamingConsoles} className={styles.cardimage}></img>
-      <div className={styles.titlecontainer}>
+      {loading ? (
         <div>
-          <h1>Discover your next favourite game.</h1>
+          <Spinner animation="border" role="status" variant="info">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
         </div>
-      </div>
-      <div className={styles.textcontainer}>
-        <ButtonIntro label="Get Started" handleClick={handleIntroButtonClick}>
-          {" "}
-        </ButtonIntro>
-      </div>
+      ) : (
+        <div className={styles.container}>
+          <img
+            src={GamingConsoles}
+            className={styles.cardimage}
+            alt="Game Consoles"
+          ></img>
+          <div className={styles.titlecontainer}>
+            <div>
+              <h1>Discover your next favourite game.</h1>
+            </div>
+          </div>
+          <div className={styles.textcontainer}>
+            <ButtonIntro
+              label="Get Started"
+              handleClick={handleIntroButtonClick}
+            >
+              {" "}
+            </ButtonIntro>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
