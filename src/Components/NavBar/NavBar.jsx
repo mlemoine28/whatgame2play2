@@ -64,37 +64,13 @@ function NavBarTop() {
             handleClick={playlistButtonClick}
           ></NavItem>
         </div>
-        <div></div>
+        <Navbar expand="lg" className={styles.navBarStyle}>
+          <div className={styles.searchBarStyle}>
+            <SearchBar placeholder="Search for a game..." data={""}/>
+          </div>
+        </Navbar>
       </div>
     </div>
-
-    // <Navbar expand="lg" className={styles.navBarStyle}>
-    //   <Container>
-    //     <Navbar.Brand
-    //       onClick={backToHomeClick}
-    //       className={`${styles.NavBarPointer} ${
-    //         active === "/home" ? styles.active : ""
-    //       }`}
-    //     >
-    //       Home
-    //     </Navbar.Brand>
-    //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //     <Navbar.Collapse id="basic-navbar-nav">
-
-    //       <Nav className="me-auto">
-    //         <Nav.Link
-    //           onClick={playlistButtonClick}
-    //           className={active === "/playlist" ? styles.playlistButton : ""} //no idea why .active doesn't work!!
-    //         >
-    //           {console.log("Active state for Playlist:", active)}
-    //           My Playlist
-    //         </Nav.Link>
-    //       </Nav>
-    //     </Navbar.Collapse>
-    //     {/* <a className={styles.test}>Heyoooooooooo</a> */}
-    //     <SearchBar />
-    //   </Container>
-    // </Navbar>
   );
 }
 

@@ -26,7 +26,13 @@ text-decoration: underline;
 }
 
 
+.searchBarStyle {
+ 
+ 
+padding-left: 45rem;
 
+  
+}
 
 .navBarStyle a, .navBarStyle p, .navBarStyle h1 {
  color: inherit; 

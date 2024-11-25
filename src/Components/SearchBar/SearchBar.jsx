@@ -1,22 +1,19 @@
 import React from "react";
+import styles from "./SearchBar.module.css";
+import SearchIcon from "@mui/icons-material/Search";
 
-const SearchBar = () => {
- const [searchTerm, setSearchTerm] = React.useState('');
-
- const handleChange = e => {
-   setSearchTerm(e.target.value);
- };
-
- return (
-   <div>
-     <input
-       onChange={handleChange}
-       type="search"
-       placeholder="Search for a game..."
-       value={searchTerm}
-     />
-   </div>
- );
+const SearchBar = ({ placeholder, data }) => {
+  return (
+    <div className={styles.search}>
+      <div className={styles.searchInputs}>
+        <input type="text" placeholder={placeholder} />
+        <div>
+          <SearchIcon />
+        </div>
+      </div>
+      <div className={styles.dataResult}></div>
+    </div>
+  );
 };
 
-export default SearchBar
+export default SearchBar;
