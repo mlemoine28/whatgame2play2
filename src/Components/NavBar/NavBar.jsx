@@ -26,6 +26,12 @@ function NavBarTop() {
     navigate("/playlist");
   };
 
+  const questionsButtonClick = () => {
+    setActive("/questions");
+    console.log("After setting active:", "/questions");
+    navigate("/questions");
+  };
+
   return (
     <div className={styles.NavBarContainer}>
       <div className={styles.navBarStyle}>
@@ -37,6 +43,16 @@ function NavBarTop() {
           <NavItem label="Home" handleClick={backToHomeClick}>
             {" "}
           </NavItem>
+        </div>
+        <div
+          className={`${styles.NavBarPointer} ${
+            active === "/questions" ? styles.active : ""
+          }`}
+        >
+          <NavItem
+            label="Find A Game"
+            handleClick={questionsButtonClick}
+          ></NavItem>
         </div>
         <div
           className={`${styles.NavBarPointer} ${
