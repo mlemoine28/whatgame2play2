@@ -33,7 +33,8 @@ export default function DetailsCard({
   };
   const [showMore, setShowMore] = useState(false);
   const [showMoreTags, setShowMoreTags] = useState(false);
-  const { detailedGame } = location.state;
+  const { detailedGame, game } = location.state;
+  
   const [clicked, setClicked] = useState(false);
 
   return (

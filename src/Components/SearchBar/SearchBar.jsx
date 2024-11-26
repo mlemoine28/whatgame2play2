@@ -4,7 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SearchBar = ({ placeholder, data }) => {
+const SearchBar = ({ placeholder, game }) => {
   const [searchList, setSearchList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
@@ -36,6 +36,10 @@ const SearchBar = ({ placeholder, data }) => {
     fetchAndFormatData(url, formatList).then(setSearchList);
   }, [searchTerm]); // Re-run effect whenever searchTerm changes
 
+  const handleGameClick = (game) => {
+    navigate(`/game/${game.value}`, { state: { game } });
+  };
+
   return (
     <div className={styles.search}>
       <div className={styles.searchInputs}>
@@ -51,7 +55,11 @@ const SearchBar = ({ placeholder, data }) => {
       </div>
       <div className={styles.dataResult}>
         {searchList.map((item) => (
-          <div key={item.value} className={styles.resultItem}>
+          <div
+            key={item.value}
+            className={styles.resultItem}
+            onClick={() => handleGameClick(item)}
+          >
             {item.label}
           </div>
         ))}

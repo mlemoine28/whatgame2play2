@@ -15,9 +15,11 @@ export default function DetailsPage({}) {
   const [detailedGame, setDetailedGame] = useState(null);
   const [screenshots, setScreenShots] = useState(null);
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
 
   const [clicked, setClicked] = useState(false);
   const { playlistButtonClick, playlist } = usePlaylist();
+  const game = location.state?.game;
 
   const backButtonClick = () => {
     navigate("/games");
