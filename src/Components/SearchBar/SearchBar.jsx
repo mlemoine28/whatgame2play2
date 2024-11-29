@@ -53,17 +53,20 @@ const SearchBar = ({ placeholder, game }) => {
           <SearchIcon />
         </div>
       </div>
-      <div className={styles.dataResult}>
-        {searchList.map((item) => (
-          <div
-            key={item.value}
-            className={styles.resultItem}
-            onClick={() => handleGameClick(item)}
-          >
-            {item.label}
-          </div>
-        ))}
-      </div>
+      {searchList.length > 0 && (
+        <div className={styles.dataResult}>
+          {searchList.map((item) => (
+            <div
+              key={item.value}
+              className={styles.resultItem}
+              onClick={() => handleGameClick(item)}
+            >
+              {item.label}
+            </div>
+          ))}
+        </div>
+      )}
+      
     </div>
   );
 };
