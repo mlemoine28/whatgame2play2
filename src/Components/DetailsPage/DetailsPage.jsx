@@ -22,7 +22,11 @@ export default function DetailsPage({}) {
   const game = location.state?.game;
 
   const backButtonClick = () => {
-    navigate("/games");
+    if (location.state?.from) {
+      navigate(location.state.from);
+    } else {
+      navigate(-1);
+    }
   };
 
   const handlePlaylistClick = () => {
@@ -97,44 +101,54 @@ export default function DetailsPage({}) {
         </div>
       ) : (
         <div>
-          <Button
-            className={styles.buttonPlaylist}
-            variant="primary"
-            size="sm"
-            style={{
-              color: isGameInPlaylist || clicked ? "rgb(57, 255, 20)" : "white",
-            }}
-            onClick={handlePlaylistClick}
-            disabled={isGameInPlaylist}
-          >
-            {isGameInPlaylist || clicked ? (
-              <div>
-                <h1
-                  style={{
-                    scale: "250%",
-                    paddingBottom: "0.5rem",
-                    width: "14rem",
-                  }}
-                >
-                  ✓
-                </h1>
-                <h3>Added!</h3>
-              </div>
-            ) : (
-              <div>
-                <h1
-                  style={{
-                    scale: "250%",
-                    paddingBottom: "0.5rem",
-                    width: "14rem",
-                  }}
-                >
-                  +
-                </h1>
-                <h3>Add To Playlist</h3>
-              </div>
-            )}
-          </Button>
+          <div className={styles.buttoncontainer2}>
+            <Button
+              className={styles.buttonPlaylist}
+              variant="primary"
+              size="sm"
+              style={{
+                color:
+                  isGameInPlaylist || clicked ? "rgb(57, 255, 20)" : "white",
+              }}
+              onClick={handlePlaylistClick}
+              disabled={isGameInPlaylist}
+            >
+              {isGameInPlaylist || clicked ? (
+                <div>
+                  <h1
+                    style={{
+                      scale: "250%",
+                      paddingBottom: "0.5rem",
+                      width: "14rem",
+                    }}
+                  >
+                    ✓
+                  </h1>
+                  <h3>Added!</h3>
+                </div>
+              ) : (
+                <div>
+                  <h1
+                    style={{
+                      scale: "250%",
+                      paddingBottom: "0.5rem",
+                      width: "14rem",
+                    }}
+                  >
+                    +
+                  </h1>
+                  <h3>Add To Playlist</h3>
+                </div>
+              )}
+            </Button>
+            <div
+              style={{
+                scale: "140%",
+              }}
+            >
+              <ButtonBack label="Back" handleClick={backButtonClick} />
+            </div>
+          </div>
 
           <DetailsCard
             gameTitle={detailedGame?.name}

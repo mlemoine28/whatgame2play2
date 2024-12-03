@@ -207,8 +207,9 @@ export default function DetailsCard({
                 justifyContent: "center",
                 
               }}
-            >
+            ><div >
               <ButtonBack label="Back" handleClick={backButtonClick} />
+              </div>
             </div>
           </div>
         </div>

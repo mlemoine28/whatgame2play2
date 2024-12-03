@@ -126,9 +126,11 @@ display: flex;
 .buttoncontainer2 {
   
  background-color: #010622;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
-  display: block;
+  display: flex;
+  flex-direction: row-reverse;
+ 
   
   
 

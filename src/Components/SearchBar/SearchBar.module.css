@@ -3,8 +3,9 @@
 }
 
 .search input {
- background-color: white;
+ background-color: #475877;
  border: 0;
+ color: white;
  border-radius: 5px;
  
  font-size: 18px;
@@ -48,8 +49,13 @@ input:focus {
   cursor: pointer;
 }
 
-.dataItem:hover {
- background-color: red;
+.resultItem {
+  background-color: #475877;
+  color: white;
+}
+
+.resultItem:hover {
+ background-color: green;
 }
 
 
@@ -59,10 +65,12 @@ input:focus {
  display: flex;
  align-items: center;
  color: black;
+ 
 }
 
 .dataItem p {
  margin-left: 10px;
+ 
 }
 a {
  text-decoration: none;
@@ -73,6 +81,4 @@ a {
 #clearBtn {
  cursor: pointer;
 }
-
-
 
