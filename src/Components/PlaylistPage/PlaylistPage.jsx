@@ -47,7 +47,7 @@ function PlaylistPage() {
       ) : (
         <div className={styles.nogames}>No games added</div>
       )}
-      <div style={{ marginTop: "3rem", scale: "140%", marginLeft: "3rem" }}>
+      <div style={{ scale: "140%", marginLeft: "3rem", paddingTop: "5rem", paddingBottom: "13rem" }}>
         <ButtonBack label="Back" handleClick={backButtonClick} />
       </div>
     </div>
