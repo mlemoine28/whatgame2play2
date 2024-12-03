@@ -29,12 +29,16 @@ export default function DetailsCard({
   const navigate = useNavigate();
   const location = useLocation();
   const backButtonClick = () => {
-    navigate("/games");
+    if (location.state?.from) {
+      navigate(location.state.from);
+    } else {
+      navigate(-1);
+    }
   };
   const [showMore, setShowMore] = useState(false);
   const [showMoreTags, setShowMoreTags] = useState(false);
   const { detailedGame, game } = location.state;
-  
+
   const [clicked, setClicked] = useState(false);
 
   return (
@@ -196,7 +200,14 @@ export default function DetailsCard({
                 </div>
               </div>
             </div>
-            <div className={styles.buttoncontainer2}>
+            <div
+              style={{
+                display: "flex",
+                scale: "130%",
+                justifyContent: "center",
+                
+              }}
+            >
               <ButtonBack label="Back" handleClick={backButtonClick} />
             </div>
           </div>

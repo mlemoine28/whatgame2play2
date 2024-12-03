@@ -65,6 +65,18 @@
 
 }
 
+.buttoncontainer3 {
+    display: flex;
+   background-color: #010622;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+    scale: 150%;
+    
+    
+
+}
+
 
 .pagination {
     display: flex;

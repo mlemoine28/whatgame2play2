@@ -27,18 +27,13 @@ function ResultsPage() {
   const [activePage, setActivePage] = useState(1);
   const [clicked, setClicked] = useState(false);
   const { playlistButtonClick } = usePlaylist();
-  const handlePageClick = (page) => {
-    setPageNumber(page);
-    setActivePage(page);
-  };
 
-  const {
-    selectedPlatforms,
-    selectedGenres,
-    genreParams,
-    platformParams,
-    tagParams,
-  } = location.state;
+  const queryParams = new URLSearchParams(location.search);
+
+  const platformParams = queryParams.get("platform");
+  const genreParams = queryParams.get("genre");
+  const tagParams = queryParams.get("tag");
+
   const pageSize = 5;
 
   useEffect(() => {
@@ -79,7 +74,7 @@ function ResultsPage() {
       }
     };
     fetchData();
-  }, [selectedPlatforms, selectedGenres, pageNumber]); //When one of these state variables changes, the useEffect kicks in!!
+  }, [platformParams, genreParams, tagParams, pageNumber]); //When one of these state variables changes, the useEffect kicks in!!
 
   const handleMoreDetails = (game) => {
     console.log("More Details button clicked for game:", game);
@@ -146,12 +141,7 @@ function ResultsPage() {
             games.map((game, i) => (
               <div key={i}>
                 <MiniCardDisplay
-                detailedGame={game}
-                  // gameTitle={game.name}
-                  // gameRelease={game.released}
-                  // gameMetacritic={game.metacritic}
-                  // gameImage={game.background_image}
-                  // gameLength={game.playtime}
+                  detailedGame={game}
                   handleMoreDetails={() => handleMoreDetails(game)}
                 />
               </div>

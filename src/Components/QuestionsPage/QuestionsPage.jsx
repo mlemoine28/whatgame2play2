@@ -23,6 +23,8 @@ function QuestionsPage() {
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
+  const [genre, setGenre] = useState("");
+  const [platform, setPlatform] = useState("");
 
   //Use this to navigate between the routes.
 
@@ -79,27 +81,26 @@ function QuestionsPage() {
 
   const submitButtonClick = () => {
     if (selectedPlatforms.length > 0 && selectedGenres.length > 0) {
+      const queryParams = new URLSearchParams();
       const platformParams = selectedPlatforms
         //selectedPlatforms is from the ARRAY at the beginning (defined in the useState function).
         .map((option) => option.value)
         .join(","); //this converts everything in the array to a string
+      queryParams.set("platform", platformParams); // Set the platform parameter
+
       const genreParams = selectedGenres
         .map((option) => option.value) //remember that the parameter after .map always refers to the items (or options) in the array. So doing option.value is mapping out all the VALUES (or ids) of what's in the array.
         .join(",");
+      queryParams.set("genre", genreParams); // Set the genre parameter
 
       //So, platformParams will be a string that lists all the selected platform values, separated by commas.
 
-      const tagParams = selectedTags.map((option) => option.value).join(",");
-
-      navigate("/games", {
-        state: {
-          selectedPlatforms,
-          selectedGenres,
-          platformParams,
-          genreParams,
-          tagParams,
-        },
-      });
+      if (selectedTags.length > 0) {
+        const tagParams = selectedTags.map((option) => option.value).join(",");
+        queryParams.set("tag", tagParams); // Set the tag parameter
+      }
+      // Navigate to /games with the query parameters
+      navigate(`/games?${queryParams.toString()}`);
     }
   };
 
@@ -147,7 +148,6 @@ function QuestionsPage() {
                 selectedAnswers={question.selected}
                 handleChange={(selectedOption) =>
                   question.setSelected(selectedOption)
-                  
                 }
               ></FormSubmit>
             </MiniCardQuestions>
