@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({ placeholder, game }) => {
@@ -9,6 +9,7 @@ const SearchBar = ({ placeholder, game }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
 
   async function fetchAndFormatData(url, formatFunction) {
     const response = await fetch(url);
@@ -32,6 +33,10 @@ const SearchBar = ({ placeholder, game }) => {
       return;
     }
 
+    if (!isDropdownVisible) {
+      return;
+    }
+
     const url = `https://api.rawg.io/api/games?key=${
       import.meta.env.VITE_REACT_APP_RAWG_API_KEY
     }&search=${searchTerm}`;
@@ -39,7 +44,7 @@ const SearchBar = ({ placeholder, game }) => {
       setSearchList(results);
       setIsDropdownVisible(true);
     });
-  }, [searchTerm]); // Re-run effect whenever searchTerm changes
+  }, [searchTerm, isDropdownVisible]); // Re-run effect whenever searchTerm changes
 
   const handleGameClick = (game) => {
     setSearchTerm(game.label);
@@ -47,14 +52,32 @@ const SearchBar = ({ placeholder, game }) => {
     setIsDropdownVisible(false);
   };
 
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownVisible(false);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsDropdownVisible(true);
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={styles.search}>
+    <div className={styles.search} ref={dropdownRef}>
       <div className={styles.searchInputs}>
         <input
           type="text"
           placeholder={placeholder}
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={handleInputChange}
         />
         <div>
           <SearchIcon />
