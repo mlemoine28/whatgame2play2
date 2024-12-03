@@ -43,7 +43,7 @@ input:focus {
  color: black;
  position: absolute;
  z-index: 1000;
- border: 1px solid #ccc; /* Add a border for visibility */
+ border: 2px solid #ccc; /* Add a border for visibility */
   border-radius: 5px; 
   cursor: pointer;
 }
