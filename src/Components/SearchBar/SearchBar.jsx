@@ -8,6 +8,7 @@ const SearchBar = ({ placeholder, game }) => {
   const [searchList, setSearchList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   async function fetchAndFormatData(url, formatFunction) {
     const response = await fetch(url);
@@ -27,17 +28,23 @@ const SearchBar = ({ placeholder, game }) => {
   useEffect(() => {
     if (searchTerm.trim() === "") {
       setSearchList([]); // Clear results if search term is empty
+      setIsDropdownVisible(false);
       return;
     }
 
     const url = `https://api.rawg.io/api/games?key=${
       import.meta.env.VITE_REACT_APP_RAWG_API_KEY
     }&search=${searchTerm}`;
-    fetchAndFormatData(url, formatList).then(setSearchList);
+    fetchAndFormatData(url, formatList).then((results) => {
+      setSearchList(results);
+      setIsDropdownVisible(true);
+    });
   }, [searchTerm]); // Re-run effect whenever searchTerm changes
 
   const handleGameClick = (game) => {
+    setSearchTerm(game.label);
     navigate(`/game/${game.value}`, { state: { game } });
+    setIsDropdownVisible(false);
   };
 
   return (
@@ -53,7 +60,7 @@ const SearchBar = ({ placeholder, game }) => {
           <SearchIcon />
         </div>
       </div>
-      {searchList.length > 0 && (
+      {isDropdownVisible && searchList.length > 0 && (
         <div className={styles.dataResult}>
           {searchList.map((item) => (
             <div
@@ -66,7 +73,6 @@ const SearchBar = ({ placeholder, game }) => {
           ))}
         </div>
       )}
-      
     </div>
   );
 };
