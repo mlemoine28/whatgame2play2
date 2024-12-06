@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import styles from "./Navbar.module.css";
+import styles from "./NavBar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import ButtonIntro from "../Button/ButtonIntro";
 import { useState } from "react";
@@ -66,7 +66,7 @@ function NavBarTop() {
         </div>
         <Navbar expand="lg" className={styles.navBarStyle}>
           <div className={styles.searchBarStyle}>
-            <SearchBar placeholder="Search for a game..." data={""}/>
+            <SearchBar placeholder="Search for a game..." data={""} />
           </div>
         </Navbar>
       </div>

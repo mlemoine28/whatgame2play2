@@ -23,32 +23,41 @@ function PlaylistPage() {
   };
 
   return (
-    <div
-      className={styles.containerdisplay}
-      style={{ paddingTop: "0rem", minHeight: "100vh" }}
-    >
-      {loading ? (
-        <div>
-          <Spinner animation="border" role="status" variant="info">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
-      ) : playlist?.length > 0 ? (
-        playlist.map((game, i) => (
-          <div key={i}>
-            <PlaylistCard
-              detailedGame={game}
-              handleMoreDetails={() => handleMoreDetails(game)}
-              buttonText="Remove From List"
-              removeGame={removeFromPlaylist}
-            />
-          </div>
-        ))
-      ) : (
-        <div className={styles.nogames}>No games added</div>
-      )}
-      <div style={{ scale: "140%", marginLeft: "3rem", paddingTop: "5rem", paddingBottom: "13rem" }}>
+    <div style={{ backgroundColor: "#010622", paddingTop: "3rem", paddingLeft: "4rem" }}>
+      <div
+        style={{
+          // scale: "140%",
+          // marginLeft: "3rem",
+          // paddingTop: "5rem",
+          // paddingBottom: "13rem",
+        }}
+      >
         <ButtonBack label="Back" handleClick={backButtonClick} />
+      </div>
+      <div
+        className={styles.containerdisplay}
+        style={{ paddingTop: "0rem", minHeight: "100vh" }}
+      >
+        {loading ? (
+          <div>
+            <Spinner animation="border" role="status" variant="info">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        ) : playlist?.length > 0 ? (
+          playlist.map((game, i) => (
+            <div key={i}>
+              <PlaylistCard
+                detailedGame={game}
+                handleMoreDetails={() => handleMoreDetails(game)}
+                buttonText="Remove From List"
+                removeGame={removeFromPlaylist}
+              />
+            </div>
+          ))
+        ) : (
+          <div className={styles.nogames}>No games added</div>
+        )}
       </div>
     </div>
   );
