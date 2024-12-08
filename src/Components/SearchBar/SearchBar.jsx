@@ -73,15 +73,16 @@ const SearchBar = ({ placeholder, game }) => {
   return (
     <div className={styles.search} ref={dropdownRef}>
       <div className={styles.searchInputs}>
+      <div>
+          <SearchIcon />
+        </div>
         <input
           type="text"
           placeholder={placeholder}
           value={searchTerm}
           onChange={handleInputChange}
         />
-        <div>
-          <SearchIcon />
-        </div>
+        
       </div>
       {isDropdownVisible && searchList.length > 0 && (
         <div className={styles.dataResult}>

@@ -22,7 +22,7 @@ function ResultsPage() {
 
   const [gamesCount, setGamesCount] = useState(0);
   const [games, setGames] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1);
+
   const [loading, setLoading] = useState(false);
   const [activePage, setActivePage] = useState(1);
   const [clicked, setClicked] = useState(false);
@@ -33,8 +33,18 @@ function ResultsPage() {
   const platformParams = queryParams.get("platform");
   const genreParams = queryParams.get("genre");
   const tagParams = queryParams.get("tag");
+  const [pageNumber, setPageNumber] = useState(1);
 
   const pageSize = 5;
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const currentPage = parseInt(queryParams.get("page"), 10) || 1;
+
+    if (currentPage !== pageNumber) {
+      setPageNumber(currentPage);
+    }
+  }, [location.search, pageNumber]);
 
   useEffect(() => {
     let apiURL;
