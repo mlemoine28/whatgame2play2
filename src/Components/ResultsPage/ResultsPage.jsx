@@ -33,25 +33,18 @@ function ResultsPage() {
   const platformParams = queryParams.get("platform");
   const genreParams = queryParams.get("genre");
   const tagParams = queryParams.get("tag");
+  const pageParams = queryParams.get("page");
+
   const [pageNumber, setPageNumber] = useState(1);
 
   const pageSize = 5;
-
-  useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    const currentPage = parseInt(queryParams.get("page"), 10) || 1;
-
-    if (currentPage !== pageNumber) {
-      setPageNumber(currentPage);
-    }
-  }, [location.search, pageNumber]);
 
   useEffect(() => {
     let apiURL;
     if (tagParams) {
       apiURL = `https://api.rawg.io/api/games?key=${
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-      }&platforms=${platformParams}&genres=${genreParams}&tags=${tagParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
+      }&platforms=${platformParams}&genres=${genreParams}&tags=${tagParams}&page_size=${pageSize}&page=${pageParams}&ordering=-metacritic`;
       console.log({
         apiURL,
         platformParams,
@@ -61,7 +54,7 @@ function ResultsPage() {
     } else {
       apiURL = `https://api.rawg.io/api/games?key=${
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
+      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageParams}&ordering=-metacritic`;
       console.log({
         apiURL,
         platformParams,
@@ -84,7 +77,15 @@ function ResultsPage() {
       }
     };
     fetchData();
-  }, [platformParams, genreParams, tagParams, pageNumber]); //When one of these state variables changes, the useEffect kicks in!!
+  }, [platformParams, genreParams, tagParams, pageParams]); //When one of these state variables changes, the useEffect kicks in!!
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    queryParams.set("page", pageNumber);
+    navigate(`${location.pathname}?${queryParams.toString()}`, {
+      replace: true,
+    });
+  }, [pageNumber, location.pathname, navigate]);
 
   const handleMoreDetails = (game) => {
     console.log("More Details button clicked for game:", game);

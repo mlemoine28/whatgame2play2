@@ -7,12 +7,14 @@ import styles from "./NavBar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import ButtonIntro from "../Button/ButtonIntro";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import NavItem from "./NavItem";
 
 function NavBarTop() {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("Location state in PlaylistPage:", location.state);
   const backToHomeClick = () => {
     setActive("/whatgame2play2");
     navigate("/whatgame2play2");
@@ -21,9 +23,11 @@ function NavBarTop() {
   const [active, setActive] = useState(null);
 
   const playlistButtonClick = () => {
-    setActive("/playlist");
-    console.log("After setting active:", "/playlist");
-    navigate("/playlist");
+    console.log("Playlist button clicked")
+    console.log("Navigating from:", `${location.pathname}${location.search}`);
+    navigate("/playlist", {
+      state: { from: `${location.pathname}${location.search}` }, // Pass 'from' state
+    });
   };
 
   const questionsButtonClick = () => {

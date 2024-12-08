@@ -14,8 +14,11 @@ function PlaylistPage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  console.log("Location state in PlaylistPage:", location.state); // Should include 'from'
+
   const backButtonClick = () => {
     if (location.state?.from) {
+      console.log("Navigating back to:", location.state.from);
       navigate(location.state.from);
     } else {
       navigate(-1);
