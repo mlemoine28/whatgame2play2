@@ -14,8 +14,8 @@ import NavItem from "./NavItem";
 function NavBarTop() {
   const navigate = useNavigate();
   const backToHomeClick = () => {
-    setActive("/home");
-    navigate("/home");
+    setActive("/whatgame2play2");
+    navigate("/whatgame2play2");
   };
 
   const [active, setActive] = useState(null);
@@ -37,10 +37,10 @@ function NavBarTop() {
       <div className={styles.navBarStyle}>
         <div
           className={`${styles.NavBarPointer} ${
-            active === "/home" ? styles.active : ""
+            active === "/whatgame2play2" ? styles.active : ""
           }`}
         >
-          <NavItem label="Home" handleClick={backToHomeClick}>
+          <NavItem label="whatgame2play2" handleClick={backToHomeClick}>
             {" "}
           </NavItem>
         </div>

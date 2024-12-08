@@ -21,7 +21,7 @@ function App() {
         <EnableScroll />
         <Routes>
           <Route path="/" element={<MiniCardIntro />} />
-          <Route path="/home" element={<MiniCardIntro />} />
+          <Route path="/whatgame2play2" element={<MiniCardIntro />} />
           <Route path="/questions" element={<QuestionsPage />} />
           <Route path="/games" element={<ResultsPage />} />
           <Route path="/game/:id" element={<DetailsPage />} />
