@@ -40,7 +40,7 @@ function NavBarTop() {
             active === "/whatgame2play2" ? styles.active : ""
           }`}
         >
-          <NavItem label="whatgame2play2" handleClick={backToHomeClick}>
+          <NavItem label="Home" handleClick={backToHomeClick}>
             {" "}
           </NavItem>
         </div>
