@@ -94,8 +94,6 @@ function ResultsPage() {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     queryParams.set("page", pageNumber);
-
-    // Update URL without causing additional re-renders
     navigate(`${location.pathname}?${queryParams.toString()}`, {
       replace: true,
     });
