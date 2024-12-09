@@ -35,7 +35,9 @@ function ResultsPage() {
   const tagParams = queryParams.get("tag");
   const pageParams = queryParams.get("page");
 
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(
+    () => parseInt(pageParams, 10) || 1
+  );
 
   const pageSize = 5;
 
@@ -44,7 +46,7 @@ function ResultsPage() {
     if (tagParams) {
       apiURL = `https://api.rawg.io/api/games?key=${
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-      }&platforms=${platformParams}&genres=${genreParams}&tags=${tagParams}&page_size=${pageSize}&page=${pageParams}&ordering=-metacritic`;
+      }&platforms=${platformParams}&genres=${genreParams}&tags=${tagParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
       console.log({
         apiURL,
         platformParams,
@@ -54,7 +56,7 @@ function ResultsPage() {
     } else {
       apiURL = `https://api.rawg.io/api/games?key=${
         import.meta.env.VITE_REACT_APP_RAWG_API_KEY
-      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageParams}&ordering=-metacritic`;
+      }&platforms=${platformParams}&genres=${genreParams}&page_size=${pageSize}&page=${pageNumber}&ordering=-metacritic`;
       console.log({
         apiURL,
         platformParams,
@@ -81,7 +83,19 @@ function ResultsPage() {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
+    const pageParams = queryParams.get("page");
+    if (pageParams) {
+      setPageNumber(parseInt(pageParams, 10));
+    } else {
+      setPageNumber(1); // Default to page 1 if no parameter exists
+    }
+  }, [location.search]);
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
     queryParams.set("page", pageNumber);
+
+    // Update URL without causing additional re-renders
     navigate(`${location.pathname}?${queryParams.toString()}`, {
       replace: true,
     });
