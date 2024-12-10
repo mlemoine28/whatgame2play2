@@ -195,12 +195,12 @@
 .titlecontainer {
     border-color: white;
     border-radius: 5%;
-    font-size: xx-large;
     justify-content: center;
     align-items: center;
     display: flex;
     color: white;
     padding-top: 3rem;
+    
    
     
     
@@ -229,10 +229,14 @@
 }
 
 .cardimage {
-    width: 30rem;
+    width: 70%;
     border-radius: 5%;
     margin-top: 5rem;
 }
+
+
+
+
 
 .pText {
     color: white;
