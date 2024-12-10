@@ -7,8 +7,10 @@ import { useState } from "react";
 
 function Header() {
   return (
-    <div className={styles.headerstyle}>
-      <img src={TitleImage} alt="WhatGame2Play" />
+    <div className={styles.container}>
+      <div className={styles.headerstyle}>
+        <img src={TitleImage} alt="WhatGame2Play" />
+      </div>
     </div>
   );
 }

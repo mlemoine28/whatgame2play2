@@ -23,7 +23,7 @@ function NavBarTop() {
   const [active, setActive] = useState(null);
 
   const playlistButtonClick = () => {
-    console.log("Playlist button clicked")
+    console.log("Playlist button clicked");
     console.log("Navigating from:", `${location.pathname}${location.search}`);
     navigate("/playlist", {
       state: { from: `${location.pathname}${location.search}` }, // Pass 'from' state
@@ -37,42 +37,44 @@ function NavBarTop() {
   };
 
   return (
-    <div className={styles.NavBarContainer}>
-      <div className={styles.navBarStyle}>
-        <div
-          className={`${styles.NavBarPointer} ${
-            active === "/whatgame2play2" ? styles.active : ""
-          }`}
-        >
-          <NavItem label="Home" handleClick={backToHomeClick}>
-            {" "}
-          </NavItem>
-        </div>
-        <div
-          className={`${styles.NavBarPointer} ${
-            active === "/questions" ? styles.active : ""
-          }`}
-        >
-          <NavItem
-            label="Find A Game"
-            handleClick={questionsButtonClick}
-          ></NavItem>
-        </div>
-        <div
-          className={`${styles.NavBarPointer} ${
-            active === "/playlist" ? styles.active : ""
-          }`}
-        >
-          <NavItem
-            label="My Playlist"
-            handleClick={playlistButtonClick}
-          ></NavItem>
-        </div>
-        <Navbar expand="lg" className={styles.navBarStyle}>
-          <div className={styles.searchBarStyle}>
-            <SearchBar placeholder="Search for a game..." data={""} />
+    <div className={styles.container}>
+      <div className={styles.NavBarContainer}>
+        <div className={styles.navBarStyle}>
+          <div
+            className={`${styles.NavBarPointer} ${
+              active === "/whatgame2play2" ? styles.active : ""
+            }`}
+          >
+            <NavItem label="Home" handleClick={backToHomeClick}>
+              {" "}
+            </NavItem>
           </div>
-        </Navbar>
+          <div
+            className={`${styles.NavBarPointer} ${
+              active === "/questions" ? styles.active : ""
+            }`}
+          >
+            <NavItem
+              label="Find A Game"
+              handleClick={questionsButtonClick}
+            ></NavItem>
+          </div>
+          <div
+            className={`${styles.NavBarPointer} ${
+              active === "/playlist" ? styles.active : ""
+            }`}
+          >
+            <NavItem
+              label="My Playlist"
+              handleClick={playlistButtonClick}
+            ></NavItem>
+          </div>
+          <Navbar expand="lg" className={styles.navBarStyle}>
+            <div className={styles.searchBarStyle}>
+              <SearchBar placeholder="Search for a game..." data={""} />
+            </div>
+          </Navbar>
+        </div>
       </div>
     </div>
   );

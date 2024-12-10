@@ -28,13 +28,19 @@ text-decoration: underline;
 }
 
 
-.searchBarStyle {
- 
- 
 
 
-  
+
+@media (max-width: 1055px) {
+  .navBarStyle {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+  }
 }
+
+
 
 .navBarStyle a, .navBarStyle p, .navBarStyle h1 {
  color: inherit; 

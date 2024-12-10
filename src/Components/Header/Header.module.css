@@ -2,8 +2,33 @@
   display: flex;
    justify-content: center;
   align-items: center;
-  background-image: linear-gradient(#000040, #4040FF);
-  padding-top: 2rem;
+    padding-top: 2rem;
+  }
+
+  .container {
+    background-image: linear-gradient(#000040, #4040FF);
+  }
+
+  @media (max-width: 1156px) {
+    .headerstyle {
+      scale: 80%;
+    }
+  }
   
-  
+  @media (max-width: 803px) {
+    .headerstyle {
+      scale: 65%;
+    }
+  }
+
+  @media (max-width: 655px) {
+    .headerstyle {
+      scale: 50%;
+    }
+  }
+
+  @media (max-width: 506px) {
+    .headerstyle {
+      scale: 40%;
+    }
   }

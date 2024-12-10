@@ -86,7 +86,12 @@
     
 }
 
-
+@media (max-width: 1029px) {
+    .pagination {
+        display: block;
+        margin-bottom: -20px;
+    }
+}
 
 
 
