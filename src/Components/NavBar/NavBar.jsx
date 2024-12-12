@@ -38,8 +38,8 @@ function NavBarTop() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.NavBarContainer}>
-        <div className={styles.navBarStyle}>
+      <div className={styles.navBarStyle}>
+        <div className={styles.buttonContainer}>
           <div
             className={`${styles.NavBarPointer} ${
               active === "/whatgame2play2" ? styles.active : ""
@@ -69,12 +69,12 @@ function NavBarTop() {
               handleClick={playlistButtonClick}
             ></NavItem>
           </div>
-          <Navbar expand="lg" className={styles.navBarStyle}>
-            <div className={styles.searchBarStyle}>
-              <SearchBar placeholder="Search for a game..." data={""} />
-            </div>
-          </Navbar>
         </div>
+        <Navbar>
+          <div className={styles.searchBarStyle}>
+            <SearchBar placeholder="Search for a game..." data={""} />
+          </div>
+        </Navbar>
       </div>
     </div>
   );

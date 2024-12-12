@@ -2,11 +2,11 @@
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: #000080;
+ background-color: #010622;
  bottom: 1rem;
  width: 22rem;
  position: fixed;
- color: rgb(3, 135, 250);
+ color: white;
  height: 4rem;
  
  right: 0;
@@ -17,7 +17,7 @@
  
 
  .fa {
-  padding: 20px;
+  padding: 10px;
   font-size: 30px;
   width: 1rem;
   text-align: center;
@@ -38,4 +38,12 @@
 
 .githubstyle {
  scale: 30%;
+
+}
+
+@media (max-width: 1000px) {
+  .socialstyle {
+    position: relative;
+    
+  }
 }
