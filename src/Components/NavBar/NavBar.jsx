@@ -25,6 +25,7 @@ function NavBarTop() {
   const playlistButtonClick = () => {
     console.log("Playlist button clicked");
     console.log("Navigating from:", `${location.pathname}${location.search}`);
+    setActive("/playlist");
     navigate("/playlist", {
       state: { from: `${location.pathname}${location.search}` }, // Pass 'from' state
     });

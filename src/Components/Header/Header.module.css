@@ -32,3 +32,9 @@
       scale: 40%;
     }
   }
+
+  @media (max-width: 413px) {
+    .headerstyle {
+        scale: 35%;
+    }
+  }

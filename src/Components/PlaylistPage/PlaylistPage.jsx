@@ -30,20 +30,20 @@ function PlaylistPage() {
       style={{
         backgroundColor: "#010622",
         paddingTop: "3rem",
-        paddingLeft: "4rem",
       }}
     >
       <div
-        style={
-          {
-            // scale: "140%",
-            // marginLeft: "3rem",
-            // paddingTop: "5rem",
-            // paddingBottom: "13rem",
-          }
-        }
+        style={{
+          // scale: "140%",
+          marginLeft: "3rem",
+          // paddingTop: "5rem",
+          // paddingBottom: "13rem",
+        }}
       >
         <ButtonBack label="Back" handleClick={backButtonClick} />
+      </div>
+      <div className={styles.textcontainer2}>
+        <p>My Games2Play</p>
       </div>
       <div
         className={styles.containerdisplay}
@@ -67,7 +67,7 @@ function PlaylistPage() {
             </div>
           ))
         ) : (
-          <div className={styles.nogames}>No games added</div>
+          <div className={styles.nogames}>(No games added)</div>
         )}
       </div>
     </div>

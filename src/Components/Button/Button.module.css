@@ -84,3 +84,12 @@
  background-color: #04AA6D; /* Green */
  color: white;
 }
+
+@media (max-width: 655px) {
+  .buttonBack {
+      scale: 60%;
+      margin-left: 0rem;
+
+      
+  }
+}

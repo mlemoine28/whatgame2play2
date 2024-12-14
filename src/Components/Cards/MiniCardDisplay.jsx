@@ -21,7 +21,7 @@ export default function MiniCardDisplay({
   // gameDescription,
   // gameImage2,
   handleMoreDetails,
-  buttonText = "Add To List",
+  buttonText = "Add To Playlist",
 }) {
   const navigate = useNavigate();
   const location = useLocation();
