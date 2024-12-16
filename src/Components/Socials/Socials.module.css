@@ -49,16 +49,16 @@
   padding-left: 1.5rem;
 }
 
-@media (max-width: 1396px) {
+@media (max-width: 1829px) {
   .socialstyle {
-    position: relative;
-   
+    position: relative
+  
   }
 }
-  
-@media (max-width: 1062px) {
+
+@media (max-width: 1135px) {
   .socialstyle {
-    position: relative;
-   
+    scale: 80%;
+  
   }
 }

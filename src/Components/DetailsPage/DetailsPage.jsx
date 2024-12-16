@@ -149,7 +149,7 @@ export default function DetailsPage({}) {
               <ButtonBack label="Back" handleClick={backButtonClick} />
             </div>
           </div>
-          <div className={styles.containerdisplay}>
+          <div className={styles.container}>
             <DetailsCard
               gameTitle={detailedGame?.name}
               gameRelease={detailedGame?.released}

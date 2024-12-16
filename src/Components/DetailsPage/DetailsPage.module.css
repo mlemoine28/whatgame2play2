@@ -38,7 +38,8 @@ height: 100vh;
  padding: 20px;
  background-color: #010622;
  margin-top: 0rem;
- min-height: 100vh;
+ position: relative;
+ 
 }
 
 .displaycard {
@@ -137,3 +138,66 @@ display: flex;
 }
 
 
+@media (max-width: 1538px) {
+  .containerdisplay {
+      scale: 90%;
+      
+     
+  }
+}
+
+@media (max-width: 1369px) {
+  .containerdisplay {
+      scale: 80%;
+      margin-top: -2rem;
+     
+  }
+}
+
+@media (max-width: 1219px) {
+  .containerdisplay {
+      scale: 70%;
+      margin-top: -7rem;
+     
+  }
+}
+
+@media (max-width: 1066px) {
+  .containerdisplay {
+      scale: 60%;
+      margin-top: -9rem;
+     
+  }
+}
+
+@media (max-width: 921px) {
+  .containerdisplay {
+      scale: 50%;
+      margin-top: -12rem;
+     
+  }
+}
+
+@media (max-width: 764px) {
+  .containerdisplay {
+      scale: 40%;
+      margin-top: -15rem;
+     
+  }
+}
+
+@media (max-width: 611px) {
+  .containerdisplay {
+      scale: 30%;
+      margin-top: -18rem;
+     
+  }
+}
+
+@media (max-width: 467px) {
+  .containerdisplay {
+      scale: 20%;
+      margin-top: -20rem;
+     
+  }
+}
