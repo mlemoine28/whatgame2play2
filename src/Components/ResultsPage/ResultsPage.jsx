@@ -178,7 +178,7 @@ function ResultsPage() {
       </div>
       <div className={styles.buttoncontainer}>
         {loading ? null : (
-          <div>
+          <div className={styles.buttoncontainer}>
             <ButtonPage
               disabled={pageNumber === 1 || !games}
               label="Previous Page"

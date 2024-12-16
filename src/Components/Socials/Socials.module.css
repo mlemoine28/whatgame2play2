@@ -4,7 +4,6 @@
  align-items: center;
  background-color: #010622;
  bottom: 1rem;
- width: 22rem;
  position: fixed;
  color: white;
  height: 4rem;
@@ -17,12 +16,12 @@
  
 
  .fa {
-  padding: 10px;
+  padding: 15px;
   font-size: 30px;
   width: 1rem;
   text-align: center;
   text-decoration: none;
-  margin: 5px 1px;
+  
   
  
 }
@@ -34,6 +33,7 @@
 .fa-linkedin {
  background: #a82d2d;
  color: rgb(16, 5, 59);
+ 
 }
 
 .githubstyle {
@@ -41,9 +41,24 @@
 
 }
 
-@media (max-width: 1000px) {
+.socialsCentre {
+  display: flex;
+  justify-content: center;
+  max-width: 30rem;
+  align-items: center;
+  padding-left: 1.5rem;
+}
+
+@media (max-width: 1396px) {
   .socialstyle {
     position: relative;
-    
+   
+  }
+}
+  
+@media (max-width: 1062px) {
+  .socialstyle {
+    position: relative;
+   
   }
 }

@@ -6,6 +6,7 @@ import githublogo from "../../assets/github-mark-white.svg";
 function Socials() {
   return (
     <div className={styles.socialstyle}>
+      <div className={styles.socialsCentre}>
       <span>Created by Michael LeMoine</span>
 
       <a
@@ -20,6 +21,7 @@ function Socials() {
           alt="GitHub Logo"
         />
       </a>
+    </div>
     </div>
   );
 }
