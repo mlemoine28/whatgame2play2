@@ -98,6 +98,18 @@
     
 }
 
+@media (max-width: 1369px) {
+    .descriptionContainer {
+        scale: 130%;
+      }
+}
+
+@media (max-width: 1257px) {
+    .descriptionContainer {
+        scale: 150%;
+      }
+}
+
 @media (max-width: 1029px) {
     .pagination {
         scale: 85%;

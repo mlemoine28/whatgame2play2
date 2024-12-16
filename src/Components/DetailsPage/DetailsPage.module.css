@@ -3,9 +3,9 @@
 background-color: #010622;
 display: flex;
 flex-direction: column;
-
 align-items: center;
-height: 100vh; 
+box-sizing: border-box;
+
 
 
 
@@ -139,17 +139,34 @@ display: flex;
 
 
 @media (max-width: 1538px) {
-  .containerdisplay {
+  .container {
       scale: 90%;
+      margin-top: -3rem;
+      
       
      
   }
 }
 
 @media (max-width: 1369px) {
-  .containerdisplay {
+  .container {
       scale: 80%;
-      margin-top: -2rem;
+      margin-top: -9rem;
+     
+  }
+  .buttoncontainer2 {
+    scale: 90%;
+    gap: 1rem;
+    flex-direction: row;
+    
+  }
+  
+}
+
+@media (max-width: 1256px) {
+  .containerdisplay {
+      
+      margin-top: -5rem;
      
   }
 }
@@ -157,31 +174,42 @@ display: flex;
 @media (max-width: 1219px) {
   .containerdisplay {
       scale: 70%;
-      margin-top: -7rem;
+     
      
   }
 }
 
-@media (max-width: 1066px) {
+@media (max-width: 1257px) {
   .containerdisplay {
-      scale: 60%;
-      margin-top: -9rem;
+      scale: 90%;
+      
+      
      
   }
 }
 
-@media (max-width: 921px) {
+@media (max-width: 1133px) {
   .containerdisplay {
-      scale: 50%;
-      margin-top: -12rem;
+      scale: 80%;
+      margin-top: -6rem;
+      
      
   }
 }
 
-@media (max-width: 764px) {
+
+
+@media (max-width: 968px) {
   .containerdisplay {
-      scale: 40%;
-      margin-top: -15rem;
+      scale: 75%;
+      margin-top: -8rem;
+  }
+}
+
+@media (max-width: 806px) {
+  .containerdisplay {
+      scale: 65%;
+      margin-top: -11rem;
      
   }
 }
