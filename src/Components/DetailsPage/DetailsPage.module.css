@@ -194,27 +194,12 @@ display: flex;
   }
 }
 
-@media (max-width: 834px) {
-  .containerdisplay {
-      scale: 60%;
-      margin-top: -14rem;
-      
-      
-     
-  }
-  .container {
-    scale: 120%;
-    margin-top: -10rem;
-    width: 100rem;
-  }
-}
-
-
-
-@media (max-width: 467px) {
-  .containerdisplay {
-      scale: 20%;
-      margin-top: -20rem;
+@media (max-width: 1058px) {
+  .buttoncontainer2 {
+      scale: 150%;
+      flex-direction: row;
+      justify-content: center;
      
   }
 }
+

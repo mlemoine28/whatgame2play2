@@ -333,7 +333,7 @@
      height: fit-content;
      margin-top: 3rem;
      padding: 1rem;
-     width: 40rem;
+     width: 35rem;
      margin-left: auto;
      margin-right: auto;
      
@@ -350,14 +350,14 @@
 
 
 @media (max-width: 1069px) {
-    .containerdisplay {
-        scale: 120%;
-        max-width: 80%;
-    }
+  
     .detailsText {
         justify-content: center;
         margin-right: 19rem;
              }
+  }
+  .containerdisplay2 {
+    scale: 120vh;
   }
 
 @media (max-width: 996px) {
@@ -368,18 +368,25 @@
     }
   }
 
-  @media (max-width: 758px) {
+  @media (max-width: 885px) {
     .descriptionContainer {
-        scale: 120%;
-        font-size: 160%;
+        scale: 110%;
+        font-size: 130%;
         
     }
     .detailsText {
         scale: 85%;
         font-size: 150%;
     }
-    .container {
-        scale: 50%;
+
+    .containerdisplay2 {
+        scale: 30vh;
+        margin-top: -5rem;
+        width: 30rem;
+        
     }
+
+    
+   
   }
 
