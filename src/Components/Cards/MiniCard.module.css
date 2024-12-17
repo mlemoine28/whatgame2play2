@@ -346,3 +346,40 @@
     margin-top: 3rem;
     font-weight: 100;
 }
+
+
+
+@media (max-width: 1069px) {
+    .containerdisplay {
+        scale: 120%;
+        max-width: 80%;
+    }
+    .detailsText {
+        justify-content: center;
+        margin-right: 19rem;
+             }
+  }
+
+@media (max-width: 996px) {
+    .detailsText {
+        scale: 80%;
+        font-size: 140%;
+        
+    }
+  }
+
+  @media (max-width: 758px) {
+    .descriptionContainer {
+        scale: 120%;
+        font-size: 160%;
+        
+    }
+    .detailsText {
+        scale: 85%;
+        font-size: 150%;
+    }
+    .container {
+        scale: 50%;
+    }
+  }
+

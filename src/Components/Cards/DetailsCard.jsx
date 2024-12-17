@@ -49,7 +49,7 @@ export default function DetailsCard({
             <h1 style={{ marginBottom: "2.5rem", color: "#39FF14" }}>
               {gameTitle}
             </h1>
-            <img
+            <img className={styles.imageContainer}
               src={gameImage}
               style={{
                 width: "396px",
