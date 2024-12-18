@@ -42,6 +42,7 @@ export default function DetailsCard({
   const [clicked, setClicked] = useState(false);
 
   return (
+    <div className={styles.overallContainer}>
     <div className={styles.containerdisplay2}>
       <div style={{ textAlign: "center", marginTop: "-5rem" }}>
         <div>
@@ -214,6 +215,7 @@ export default function DetailsCard({
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

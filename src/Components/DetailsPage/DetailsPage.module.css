@@ -39,7 +39,8 @@ box-sizing: border-box;
  background-color: #010622;
  margin-top: 0rem;
  position: relative;
- width: auto;
+ width: 100%;
+ min-height: 100vh;
  
 }
 
@@ -128,11 +129,11 @@ display: flex;
 .buttoncontainer2 {
   
  background-color: #010622;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   display: flex;
   flex-direction: row-reverse;
-  
+ 
  
   
   
@@ -194,12 +195,5 @@ display: flex;
   }
 }
 
-@media (max-width: 1058px) {
-  .buttoncontainer2 {
-      scale: 150%;
-      flex-direction: row;
-      justify-content: center;
-     
-  }
-}
+
 

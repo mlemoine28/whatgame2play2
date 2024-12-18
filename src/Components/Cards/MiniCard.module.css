@@ -11,6 +11,13 @@
  
 }
 
+.overallContainer {
+    width: 100%;
+    padding: 1rem; 
+    box-sizing: border-box; 
+
+}
+
 .containerquestions {
      color: #475877;
      display: flex;
@@ -209,7 +216,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    
+    width: 100%;
     padding: 15px;
     background-color: #010622;
     margin-top: 0rem;
@@ -379,13 +386,7 @@
         font-size: 150%;
     }
 
-    .containerdisplay2 {
-        scale: 30vh;
-        margin-top: -5rem;
-        width: 30rem;
-        
-    }
-
+   
     
    
   }
