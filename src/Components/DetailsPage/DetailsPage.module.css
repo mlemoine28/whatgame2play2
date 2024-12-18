@@ -195,5 +195,21 @@ display: flex;
   }
 }
 
+@media (max-width: 413px) {
+  .containerdisplay {
+      scale: 50%;
+      margin-top: -31rem;
+      padding-left: 9rem;
+      
+     
+  }
+  .buttoncontainer2 {
+    scale: 50%;
+    max-width: 50%;
+    box-sizing: border-box;
+  }
+
+}
+
 
 
