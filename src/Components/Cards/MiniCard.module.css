@@ -45,6 +45,7 @@
     gap: 10px;
    justify-content: center;
    margin-top: 3rem;
+   max-width: 80rem; /*I set this just so that there were 3 images on top and 3 on bottom - feel free to remove */
    
     
   }
