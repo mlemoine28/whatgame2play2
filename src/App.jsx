@@ -12,7 +12,6 @@ import EnableScroll from "./Components/EnableScroll/EnableScroll";
 import PlaylistPage from "./Components/PlaylistPage/PlaylistPage";
 import { PlaylistProvider } from "./assets/Contexts/PlaylistContext";
 
-
 function App() {
   return (
     <PlaylistProvider>

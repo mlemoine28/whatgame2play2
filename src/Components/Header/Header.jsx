@@ -15,6 +15,7 @@ function Header() {
     <div className={styles.container}>
       <div className={styles.headerstyle}>
         <img
+        className={styles.img}
           src={TitleImage}
           alt="WhatGame2Play"
           onClick={backToHomeClick}
