@@ -1,396 +1,230 @@
 .container {
-    color: rgb(0, 119, 255);
- background-color: #010622;
- display: flex;
- flex-direction: column;
- 
- align-items: center;
- height: 100vh; 
- 
- 
- 
+  color: rgb(0, 119, 255);
+  background-color: #010622;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  height: 100vh;
 }
 
 .overallContainer {
-    /* width: 100%; */
-    padding: 1rem; 
-    box-sizing: border-box; 
-
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .containerquestions {
-     color: #475877;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     height: 42rem; 
-     width: 30rem;
-        margin-top: 5rem;       
-    border: 2px solid rgb(255, 255, 255);
-    
-    
+  color: #475877;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 42rem;
+  width: 30rem;
+  margin-top: 5rem;
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .markdown {
-    color: white;
+  color: white;
 }
-
-
 
 .screenshotContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-   justify-content: center;
-   margin-top: 3rem;
-   max-width: 80rem; /*I set this just so that there were 3 images on top and 3 on bottom - feel free to remove */
-   
-    
-  }
-  
-  .screenshotImage {
-    width: 24rem;
-    height: auto;
-    border: 2px solid white;
-    border-radius: 5px;
-  }
-.buttoncontainer {
-       display: flex;
-      background-color: #010622;
-       justify-content: center;
-       align-items: center;
-       text-wrap: nowrap;
-       
-       
-  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 3rem;
+  max-width: 80rem; /*I set this just so that there were 3 images on top and 3 on bottom - feel free to remove */
 }
 
-
-
-/* @media (max-width: 486px) {
-    .buttoncontainer {
-        scale: 88%;
-       
-    }
-} */
+.screenshotImage {
+  width: 24rem;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+.buttoncontainer {
+  display: flex;
+  background-color: #010622;
+  justify-content: center;
+  align-items: center;
+  text-wrap: nowrap;
+}
 
 .buttoncontainer2 {
-    display: flex;
-   background-color: #010622;
-    justify-content: right;
-    align-items: center;
-    
-    
-
+  display: flex;
+  background-color: #010622;
+  justify-content: right;
+  align-items: center;
 }
 
 .buttoncontainer3 {
-    display: flex;
-   background-color: #010622;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25vh;
-    scale: 150%;
-    
-    
-
+  display: flex;
+  background-color: #010622;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25vh;
+  scale: 150%;
 }
-
 
 .pagination {
-    display: flex;
-    justify-content: center;
-    background-color: #010622;
-    padding-top: 3rem;
-    
+  display: flex;
+  justify-content: center;
+  background-color: #010622;
+  padding-top: 3rem;
 }
 
-/* @media (max-width: 1369px) {
-    .descriptionContainer {
-        scale: 130%;
-      }
+.detailsText {
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 24px;
+  height: fit-content;
+  margin-top: 2rem;
+  padding: 2rem;
+  width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 6rem;
 }
 
-@media (max-width: 1257px) {
-    .descriptionContainer {
-        scale: 150%;
-      }
-}
-
-@media (max-width: 1029px) {
-    .pagination {
-        scale: 85%;
-    }
-}
-
-@media (max-width: 833px) {
-    .pagination {
-        scale: 75%;
-    }
-}
-
-@media (max-width: 715px) {
-    .pagination {
-        scale: 65%;
-    }
-}
-
-@media (max-width: 626px) {
-    .pagination {
-        scale: 55%;
-    }
-}
-
-@media (max-width: 530px) {
-    .pagination {
-        scale: 45%;
-    }
-}
-
-@media (max-width: 433px) {
-    .pagination {
-        scale: 39%;
-    }
-}
-
-
-
-@media (max-width: 488px) {
-    .containerquestions {
-        scale: 85%;
-        margin-top: 1rem;
-    }
-  }
-
-  @media (max-width: 423px) {
-    .containerquestions {
-        scale: 77%;
-        margin-top: 0;
-
-    }
-  }
-
-  @media (max-width: 655px) {
-    .textcontainer2 {
-        scale: 85%;
-    }
-  } */
-
-
-
-
-
-  .detailsText {
-    font-size: 1rem;
-   text-align: center;
-    border: 2px solid white;
-    border-radius: 24px;
-    height: fit-content;
-    margin-top: 2rem;
-    padding: 2rem;
-    width: 70rem;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 6rem;
-   
-   
-  }
-
-  .leftDetailsSection {
-    width: 30rem;
-   
-  }
-
- 
- 
-
-     
-    
-  
 .containerdisplay,
-.containerdisplay2
-.containerdisplay3 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    padding: 15px;
-    background-color: #010622;
-    margin-top: 0rem;
-    
-    
+.containerdisplay2 .containerdisplay3 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 15px;
+  background-color: #010622;
+  margin-top: 0rem;
 }
 
 .containerdisplay2 {
-    margin-top: 3rem;
-   /* max-width: 115vh; */
-   color: white
-    
+  margin-top: 3rem;
+  color: white;
 }
 
 .containerdisplay3 {
-    
-    background-color: #010622;
+  background-color: #010622;
 }
 
 .bottomContainer {
-    min-height: 78vh;
+  min-height: 78vh;
 }
 
 .displaycard {
-    background-color: #222;
-    color: white;
-    width: 19rem;
-    height: 30.5rem;
-    min-height: 300px;
-    border: 1px solid white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px;
-    
-    scale: 90%;
+  background-color: #222;
+  color: white;
+  width: 19rem;
+  height: 30.5rem;
+  min-height: 300px;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  scale: 90%;
 }
 
 .displaycardtitle {
-    font-size: clamp(16px, 2vw, 20px); /* Dynamically adjusts font size between 16px and 20px */
-    color: #39FF14;
-    text-align: center;
-    margin-top: 0.5rem;
-    white-space: nowrap; /* Prevents line breaks */
-    overflow: hidden; /* Ensures text doesn't overflow the container */
-    text-overflow: ellipsis; /* Adds '...' if text is too long */
-    width: 100%;
-    
+  font-size: clamp(
+    16px,
+    2vw,
+    20px
+  ); /* Dynamically adjusts font size between 16px and 20px */
+  color: #39ff14;
+  text-align: center;
+  margin-top: 0.5rem;
+  white-space: nowrap; /* Prevents line breaks */
+  overflow: hidden; /* Ensures text doesn't overflow the container */
+  text-overflow: ellipsis; /* Adds '...' if text is too long */
+  width: 100%;
 }
-
 
 .resultsBottom {
-    min-height: 15vh;
-    background-color: #010622;
+  min-height: 15vh;
+  background-color: #010622;
 }
-    
-
- 
 
 .titlecontainer {
-    border-color: white;
-    border-radius: 5%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    color: white;
-    padding-top: 3rem;
-    
-   
-    
-    
+  border-color: white;
+  border-radius: 5%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  color: white;
+  padding-top: 3rem;
 }
 
 .displayattributes {
-    margin-bottom: 1.5rem;
-    margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
 }
 
-.textcontainer, .textcontainer2 {
-    justify-content: center;
- align-items: center;
- color: white;
- font-size: large;
- display: flex;
+.textcontainer,
+.textcontainer2 {
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: large;
+  display: flex;
 }
 
 .textcontainer2 {
-    font-size: 2.5rem;
-    text-align: center;
-    font-weight: 500;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 500;
 }
 
 .greenText {
-    color:#39FF14;
+  color: #39ff14;
 }
 
 .whiteText {
-    color: white;
+  color: white;
 }
 
 .cardimage {
-    width: 70%;
-    border-radius: 5%;
-    margin-top: 5rem;
+  width: 70%;
+  border-radius: 5%;
+  margin-top: 5rem;
 }
 
-
-
-
-
 .pText {
-    color: white;
+  color: white;
 }
 
 .descriptionContainer {
-    font-size: 1rem;
-    
-     text-align: justify;
-     height: fit-content;
-     margin-top: 3rem;
-     padding: 1rem;
-     width: 35rem;
-     margin-left: auto;
-     margin-right: auto;
-     
-     gap: 6rem;
+  font-size: 1rem;
+  text-align: justify;
+  height: fit-content;
+  margin-top: 3rem;
+  padding: 1rem;
+  width: 35rem;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 6rem;
 }
 
 .nogames {
-    font-size: 1.5rem;
-    color: white;
-    margin-top: 3rem;
-    font-weight: 100;
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 3rem;
+  font-weight: 100;
 }
 
-
-
-/* @media (max-width: 1069px) {
-  
-    .detailsText {
-        justify-content: center;
-        margin-right: 19rem;
-             }
+@media (max-width: 1250px) {
+  .detailsText {
+    flex-direction: column;
+    gap: unset;
+    width: fit-content;
   }
-  .containerdisplay2 {
-    scale: 120vh;
-  }
-
-@media (max-width: 996px) {
-    .detailsText {
-        scale: 80%;
-        font-size: 140%;
-        
-    }
-  }
-
-  @media (max-width: 885px) {
-    .descriptionContainer {
-        scale: 110%;
-        font-size: 130%;
-        
-    }
-    .detailsText {
-        scale: 85%;
-        font-size: 150%;
-    }
-
-   
-    
-   
-  } */
-
+}

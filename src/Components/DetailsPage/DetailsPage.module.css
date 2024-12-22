@@ -1,14 +1,10 @@
 .container {
- color: rgb(0, 119, 255);
-background-color: #010622;
-display: flex;
-flex-direction: column;
-align-items: center;
-box-sizing: border-box;
-
-
-
-
+  color: rgb(0, 119, 255);
+  background-color: #010622;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .containerquestions {
@@ -17,199 +13,104 @@ box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 29.5rem; 
+  height: 29.5rem;
   width: 30rem;
-     margin-top: 5rem;       
- border: 2px solid rgb(255, 255, 255);
- 
- 
+  margin-top: 5rem;
+  border: 2px solid rgb(255, 255, 255);
 }
 
-  
- 
-
 .containerdisplay {
- display: flex;
- flex-direction: row;
- flex-wrap: wrap;
- justify-content: center;
- align-items: flex-start;
- gap: 20px;
- padding: 20px;
- background-color: #010622;
- margin-top: 0rem;
- position: relative;
- width: 100%;
- min-height: 100vh;
- 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background-color: #010622;
+  margin-top: 0rem;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .displaycard {
- background-color: #222;
- color: white;
- width: 20rem;
- height: 30.5rem;
- min-height: 300px;
- border: 1px solid white;
- display: flex;
- flex-direction: column;
- justify-content: flex-start;
- align-items: center;
- padding: 10px;
- margin-top: 3rem;
+  background-color: #222;
+  color: white;
+  width: 20rem;
+  height: 30.5rem;
+  min-height: 300px;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  margin-top: 3rem;
 }
 
 .displaycardtitle {
- font-size: 20px;
- color: #39FF14;
- text-align: center;
- margin-top: 1rem;
- 
+  font-size: 20px;
+  color: #39ff14;
+  text-align: center;
+  margin-top: 1rem;
 }
 
-
- 
-
-
-
 .titlecontainer {
- border-color: white;
- border-radius: 5%;
- font-size: xx-large;
- justify-content: center;
- align-items: center;
- display: flex;
- color: white;
- padding-top: 3rem;
+  border-color: white;
+  border-radius: 5%;
+  font-size: xx-large;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+  padding-top: 3rem;
 }
 
 .displayattributes {
- margin-bottom: 1rem;
- margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .textcontainer {
- justify-content: center;
-align-items: center;
-color: white;
-font-size: large;
-height: 100vh;
-display: flex;
-
-
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: large;
+  height: 100vh;
+  display: flex;
 }
 
 .cardimage {
- width: 30rem;
- border-radius: 5%;
- margin-top: 5rem;
+  width: 30rem;
+  border-radius: 5%;
+  margin-top: 5rem;
 }
 
 .pText {
- color: white;
+  color: white;
 }
 
 .buttonPlaylist {
-  margin-left: 55rem;
-  margin-top: 1rem;
-  scale: 60%;
   border-radius: 20%;
-  height: 10rem;
+  height: 5rem;
   color: white;
   transition: 0.4s ease !important;
-  background-color: #000080!important;
+  background-color: #000080 !important;
 }
 
-.buttonPlaylist:hover
-{
+.buttonPlaylist:hover {
   background-color: rgb(0, 119, 255) !important;
-  
 }
 
 .buttoncontainer2 {
-  
- background-color: #010622;
+  background-color: #010622;
   justify-content: space-between;
   align-items: center;
   display: flex;
   flex-direction: row-reverse;
- 
- 
-  
-  
-
 }
 
-
-
-
-/* @media (max-width: 1538px) {
-  .container {
-      scale: 90%;
-      margin-top: -3rem;
-      
-      
-     
-  }
+.backButton {
+  padding: 2rem;
 }
-
-@media (max-width: 1369px) {
-  .container {
-      scale: 80%;
-      margin-top: -9rem;
-     
-  }
-  .buttoncontainer2 {
-    scale: 90%;
-    gap: 1rem;
-    
-    
-  }
-  
-}
-
-@media (max-width: 1256px) {
-  .containerdisplay {
-    scale: 90%;
-      margin-top: -5rem;
-     
-  }
-}
-
-
-
-
-@media (max-width: 1137px) {
-  .containerdisplay {
-      scale: 75%;
-      margin-top: -8rem;
-  }
-  
-}
-
-@media (max-width: 1058px) {
-  .containerdisplay {
-      scale: 70%;
-      margin-top: -11rem;
-     
-  }
-}
-
-@media (max-width: 413px) {
-  .containerdisplay {
-      scale: 50%;
-      margin-top: -31rem;
-      padding-left: 9rem;
-      
-     
-  }
-  .buttoncontainer2 {
-    scale: 50%;
-    max-width: 50%;
-    box-sizing: border-box;
-  }
-
-}
-
-
- */

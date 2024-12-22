@@ -1,6 +1,5 @@
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import MiniCardDisplay from "../Cards/MiniCardDisplay";
 import styles from "./DetailsPage.module.css";
 import DetailsCard from "../Cards/DetailsCard";
 import { useState, useEffect, useMemo } from "react";
@@ -113,41 +112,15 @@ export default function DetailsPage({}) {
               onClick={handlePlaylistClick}
               disabled={isGameInPlaylist}
             >
-              {isGameInPlaylist || clicked ? (
-                <div>
-                  <h1
-                    style={{
-                      scale: "250%",
-                      paddingBottom: "0.5rem",
-                      width: "14rem",
-                    }}
-                  >
-                    ✓
-                  </h1>
-                  <h3>Added!</h3>
-                </div>
-              ) : (
-                <div>
-                  <h1
-                    style={{
-                      scale: "250%",
-                      paddingBottom: "0.5rem",
-                      width: "14rem",
-                    }}
-                  >
-                    +
-                  </h1>
-                  <h3>Add To Playlist</h3>
-                </div>
-              )}
+              <div style={{ width: "6rem" }}>
+                {isGameInPlaylist || clicked ? "✓ Added!" : "+ Add To Playlist"}
+              </div>
             </Button>
-            <div
-              style={{
-                scale: "140%",
-              }}
-            >
-              <ButtonBack label="Back" handleClick={backButtonClick} />
-            </div>
+            <ButtonBack
+              className={styles.backButton}
+              label="Back"
+              handleClick={backButtonClick}
+            />
           </div>
           <div className={styles.container}>
             <DetailsCard

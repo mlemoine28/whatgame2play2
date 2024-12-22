@@ -54,20 +54,6 @@ text-decoration: underline;
   }
 }
 
-/* @media (max-width: 834px) {
-  .navBarStyle {
-      scale: 80%;
-  }
-}
-
-@media (max-width: 413px) {
-  .navBarStyle {
-      scale: 80%;
-  }
-} */
-
-
-
 .navBarStyle a, .navBarStyle p, .navBarStyle h1 {
  color: inherit; 
 
