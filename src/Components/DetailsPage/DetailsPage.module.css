@@ -92,11 +92,8 @@
 }
 
 .buttonPlaylist {
-  /* margin-left: 55rem; */
-  margin-top: 1rem;
-  scale: 60%;
   border-radius: 20%;
-  height: 10rem;
+  height: 5rem;
   color: white;
   transition: 0.4s ease !important;
   background-color: #000080 !important;
@@ -114,54 +111,6 @@
   flex-direction: row-reverse;
 }
 
-/* @media (max-width: 1538px) {
-  .container {
-    scale: 90%;
-    margin-top: -3rem;
-  }
+.backButton {
+  padding: 2rem;
 }
-
-@media (max-width: 1369px) {
-  .container {
-    scale: 80%;
-    margin-top: -9rem;
-  }
-  .buttoncontainer2 {
-    scale: 90%;
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 1256px) {
-  .containerdisplay {
-    scale: 90%;
-    margin-top: -5rem;
-  }
-}
-
-@media (max-width: 1137px) {
-  .containerdisplay {
-    scale: 75%;
-    margin-top: -8rem;
-  }
-}
-
-@media (max-width: 1058px) {
-  .containerdisplay {
-    scale: 70%;
-    margin-top: -11rem;
-  }
-}
-
-@media (max-width: 413px) {
-  .containerdisplay {
-    scale: 50%;
-    margin-top: -31rem;
-    padding-left: 9rem;
-  }
-  .buttoncontainer2 {
-    scale: 50%;
-    max-width: 50%;
-    box-sizing: border-box;
-  }
-} */

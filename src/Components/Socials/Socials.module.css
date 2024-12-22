@@ -1,44 +1,36 @@
 .socialstyle {
- display: flex;
- justify-content: center;
- align-items: center;
- background-color: #010622;
- bottom: 1rem;
- position: fixed;
- color: white;
- height: 4rem;
- 
- right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #010622;
+  bottom: 1rem;
+  position: fixed;
+  color: white;
+  height: 4rem;
+
+  right: 0;
   margin: auto;
+}
 
- }
-
- 
-
- .fa {
+.fa {
   padding: 15px;
   font-size: 30px;
   width: 1rem;
   text-align: center;
   text-decoration: none;
-  
-  
- 
 }
 
 .fa:hover {
- opacity: 0.7;
+  opacity: 0.7;
 }
 
 .fa-linkedin {
- background: #a82d2d;
- color: rgb(16, 5, 59);
- 
+  background: #a82d2d;
+  color: rgb(16, 5, 59);
 }
 
 .githubstyle {
- scale: 30%;
-
+  scale: 30%;
 }
 
 .socialsCentre {
@@ -51,14 +43,12 @@
 
 @media (max-width: 1829px) {
   .socialstyle {
-    position: relative
-  
+    position: relative;
   }
 }
 
 @media (max-width: 1135px) {
   .socialstyle {
     scale: 80%;
-  
   }
 }

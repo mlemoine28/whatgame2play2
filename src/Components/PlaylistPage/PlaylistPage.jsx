@@ -34,10 +34,7 @@ function PlaylistPage() {
     >
       <div
         style={{
-          // scale: "140%",
           marginLeft: "3rem",
-          // paddingTop: "5rem",
-          // paddingBottom: "13rem",
         }}
       >
         <ButtonBack label="Back" handleClick={backButtonClick} />
