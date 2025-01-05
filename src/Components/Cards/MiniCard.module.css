@@ -58,6 +58,7 @@
   background-color: #010622;
   justify-content: right;
   align-items: center;
+  
 }
 
 .buttoncontainer3 {
@@ -243,9 +244,8 @@
     width: 70%;
   }
 
-  .buttoncontainer2 {
-  padding: 40px;
-  }
+
+ 
   }
 
  

@@ -54,7 +54,7 @@ export default function DetailsCard({
                 className={styles.imageContainer}
                 src={gameImage}
                 style={{
-                  width: "396px",
+                  width: "24rem",
                   height: "250px",
                   border: "2px solid white",
                   borderRadius: "5px",
