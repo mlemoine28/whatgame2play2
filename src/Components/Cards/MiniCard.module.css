@@ -225,6 +225,30 @@
   .detailsText {
     flex-direction: column;
     gap: unset;
-    width: fit-content;
+    width: 70%;
   }
 }
+
+@media (max-width: 564px) {
+  .containerquestions{
+    width: 80%;
+  }
+
+  .textcontainer {
+    width: 80%;
+    font-size: medium;
+  }
+
+  .descriptionContainer {
+    width: 70%;
+  }
+
+  .buttoncontainer2 {
+  padding: 40px;
+  }
+  }
+
+ 
+  
+ 
+ 
