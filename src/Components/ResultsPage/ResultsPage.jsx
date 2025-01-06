@@ -103,7 +103,7 @@ function ResultsPage() {
   };
 
   const totalPages = Math.ceil(gamesCount / pageSize);
-  const maxDisplayedPages = 25;
+  const maxDisplayedPages = 15;
 
   return (
     <div>
