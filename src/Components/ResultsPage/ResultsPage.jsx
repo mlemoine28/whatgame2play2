@@ -12,6 +12,7 @@ import ButtonList from "../Button/ButtonList.jsx";
 import { Spinner } from "react-bootstrap";
 import Pagination from "react-bootstrap/Pagination";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext.jsx";
+import CustomPagination from "../Pagination/Pagination.jsx";
 
 function ResultsPage() {
   const location = useLocation();
@@ -24,9 +25,6 @@ function ResultsPage() {
   const [games, setGames] = useState([]);
 
   const [loading, setLoading] = useState(false);
-  const [activePage, setActivePage] = useState(1);
-  const [clicked, setClicked] = useState(false);
-  const { playlistButtonClick } = usePlaylist();
 
   const queryParams = new URLSearchParams(location.search);
 
@@ -112,44 +110,13 @@ function ResultsPage() {
       <div className={styles.pagination}>
         {loading
           ? null
-          : (() => {
-              let items = [];
-
-              items.push(
-                <Pagination.Item
-                  key={1}
-                  active={pageNumber === 1}
-                  onClick={() => setPageNumber(1)}
-                >
-                  1
-                </Pagination.Item>
-              );
-
-              const pagesToShow = Math.min(
-                totalPages - 2,
-                maxDisplayedPages - 2
-              );
-
-              for (let page = 2; page <= totalPages - 1; page++) {
-                if (items.length < pagesToShow + 2) {
-                  items.push(
-                    <Pagination.Item
-                      key={page}
-                      active={page === pageNumber}
-                      onClick={() => setPageNumber(page)}
-                    >
-                      {page}
-                    </Pagination.Item>
-                  );
-                }
-              }
-
-              return (
-                <div>
-                  <Pagination data-bs-theme="dark">{items}</Pagination>
-                </div>
-              );
-            })()}
+          : (
+            <CustomPagination 
+            pageNumber={pageNumber}
+            totalPages={totalPages}
+            maxDisplayedPages={maxDisplayedPages}
+            setPageNumber={setPageNumber}/>
+          )}
       </div>
 
       <div className={styles.containerdisplay} style={{ paddingTop: "3rem" }}>
@@ -199,6 +166,7 @@ function ResultsPage() {
           </div>
         )}
       </div>
+      <resultsPagination></resultsPagination>
       <div className={styles.resultsBottom}></div>
     </div>
   );
