@@ -102,21 +102,20 @@ function ResultsPage() {
     navigate(`/game/${game.id}`, { state: { game } });
   };
 
-  const totalPages = Math.ceil(gamesCount / pageSize);
-  const maxDisplayedPages = 15;
+  let totalPages = Math.ceil(gamesCount / pageSize);
+  const maxDisplayedPages = 10;
 
   return (
     <div>
       <div className={styles.pagination}>
-        {loading
-          ? null
-          : (
-            <CustomPagination 
+        {loading ? null : (
+          <CustomPagination
             pageNumber={pageNumber}
             totalPages={totalPages}
             maxDisplayedPages={maxDisplayedPages}
-            setPageNumber={setPageNumber}/>
-          )}
+            setPageNumber={setPageNumber}
+          />
+        )}
       </div>
 
       <div className={styles.containerdisplay} style={{ paddingTop: "3rem" }}>
@@ -157,7 +156,7 @@ function ResultsPage() {
             />
             <ButtonPage label="Search Again" handleClick={homeButtonClick} />
             <ButtonPage
-              disabled={pageNumber === 25 || !games}
+              disabled={pageNumber === totalPages || !games}
               label="Next Page"
               handleClick={() =>
                 setPageNumber((currentPage) => currentPage + 1)
@@ -166,7 +165,7 @@ function ResultsPage() {
           </div>
         )}
       </div>
-      <resultsPagination></resultsPagination>
+
       <div className={styles.resultsBottom}></div>
     </div>
   );
