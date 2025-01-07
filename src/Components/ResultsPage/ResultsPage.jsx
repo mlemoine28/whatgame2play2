@@ -101,8 +101,8 @@ function ResultsPage() {
     console.log("More Details button clicked for game:", game);
     navigate(`/game/${game.id}`, { state: { game } });
   };
-
-  let totalPages = Math.ceil(gamesCount / pageSize);
+  const maxPageLimit = 1000;
+  const totalPages = Math.min(Math.ceil(gamesCount / pageSize), maxPageLimit);
   const maxDisplayedPages = 10;
 
   return (
