@@ -77,6 +77,12 @@
   padding-top: 3rem;
 }
 
+@media (max-width: 484px) {
+  .pagination {
+    scale: 70%;
+  }
+}
+
 .detailsText {
   font-size: 1rem;
   text-align: center;
