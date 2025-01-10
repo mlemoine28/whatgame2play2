@@ -84,7 +84,7 @@ function CustomPagination({
         onClick={() => setPageNumber(pageNumber + 1)}
       ></Pagination.Next>
     );
-
+ //theme
     return (
       <div>
         <Pagination data-bs-theme="dark">{items}</Pagination>
