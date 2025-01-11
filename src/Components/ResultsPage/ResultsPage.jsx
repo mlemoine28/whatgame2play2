@@ -107,14 +107,11 @@ function ResultsPage() {
 
   return (
     <div>
-      <div className={styles.pagination}>
+      <div className={styles.buttoncontainer}>
         {loading ? null : (
-          <CustomPagination
-            pageNumber={pageNumber}
-            totalPages={totalPages}
-            maxDisplayedPages={maxDisplayedPages}
-            setPageNumber={setPageNumber}
-          />
+          <div className={styles.buttoncontainer}>
+            <ButtonPage label="Search Again" handleClick={homeButtonClick} />
+          </div>
         )}
       </div>
 
@@ -142,27 +139,15 @@ function ResultsPage() {
           <br />
         </div>
       </div>
-      <div className={styles.buttoncontainer}>
+
+      <div className={styles.pagination}>
         {loading ? null : (
-          <div className={styles.buttoncontainer}>
-            <ButtonPage
-              disabled={pageNumber === 1 || !games}
-              label="Previous Page"
-              handleClick={() =>
-                setPageNumber((currentPage) => currentPage - 1)
-              }
-              //what this means is that I am giving a function to setPageNumber. currentPage is referring to the CURRENT STATE of pageNumber. It's a built-in React thing
-              //that knows that pageNumber is the ARGUMENT for currentPage. It's part of how useState works.
-            />
-            <ButtonPage label="Search Again" handleClick={homeButtonClick} />
-            <ButtonPage
-              disabled={pageNumber === totalPages || !games}
-              label="Next Page"
-              handleClick={() =>
-                setPageNumber((currentPage) => currentPage + 1)
-              }
-            />
-          </div>
+          <CustomPagination
+            pageNumber={pageNumber}
+            totalPages={totalPages}
+            maxDisplayedPages={maxDisplayedPages}
+            setPageNumber={setPageNumber}
+          />
         )}
       </div>
 

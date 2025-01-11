@@ -17,7 +17,9 @@ function CustomPagination({
         key="prev"
         disabled={pageNumber === 1}
         onClick={() => setPageNumber(pageNumber - 1)}
-      />
+      >
+        <strong>&lt;</strong>Prev
+      </Pagination.Prev>
     );
 
     //First Page!
@@ -82,9 +84,11 @@ function CustomPagination({
         key="next"
         disabled={pageNumber === totalPages}
         onClick={() => setPageNumber(pageNumber + 1)}
-      ></Pagination.Next>
+      >
+        Next<strong>&gt;</strong>
+      </Pagination.Next>
     );
- //theme
+    //theme
     return (
       <div>
         <Pagination data-bs-theme="dark">{items}</Pagination>
