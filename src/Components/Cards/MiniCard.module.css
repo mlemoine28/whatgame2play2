@@ -239,6 +239,7 @@
 @media (max-width: 564px) {
   .containerquestions{
     width: 80%;
+    margin-top: 1rem;
   }
 
   .textcontainer {
