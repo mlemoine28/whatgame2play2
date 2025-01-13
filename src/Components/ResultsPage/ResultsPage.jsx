@@ -150,8 +150,6 @@ function ResultsPage() {
           />
         )}
       </div>
-
-      <div className={styles.resultsBottom}></div>
     </div>
   );
 }

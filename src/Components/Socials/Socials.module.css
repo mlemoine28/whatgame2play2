@@ -3,13 +3,13 @@
   justify-content: center;
   align-items: center;
   background-color: #010622;
-  bottom: 1rem;
-  position: fixed;
+  bottom: 0;
+  position: relative;
   color: white;
   height: 4rem;
 
   right: 0;
-  margin: auto;
+  margin-top: 7rem;
 }
 
 .fa {
@@ -39,16 +39,17 @@
   max-width: 30rem;
   align-items: center;
   padding-left: 1.5rem;
+  
 }
 
-@media (max-width: 1829px) {
-  .socialstyle {
-    position: relative;
-  }
-}
 
 @media (max-width: 1135px) {
   .socialstyle {
     scale: 80%;
+    position: relative;
+  }
+  .socialsCentre {
+    position: absolute;
+  bottom: 0;
   }
 }
