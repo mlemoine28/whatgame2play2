@@ -11,7 +11,7 @@
 WhatGame2Play was developed during Module Two of the Get Building (formerly Get Coding) program.
 <br>
 <br>
-Try it out! -------> <a href="https://mlemoine28.github.io/whatgame2play2" target="_blank">WhatGame2Play</a>
+▶️ Try it out! -------> <a href="https://mlemoine28.github.io/whatgame2play2" target="_blank">WhatGame2Play</a>
 ## 💡 Motivation
 If you’re a gamer like me, you’ve probably found yourself sitting in front of your PC or console after a long day, staring at your ever-growing backlog of games, unsure of what to play. You think, “Maybe I should buy another game to add to my already ridiculously large collection.” Before you know it, an hour goes by and you haven’t actually picked a game to play at all. Frustrated, you log off and head to bed after yet another wasted evening due to indecisiveness. Sound familiar?
 
@@ -67,7 +67,7 @@ When you see a game that catches your eye, simply add it to your playlist! In no
 <strong><li>Usernames and Community </strong>  - Create an account to save your list of games, and see your friends profiles and what games they are excited to play!</li>
 
 
-Try out <a href="https://mlemoine28.github.io/whatgame2play2">WhatGame2Play!</a>
+▶️ Try out <a href="https://mlemoine28.github.io/whatgame2play2">WhatGame2Play!</a>
 
 ##  Acknowledgements:
 Special thanks to the Get Building program and my coach Matt Vey. I am truly grateful for Matt's guidance and I appreciate all his valuable insights and patience he showed me throughout my journey into coding.
