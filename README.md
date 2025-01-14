@@ -21,18 +21,32 @@ This is where WhatGame2Play comes in.
 </picture>
 
 ##🎮 What is it?
-WhatGame2Play is designed to help you find a great game to play. It gives you options to narrow down your list of games based on parameters that matter to you. Choose from a variety of genres, 50 platforms spanning modern to classic systems, and tons of features such as co-op, third-person, or pixel graphics. 
+WhatGame2Play is designed to help you find a great game to play. It gives you options to narrow down your list of games based on parameters that matter to you. Choose from a variety of genres, 50 platforms spanning modern to classic systems, and tons of features such as co-op, third-person, or pixel graphics.
 
-When you see a game that catches your eye, simply add it to your playlist! In no time, you’ll have a list of games that you won’t hesitate to dive into.
-
-## 🧰 Features
-WhatGame2Play uses the RAWG Video Games Database API. The games, images, tags, genres, and platforms are all populated from it. I also used React Bootstrap for a few features, such as a loading spinner, and for pagination on the results page.
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Questions_Page.png">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Questions_Page.png">
+ <img alt="WhatGame2Play" src="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Questions_Page.png">
+</picture>
 
 <picture>
  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Results_Screen.png">
  <source media="(prefers-color-scheme: light)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Results_Screen.png">
  <img alt="WhatGame2Play" src="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Results_Screen.png">
 </picture>
+
+When you see a game that catches your eye, simply add it to your playlist! In no time, you’ll have a list of games that you won’t hesitate to dive into.
+
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Results_Screen.png">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Results_Screen.png">
+ <img alt="WhatGame2Play" src="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Results_Screen.png">
+</picture>
+
+## 🧰 Features
+WhatGame2Play uses the RAWG Video Games Database API. The games, images, tags, genres, and platforms are all populated from it. I also used React Bootstrap for a few features, such as a loading spinner, and for pagination on the results page.
+
+
 
 ## 📝 In the future, I plan to implement:
 
