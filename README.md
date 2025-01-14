@@ -3,6 +3,8 @@
  <source media="(prefers-color-scheme: light)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Header.png">
  <img alt="WhatGame2Play" src="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Header.png">
 </picture>
+<br>
+<br>
 
 WhatGame2Play was developed during Module Two of the Get Building (formerly Get Coding) program.
 ## 💡 Motivation
