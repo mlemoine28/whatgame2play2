@@ -5,6 +5,8 @@
 </picture>
 <br>
 <br>
+<br>
+<br>
 
 WhatGame2Play was developed during Module Two of the Get Building (formerly Get Coding) program.
 ## 💡 Motivation
