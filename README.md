@@ -28,6 +28,12 @@ When you see a game that catches your eye, simply add it to your playlist! In no
 ## 🧰 Features
 WhatGame2Play uses the RAWG Video Games Database API. The games, images, tags, genres, and platforms are all populated from it. I also used React Bootstrap for a few features, such as a loading spinner, and for pagination on the results page.
 
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Results_Screen.png">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Results_Screen.png">
+ <img alt="WhatGame2Play" src="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Results_Screen.png">
+</picture>
+
 ## 📝 In the future, I plan to implement:
 
 *Filtering - After performing a search, adjust the search without having to make a brand new one. Ex: Sort games from newest to oldest; sort games by length; etc. <br>
