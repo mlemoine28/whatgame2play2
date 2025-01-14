@@ -1,5 +1,11 @@
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Header.png">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Header.png">
+ <img alt="WhatGame2Play" src="https://github.com/mlemoine28/whatgame2play2/blob/main/src/assets/WhatGame2Play_Header.png">
+</picture>
+
 WhatGame2Play was developed during Module Two of the Get Building (formerly Get Coding) program.
-## Motivation
+## 💡 Motivation
 If you’re a gamer like me, you’ve probably found yourself sitting in front of your PC or console after a long day, staring at your ever-growing backlog of games, unsure of what to play. You think, “Maybe I should buy another game to add to my already ridiculously large collection.” Before you know it, an hour goes by and you haven’t actually picked a game to play at all. Frustrated, you log off and head to bed after yet another wasted evening due to indecisiveness. Sound familiar?
 
 This is where WhatGame2Play comes in.
