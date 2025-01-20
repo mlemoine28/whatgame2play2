@@ -37,7 +37,7 @@ function ResultsPage() {
     () => parseInt(pageParams, 10) || 1
   );
 
-  const pageSize = 5;
+  const pageSize = 50;
 
   useEffect(() => {
     let apiURL;
