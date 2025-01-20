@@ -229,6 +229,37 @@
   font-weight: 100;
 }
 
+.gameImage {
+  width: 288px;
+  height: 162px;
+  margin-top: 1rem;
+  border: 1px solid white;
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repeating */
+  border-radius: 8px; /* Optional: Adds rounded corners */
+}
+
+.detailGameImage {
+  
+    width: 24rem;
+    height: 250px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repeating */
+  border-radius: 8px; /* Optional: Adds rounded corners */
+  
+}
+
+.centerDetailGameImage {
+  display: flex;
+  justify-content: center;
+}
+
+
+
 @media (max-width: 1250px) {
   .detailsText {
     flex-direction: column;

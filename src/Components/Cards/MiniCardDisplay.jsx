@@ -11,15 +11,6 @@ import usePlaylistCheck from "../Button/UsePlaylistCheck/usePlaylistCheck";
 
 export default function MiniCardDisplay({
   detailedGame,
-  // gameTitle,
-  // gameRelease,
-  // gameMetacritic,
-  // gameImage,
-  // gameLength,
-  // gamePlatforms,
-  // gameAchievements,
-  // gameDescription,
-  // gameImage2,
   handleMoreDetails,
   buttonText = "Add To Playlist",
 }) {
@@ -39,16 +30,12 @@ export default function MiniCardDisplay({
       <div>
         <div className={styles.displaycard}>
           <h1 className={styles.displaycardtitle}>{detailedGame.name}</h1>
-          <img
-            src={detailedGame.background_image}
+          <div
+            className={styles.gameImage}
             style={{
-              width: "288px",
-              height: "162px",
-              marginTop: "1rem",
-              border: "1px solid white",
+              backgroundImage: `url(${detailedGame.background_image})`,
             }}
-            alt="game"
-          />
+          ></div>
 
           <div className={styles.displaycardcontent}>
             <div className={styles.displayattributes}>
@@ -81,8 +68,10 @@ export default function MiniCardDisplay({
               handleClick={() => handlePlaylistButtonClick(detailedGame)}
               disabled={isGameInPlaylist || clicked}
               style={{
-                backgroundColor: isGameInPlaylist || clicked ? "gray" : "#4040FF",
-                color: isGameInPlaylist || clicked ? "rgb(57, 255, 20)" : "white",
+                backgroundColor:
+                  isGameInPlaylist || clicked ? "gray" : "#4040FF",
+                color:
+                  isGameInPlaylist || clicked ? "rgb(57, 255, 20)" : "white",
               }}
             ></ButtonList>
           </div>

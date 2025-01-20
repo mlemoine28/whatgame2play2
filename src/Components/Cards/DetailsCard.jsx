@@ -50,17 +50,14 @@ export default function DetailsCard({
               <h1 style={{ marginBottom: "2.5rem", color: "#39FF14" }}>
                 {gameTitle}
               </h1>
-              <img
-                className={styles.imageContainer}
-                src={gameImage}
-                style={{
-                  width: "24rem",
-                  height: "250px",
-                  border: "2px solid white",
-                  borderRadius: "5px",
-                }}
-                alt="game"
-              />
+              <div className={styles.centerDetailGameImage}>
+                <div
+                  className={styles.detailGameImage}
+                  style={{
+                    backgroundImage: `url(${gameImage})`,
+                  }}
+                ></div>
+              </div>
             </div>
 
             <div className={styles.displaycardcontent}>
@@ -99,12 +96,13 @@ export default function DetailsCard({
                 <div className={styles.screenshotContainer}>
                   {gameScreenshots && gameScreenshots.length > 0 ? (
                     gameScreenshots.map((screenshot, index) => (
-                      <img
+                      <div
                         key={index}
-                        src={screenshot.image}
-                        alt={`Screenshot ${index + 1}`}
-                        className={styles.screenshotImage}
-                      />
+                        className={styles.detailGameImage}
+                        style={{
+                          backgroundImage: `url(${screenshot.image})`,
+                        }}
+                      ></div>
                     ))
                   ) : (
                     <span className={styles.whiteText}>
