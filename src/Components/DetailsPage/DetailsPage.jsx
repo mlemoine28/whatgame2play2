@@ -15,6 +15,9 @@ export default function DetailsPage({}) {
   const [screenshots, setScreenShots] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
+  const steamSearchUrl = `https://store.steampowered.com/search/?term=${encodeURIComponent(
+    detailedGame?.name
+  )}`;
 
   const [clicked, setClicked] = useState(false);
   const { playlistButtonClick, playlist } = usePlaylist();
@@ -147,6 +150,7 @@ export default function DetailsPage({}) {
               gameImage2={detailedGame?.background_image_additional}
               gameScreenshots={screenshots?.results}
               gameTags={detailedGame?.tags?.map((tag) => tag.name).join(", ")}
+              gameSteam={steamSearchUrl}
             />
           </div>
         </div>

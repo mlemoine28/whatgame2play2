@@ -25,6 +25,7 @@ export default function DetailsCard({
   gameDeveloper,
   gamePublisher,
   gameTags,
+  gameSteam,
 }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -174,7 +175,7 @@ export default function DetailsCard({
                     <b className={styles.greenText}>Achievements</b>: <br />
                     {gameAchievements} <br />
                     <br />
-                    <b className={styles.greenText}>Website: </b>
+                    <b className={styles.greenText}>Website</b>:
                     <br />
                     {gameWebsite ? (
                       <a
@@ -193,6 +194,23 @@ export default function DetailsCard({
                     <br />
                     <br />
                   </div>
+                  <div>
+                    <b className={styles.greenText}>Steam Store</b>:
+                    <br />
+                    {gamePlatforms?.includes("PC") ? (
+                      <a
+                        href={gameSteam}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.whiteText}
+                      >
+                        Link
+                      </a>
+                    ) : (
+                      <span className={styles.whiteText}>(N/A)</span>
+                    )}
+                  </div>
+
                   <div>
                     <b className={styles.greenText}>Features/Tags</b>: <br />
                     {showMoreTags
