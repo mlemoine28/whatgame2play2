@@ -210,8 +210,6 @@ export default function DetailsCard({
                       <span className={styles.whiteText}>(N/A)</span>
                     )}
                   </div>
-                  <br />
-                  <br />
 
                   <div>
                     <b className={styles.greenText}>Features/Tags</b>: <br />
