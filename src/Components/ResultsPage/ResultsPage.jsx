@@ -1,18 +1,14 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import FormSubmit from "../../Components/FormSubmit/FormSubmit";
+import { useEffect, useState, lazy, Suspense } from "react";
 import styles from "../Cards/MiniCard.module.css";
-import MiniCardDisplay from "../Cards/MiniCardDisplay.jsx";
+
 import ButtonPage from "../../Components/Button/ButtonPage";
-import ButtonSubmit from "../../Components/Button/ButtonSubmit.jsx";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import ButtonDetails from "../Button/ButtonDetails.jsx";
-import ButtonList from "../Button/ButtonList.jsx";
 import { Spinner } from "react-bootstrap";
-import Pagination from "react-bootstrap/Pagination";
-import { usePlaylist } from "../../assets/Contexts/PlaylistContext.jsx";
-import CustomPagination from "../Pagination/Pagination.jsx";
+
+const MiniCardDisplay = lazy(() => import("../Cards/MiniCardDisplay.jsx"));
+const CustomPagination = lazy(() => import("../Pagination/Pagination.jsx"));
 
 function ResultsPage() {
   const location = useLocation();
@@ -23,11 +19,8 @@ function ResultsPage() {
 
   const [gamesCount, setGamesCount] = useState(0);
   const [games, setGames] = useState([]);
-
   const [loading, setLoading] = useState(false);
-
   const queryParams = new URLSearchParams(location.search);
-
   const platformParams = queryParams.get("platform");
   const genreParams = queryParams.get("genre");
   const tagParams = queryParams.get("tag");
@@ -37,7 +30,7 @@ function ResultsPage() {
     () => parseInt(pageParams, 10) || 1
   );
 
-  const pageSize = 50;
+  const pageSize = 25;
 
   useEffect(() => {
     let apiURL;
@@ -124,14 +117,16 @@ function ResultsPage() {
               </Spinner>
             </div>
           ) : games?.length > 0 ? (
-            games.map((game, i) => (
-              <div key={i}>
-                <MiniCardDisplay
-                  detailedGame={game}
-                  handleMoreDetails={() => handleMoreDetails(game)}
-                />
-              </div>
-            ))
+            <Suspense fallback={<Spinner animation="border" variant="info" />}>
+              {games.map((game, i) => (
+                <div key={i}>
+                  <MiniCardDisplay
+                    detailedGame={game}
+                    handleMoreDetails={() => handleMoreDetails(game)}
+                  />
+                </div>
+              ))}
+            </Suspense>
           ) : (
             <div>No games to show</div>
           )}
@@ -142,12 +137,14 @@ function ResultsPage() {
 
       <div className={styles.pagination}>
         {loading ? null : (
-          <CustomPagination
-            pageNumber={pageNumber}
-            totalPages={totalPages}
-            maxDisplayedPages={maxDisplayedPages}
-            setPageNumber={setPageNumber}
-          />
+          <Suspense fallback={<Spinner animation="border" variant="info" />}>
+            <CustomPagination
+              pageNumber={pageNumber}
+              totalPages={totalPages}
+              maxDisplayedPages={maxDisplayedPages}
+              setPageNumber={setPageNumber}
+            />
+          </Suspense>
         )}
       </div>
     </div>
