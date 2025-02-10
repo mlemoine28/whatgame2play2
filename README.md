@@ -8,7 +8,7 @@
 <br>
 <br>
 
-WhatGame2Play was developed during Module Two of the Get Building (formerly Get Coding) program.
+WhatGame2Play was developed during the React module of the Get Building (formerly Get Coding) program.
 <br>
 <br>
 ▶️ Try it out! -------> <a href="https://mlemoine28.github.io/whatgame2play2" target="_blank">WhatGame2Play</a>
