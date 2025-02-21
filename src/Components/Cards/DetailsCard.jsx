@@ -28,6 +28,10 @@ export default function DetailsCard({
   gameSteam,
 }) {
   const navigate = useNavigate();
+  const [zoomedIndex, setZoomedIndex] = useState(null);
+  const toggleZoom = (index) => {
+    setZoomedIndex(zoomedIndex === index ? null : index);
+  };
   const location = useLocation();
   const backButtonClick = () => {
     if (location.state?.from) {
@@ -99,10 +103,13 @@ export default function DetailsCard({
                     gameScreenshots.map((screenshot, index) => (
                       <div
                         key={index}
-                        className={styles.detailGameImage}
+                        className={`${styles.detailGameImage} ${
+                          zoomedIndex === index ? styles.zoomed : ""
+                        }`}
                         style={{
                           backgroundImage: `url(${screenshot.image})`,
                         }}
+                        onClick={() => toggleZoom(index)}
                       ></div>
                     ))
                   ) : (

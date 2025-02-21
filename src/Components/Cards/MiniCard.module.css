@@ -250,6 +250,8 @@
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents repeating */
   border-radius: 8px; /* Optional: Adds rounded corners */
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
   
 }
 
@@ -257,6 +259,14 @@
   display: flex;
   justify-content: center;
 }
+
+.zoomed {
+  transform: scale(2);
+  cursor: zoom-out;
+  position: relative;
+  z-index: 10; /* Ensures zoomed image appears above others */
+}
+
 
 
 
