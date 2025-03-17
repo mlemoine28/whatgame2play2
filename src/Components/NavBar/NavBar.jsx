@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "./NavBar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
+import PopupLogin from "../PopupLogin/PopupLogin";
 import ButtonIntro from "../Button/ButtonIntro";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -35,6 +36,11 @@ function NavBarTop() {
     setActive("/questions");
     console.log("After setting active:", "/questions");
     navigate("/questions");
+  };
+
+  const loginButtonClick = () => {
+    setActive("/login");
+    navigate("/login");
   };
 
   return (
@@ -70,12 +76,26 @@ function NavBarTop() {
               handleClick={playlistButtonClick}
             ></NavItem>
           </div>
+          <div
+            className={`${styles.NavBarPointer} ${
+              active === "/login" ? styles.active : ""
+            }`}
+          >
+            <NavItem label="Login" handleClick={loginButtonClick}></NavItem>
+          </div>
         </div>
         <Navbar>
           <div className={styles.searchBarStyle}>
             <SearchBar placeholder="Search for a game..." data={""} />
           </div>
         </Navbar>
+      </div>
+      <div
+        className={`${styles.NavBarPointer} ${
+          active === "/questions" ? styles.active : ""
+        }`}
+      >
+        <PopupLogin></PopupLogin>
       </div>
     </div>
   );
