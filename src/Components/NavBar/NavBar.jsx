@@ -38,10 +38,6 @@ function NavBarTop() {
     navigate("/questions");
   };
 
-  const loginButtonClick = () => {
-    setActive("/login");
-    navigate("/login");
-  };
 
   return (
     <div className={styles.container}>
@@ -75,13 +71,6 @@ function NavBarTop() {
               label="My Playlist"
               handleClick={playlistButtonClick}
             ></NavItem>
-          </div>
-          <div
-            className={`${styles.NavBarPointer} ${
-              active === "/login" ? styles.active : ""
-            }`}
-          >
-            <NavItem label="Login" handleClick={loginButtonClick}></NavItem>
           </div>
         </div>
         <Navbar>

@@ -2,6 +2,9 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import styles from "./PopupLogin.module.css";
+import NavItem from "../NavBar/NavItem";
+
 function PopupLogin() {
   const [show, setShow] = useState(false);
 
@@ -10,9 +13,11 @@ function PopupLogin() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} >
+    <div className={styles.loginbutton}>
+      <NavItem handleClick={handleShow} label={"Login"} >
         Login
-      </Button>
+      </NavItem>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -45,10 +50,10 @@ function PopupLogin() {
 
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Submit
           </Button>
         </Modal.Footer>
       </Modal>
