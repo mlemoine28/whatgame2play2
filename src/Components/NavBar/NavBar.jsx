@@ -38,7 +38,6 @@ function NavBarTop() {
     navigate("/questions");
   };
 
-
   return (
     <div className={styles.container}>
       <div className={styles.navBarStyle}>
@@ -78,13 +77,6 @@ function NavBarTop() {
             <SearchBar placeholder="Search for a game..." data={""} />
           </div>
         </Navbar>
-      </div>
-      <div
-        className={`${styles.NavBarPointer} ${
-          active === "/questions" ? styles.active : ""
-        }`}
-      >
-        <PopupLogin></PopupLogin>
       </div>
     </div>
   );

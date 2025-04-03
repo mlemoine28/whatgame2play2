@@ -10,6 +10,7 @@ import ResultsPage from "./Components/ResultsPage/ResultsPage";
 import DetailsPage from "./Components/DetailsPage/DetailsPage";
 import EnableScroll from "./Components/EnableScroll/EnableScroll";
 import PlaylistPage from "./Components/PlaylistPage/PlaylistPage";
+import ProfilePage from "./Components/ProfilePage/ProfilePage";
 import { PlaylistProvider } from "./assets/Contexts/PlaylistContext";
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
           <Route path="/games" element={<ResultsPage />} />
           <Route path="/game/:id" element={<DetailsPage />} />
           <Route path="/playlist" element={<PlaylistPage />} />
+          <Route path="/profile" element={<ProfilePage />} />{" "}
+          {/*This will eventually be /profile:id when fully set up */}
         </Routes>
         <Socials />
       </BrowserRouter>

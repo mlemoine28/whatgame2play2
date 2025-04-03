@@ -5,6 +5,7 @@ import styles from "./Header.module.css";
 import ButtonHome from "../Button/ButtonHome";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PopupLogin from "../PopupLogin/PopupLogin";
 
 function Header() {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ function Header() {
   };
   return (
     <div className={styles.container}>
+      <PopupLogin />
       <div className={styles.headerstyle}>
         <img
         className={styles.img}
