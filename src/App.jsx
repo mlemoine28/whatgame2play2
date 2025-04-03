@@ -16,7 +16,7 @@ import { PlaylistProvider } from "./assets/Contexts/PlaylistContext";
 function App() {
   return (
     <PlaylistProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/whatgame2play2">
         <Header />
         <NavBarTop />
         <EnableScroll />
