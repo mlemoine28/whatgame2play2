@@ -13,7 +13,7 @@ function Header() {
   const location = useLocation();
   const [active, setActive] = useState(null);
   const backToHomeClick = () => {
-    navigate("/whatgame2play2");
+    navigate("/");
   };
   const profileButtonClick = () => {
     setActive("/profile");
