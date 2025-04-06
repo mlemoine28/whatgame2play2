@@ -17,8 +17,8 @@ function NavBarTop() {
   const location = useLocation();
   console.log("Location state in PlaylistPage:", location.state);
   const backToHomeClick = () => {
-    setActive("/whatgame2play2");
-    navigate("/whatgame2play2");
+    setActive("/");
+    navigate("/");
   };
 
   const [active, setActive] = useState(null);

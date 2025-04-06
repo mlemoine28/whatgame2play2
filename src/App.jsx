@@ -21,7 +21,7 @@ function App() {
         <NavBarTop />
         <EnableScroll />
         <Routes>
-          <Route path="/whatgame2play2" element={<MiniCardIntro />} />
+          <Route index element={<MiniCardIntro />} />
           <Route path="/questions" element={<QuestionsPage />} />
           <Route path="/games" element={<ResultsPage />} />
           <Route path="/game/:id" element={<DetailsPage />} />
