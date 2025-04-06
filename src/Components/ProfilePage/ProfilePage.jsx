@@ -8,7 +8,7 @@ function ProfilePage() {
   const { id } = useParams(); // Assuming you have a route like /profile/:id
 
   const backToHomeClick = () => {
-    navigate("/whatgame2play2");
+    navigate("/");
   };
 
   return (

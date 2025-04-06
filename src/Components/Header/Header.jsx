@@ -11,12 +11,13 @@ import NavItem from "../NavBar/NavItem";
 function Header() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [active, setActive] = useState(null);
+  const active = location.pathname;
+
   const backToHomeClick = () => {
     navigate("/");
   };
+
   const profileButtonClick = () => {
-    setActive("/profile");
     navigate("/profile");
   };
 

@@ -22,36 +22,31 @@
     margin-right: 1rem;
   }
 
+  
   .active {
     border-color: #39FF14; /* Active border color */
     font-weight: bold !important;
     color: red !important;
     text-decoration: underline !important;
     scale: 110%;
-  }
-
-  .NavBarPointer, .navBarStyle a, .navBarStyle p, .navBarStyle h1 {
-    cursor: pointer;
-    color: red!important;
     border-style: solid;
     border-radius: 5px;
+  }
+
+  .NavBarPointer {
+    cursor: pointer;
     
-    background-color: #4040FF;
+  }
+
+ 
+
+   .NavBarPointer {
+    cursor: pointer;
     text-decoration: underline !important;
     text-decoration-color: transparent !important;
     transition: 0.4s;
    }
-   
-   .NavBarPointer:hover, .navBarStyle a:hover {
-    color: #39FF14;
-    text-decoration-color: #39FF14;
-    text-decoration: underline;
-   }
-
-   .NavBarPointer {
-    cursor: pointer;
-    border: 2px solid transparent;
-  }
+  
   
 
   @media (max-width: 1013px) {

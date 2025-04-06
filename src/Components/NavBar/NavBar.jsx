@@ -16,27 +16,12 @@ function NavBarTop() {
   const navigate = useNavigate();
   const location = useLocation();
   console.log("Location state in PlaylistPage:", location.state);
-  const backToHomeClick = () => {
-    setActive("/");
-    navigate("/");
+
+  const handleNavClick = (path) => () => {
+    navigate(path);
   };
 
-  const [active, setActive] = useState(null);
-
-  const playlistButtonClick = () => {
-    console.log("Playlist button clicked");
-    console.log("Navigating from:", `${location.pathname}${location.search}`);
-    setActive("/playlist");
-    navigate("/playlist", {
-      state: { from: `${location.pathname}${location.search}` }, // Pass 'from' state
-    });
-  };
-
-  const questionsButtonClick = () => {
-    setActive("/questions");
-    console.log("After setting active:", "/questions");
-    navigate("/questions");
-  };
+  const active = location.pathname;
 
   return (
     <div className={styles.container}>
@@ -47,7 +32,7 @@ function NavBarTop() {
               active === "/" ? styles.active : ""
             }`}
           >
-            <NavItem label="Home" handleClick={backToHomeClick}>
+            <NavItem label="Home" handleClick={handleNavClick("/")}>
               {" "}
             </NavItem>
           </div>
@@ -58,7 +43,7 @@ function NavBarTop() {
           >
             <NavItem
               label="Find A Game"
-              handleClick={questionsButtonClick}
+              handleClick={handleNavClick("/questions")}
             ></NavItem>
           </div>
           <div
@@ -68,7 +53,7 @@ function NavBarTop() {
           >
             <NavItem
               label="My Playlist"
-              handleClick={playlistButtonClick}
+              handleClick={handleNavClick("/playlist")}
             ></NavItem>
           </div>
         </div>
