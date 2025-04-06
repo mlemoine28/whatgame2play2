@@ -44,7 +44,7 @@ function NavBarTop() {
         <div className={styles.buttonContainer}>
           <div
             className={`${styles.NavBarPointer} ${
-              active === "/whatgame2play2" ? styles.active : ""
+              active === "/" ? styles.active : ""
             }`}
           >
             <NavItem label="Home" handleClick={backToHomeClick}>
