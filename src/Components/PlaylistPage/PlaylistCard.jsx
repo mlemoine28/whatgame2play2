@@ -66,6 +66,7 @@ export default function PlaylistCard({
               }
             />
             <ButtonDetails label={buttonText} handleClick={removeCardClick} />
+            
           </div>
         </div>
       </div>

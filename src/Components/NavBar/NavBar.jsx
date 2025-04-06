@@ -52,7 +52,7 @@ function NavBarTop() {
             }`}
           >
             <NavItem
-              label="My Playlist"
+              label="My Games2Play"
               handleClick={handleNavClick("/playlist")}
             ></NavItem>
           </div>
