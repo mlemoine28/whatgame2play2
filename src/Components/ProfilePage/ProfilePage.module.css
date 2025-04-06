@@ -1,12 +1,11 @@
-.profilebutton {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
+.h1 {
+  font-size: 3rem;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  color: #39FF14
+}
+
+.navItem {
+  margin-top: 1rem;
 }

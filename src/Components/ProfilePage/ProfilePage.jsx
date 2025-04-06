@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import NavItem from "../NavBar/NavItem";
+import styles from "./ProfilePage.module.css";
 
 function ProfilePage() {
   const location = useLocation();
@@ -13,9 +14,18 @@ function ProfilePage() {
 
   return (
     <div>
-      <h1>Profile Page</h1>
-      <p>User ID: {id}</p>
-      <NavItem label="Back to Home" handleClick={backToHomeClick} />
+      <div className={styles.navItem}>
+        <NavItem label="Back to Home" handleClick={backToHomeClick} />
+        <h1 className={styles.h1}>{id}'s Profile</h1>
+
+        <div className={styles.profileContainer}>
+          <h1>Recent Games Added</h1>
+          <br></br>
+          <h1>Reviews</h1>
+          <br></br>
+          <h1>Playlists</h1>
+        </div>
+      </div>
     </div>
   );
 }
