@@ -31,11 +31,11 @@ function ProfilePage() {
         <h1 className={styles.h1}>{colours.favourite}'s Profile</h1>
 
         <div className={styles.profileContainer}>
-          <h1>Recent Games Added</h1>
+          <h2>Recent Games Added</h2>
           <br></br>
-          <h1>Reviews</h1>
+          <h2>Reviews</h2>
           <br></br>
-          <h1>Playlists</h1>
+          <h2>Playlists</h2>
         </div>
       </div>
     </div>
