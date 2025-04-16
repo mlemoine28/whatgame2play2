@@ -28,7 +28,7 @@ function ProfilePage() {
     <div>
       <div className={styles.navItem}>
         <NavItem label="Back to Home" handleClick={backToHomeClick} />
-        <h1 className={styles.h1}>{colours.favourite}'s Profile</h1>
+        <h1 className={styles.h1}>{colours.white}'s Profile</h1>
 
         <div className={styles.profileContainer}>
           <h2>Recent Games Added</h2>
