@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import ButtonBack from "../Button/ButtonBack";
 import { Spinner } from "react-bootstrap";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
+import axios from "axios";
 
 export default function DetailsPage({}) {
   const navigate = useNavigate();
@@ -31,9 +32,16 @@ export default function DetailsPage({}) {
     }
   };
 
-  const handlePlaylistClick = () => {
+  const handlePlaylistClick = async () => {
     playlistButtonClick(detailedGame);
     setClicked(true);
+    console.log(detailedGame);
+    const body = { userID: 1, gameID: detailedGame.id, playlistID: 1 };
+    const response = await axios.put(
+      "http://localhost:8080/addToPlaylist",
+      body
+    );
+    console.log("Response from server:", response);
   };
 
   const isGameInPlaylist = useMemo(() => {

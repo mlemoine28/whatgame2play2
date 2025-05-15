@@ -13,6 +13,6 @@ app.get('/test', (req, res) => {
  res.json({'colours': { white: 'white', black: 'black', favourite: 'green' }});
 });
 
-app.listen(3306, () => {
- console.log('Server started on Port 3306');
+app.listen(8080, () => {
+ console.log('Server started on Port 8080');
 });

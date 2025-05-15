@@ -5,7 +5,9 @@ const app = express();
 app.use(cors());
 
 export const addToPlaylist = (req, res) => {
+  console.log("Request body:", req.body);
  const con = setUpConnection();
+ 
  let sql = `INSERT INTO playlists
  (userID,
  gameID,
@@ -20,6 +22,7 @@ export const addToPlaylist = (req, res) => {
  ];
 
  con.query(sql, values, (err, rows) => {
+  console.log("Rows: ", rows);
    con.destroy();
    if (!err) {
      res.send(JSON.stringify(rows));

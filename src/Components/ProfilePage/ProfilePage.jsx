@@ -16,8 +16,11 @@ function ProfilePage() {
   };
 
   const fetchAPI = async () => {
-    const body = {userID: id};
-    const response = await axios.get("http://localhost:8080/getPlaylists",body);
+    const body = { userID: id };
+    const response = await axios.get(
+      "http://localhost:3306/getPlaylists",
+      body
+    );
     setColours(response.data.colours);
   };
 
