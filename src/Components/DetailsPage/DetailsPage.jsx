@@ -36,9 +36,9 @@ export default function DetailsPage({}) {
     playlistButtonClick(detailedGame);
     setClicked(true);
     console.log(detailedGame);
-    const body = { userID: 1, gameID: detailedGame.id, playlistID: 1 };
+    const body = { userID: 1, gameID: detailedGame.id, title: "Completed" };
     const response = await axios.put(
-      "http://localhost:8080/addToPlaylist",
+      "http://localhost:8080/playlist/add",
       body
     );
     console.log("Response from server:", response);

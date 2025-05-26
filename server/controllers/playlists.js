@@ -1,28 +1,27 @@
-import express from "express";
-import cors from "cors";
-import { setUpConnection } from "../utils/setUpConnection.js";
+const express = require("express");
+const cors = require("cors");
+const setUpConnection = require("../utils/setUpConnection.js"); // Import the database connection setup
 const app = express();
 app.use(cors());
 
-export const addToPlaylist = (req, res) => {
-  console.log("Request body:", req.body);
+ const addToPlaylist = (req, res) => {
+  
  const con = setUpConnection();
  
  let sql = `INSERT INTO playlists
  (userID,
- gameID,
- playlistID
+ gameIDs,
+ title
  )
  VALUES (?, ?, ?)`;
 
  const values = [
    req.body.userID,
    req.body.gameID,
-   req.body.playlistID,
+   req.body.title,
  ];
 
  con.query(sql, values, (err, rows) => {
-  console.log("Rows: ", rows);
    con.destroy();
    if (!err) {
      res.send(JSON.stringify(rows));
@@ -32,7 +31,7 @@ export const addToPlaylist = (req, res) => {
  });
 };
 
-export const getPlaylists = (req, res) => {
+ const getPlaylists = (req, res) => {
  const con = setUpConnection();
  let sql = `SELECT * FROM playlists
  WHERE userID = ?`;
@@ -48,3 +47,7 @@ export const getPlaylists = (req, res) => {
 });
 };
 
+module.exports = {
+  addToPlaylist,
+  getPlaylists,
+};

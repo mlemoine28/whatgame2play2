@@ -1,9 +1,16 @@
-import express from "express";
-import { addToPlaylist, getPlaylists } from "../controllers/playlists.js";
+const express = require("express");
+const { addToPlaylist, getPlaylists } = require("../controllers/playlists.js");
+// This is the playlist route file, which handles requests related to playlists.
 const router = express.Router();
 
-router.put("/addToPlaylist", addToPlaylist);
+router.put("/add", addToPlaylist);
 router.get("/getPlaylists", getPlaylists);
 
-export default router;
+module.exports = router
+
+
+
+
+
+
 

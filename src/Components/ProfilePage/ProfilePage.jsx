@@ -7,32 +7,33 @@ import axios from "axios";
 
 function ProfilePage() {
   const location = useLocation();
-  const [colours, setColours] = useState({});
   const navigate = useNavigate();
   const { id } = useParams(); // Assuming you have a route like /profile/:id
 
   const backToHomeClick = () => {
-    navigate("/");
+    fetchAPI();
+    // navigate("/");
   };
 
   const fetchAPI = async () => {
-    const body = { userID: id };
-    const response = await axios.get(
-      "http://localhost:3306/getPlaylists",
-      body
-    );
-    setColours(response.data.colours);
+    const body = {
+      userID: 1,
+      email: "test@email.com",
+      username: "Dude Guy",
+      favouriteGameID: 250,
+    };
+    await axios.put("http://localhost:8080/profile/add", body);
   };
 
-  useEffect(() => {
-    fetchAPI();
-  }, []);
+  // useEffect(() => {
+  //   fetchAPI();
+  // }, []);
 
   return (
     <div>
       <div className={styles.navItem}>
         <NavItem label="Back to Home" handleClick={backToHomeClick} />
-        <h1 className={styles.h1}>{colours.white}'s Profile</h1>
+        <h1 className={styles.h1}>Profile</h1>
 
         <div className={styles.profileContainer}>
           <h2>Recent Games Added</h2>

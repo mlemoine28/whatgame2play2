@@ -1,6 +1,6 @@
-import { createConnection } from "mysql";
+const { createConnection } = require("mysql");
 
-export const setUpConnection = () => {
+const setUpConnection = () => {
   return createConnection({
     host: "localhost",
     user: "root",
@@ -9,3 +9,5 @@ export const setUpConnection = () => {
     port: "3306",
   });
 };
+
+module.exports = setUpConnection;
