@@ -8,17 +8,11 @@ app.use(cors());
   
  const con = setUpConnection();
  
- let sql = `INSERT INTO playlists
- (userID,
- gameIDs,
- title
- )
- VALUES (?, ?, ?)`;
+ let sql = `INSERT INTO playlists (user_id, name) VALUES (?, ?)`;
 
  const values = [
-   req.body.userID,
-   req.body.gameID,
-   req.body.title,
+    req.body.user_id,
+    req.body.name
  ];
 
  con.query(sql, values, (err, rows) => {
