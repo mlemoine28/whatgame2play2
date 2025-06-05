@@ -12,7 +12,8 @@ const addGameGenre = (req, res) => {
  VALUES (?, ?)`; //These values will directly be taken from the table in workbench. Must match exactly what the columns are in the table.
 
  const values = [
-   req.body.name
+   req.body.game_id, 
+   req.body.genre_id
  ];
 
  con.query(sql, values, (err, rows) => {
