@@ -1,9 +1,9 @@
 const express = require("express");
-const { addToGame } = require("../controllers/game.js");
+const { addGame } = require("../controllers/game.js");
 // This is the playlist route file, which handles requests related to playlists.
 const router = express.Router();
 
-router.put("/add", addToGame);
+router.put("/add", addGame);
 
 
 module.exports = router
