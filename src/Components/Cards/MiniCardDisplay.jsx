@@ -63,7 +63,11 @@ export default function MiniCardDisplay({
               label="More Details"
               handleClick={handleMoreDetails}
             ></ButtonDetails>
-            <ButtonList
+
+            <FormSubmit>
+              
+            </FormSubmit>
+            {/* <ButtonList
               label={isGameInPlaylist || clicked ? "Added! ✓" : buttonText}
               handleClick={() => handlePlaylistButtonClick(detailedGame)}
               disabled={isGameInPlaylist || clicked}
@@ -73,7 +77,7 @@ export default function MiniCardDisplay({
                 color:
                   isGameInPlaylist || clicked ? "rgb(57, 255, 20)" : "white",
               }}
-            ></ButtonList>
+            ></ButtonList> */}
           </div>
         </div>
       </div>

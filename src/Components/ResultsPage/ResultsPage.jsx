@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState, lazy, Suspense } from "react";
 import styles from "../Cards/MiniCard.module.css";
-
+import FormSubmit from "../FormSubmit/FormSubmit.jsx";
 import ButtonPage from "../../Components/Button/ButtonPage";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";

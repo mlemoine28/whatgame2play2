@@ -11,8 +11,8 @@ function ProfilePage() {
   const { id } = useParams(); // Assuming you have a route like /profile/:id
 
   const backToHomeClick = () => {
-    fetchAPI();
-    // navigate("/");
+    //fetchAPI();//
+    navigate("/");
   };
 
   const fetchAPI = async () => {
@@ -52,7 +52,6 @@ function ProfilePage() {
           <p>Longest Game Played</p>
           <br></br>
           <h2>WhatGame2Play Badges</h2>
-
         </div>
       </div>
     </div>
