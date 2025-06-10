@@ -46,12 +46,12 @@ function ProfilePage() {
           <p>Total Games Added</p>
           <p>Total Reviews Written</p>
           <p>Total Playlists Created</p>
-          <p>Favourite Genre</p>
-          <p>Favourite Developer</p>
-          <p>Favourite Platform</p>
           <p>Most Played Genre</p>
           <p>Most Played Developer</p>
           <p>Most Played Platform</p>
+          <p>Longest Game Played</p>
+          <br></br>
+          <h2>WhatGame2Play Badges</h2>
 
         </div>
       </div>
