@@ -41,6 +41,18 @@ function ProfilePage() {
           <h2>Reviews</h2>
           <br></br>
           <h2>Playlists</h2>
+          <br></br>
+          <h2>Gaming Stats</h2>
+          <p>Total Games Added</p>
+          <p>Total Reviews Written</p>
+          <p>Total Playlists Created</p>
+          <p>Favourite Genre</p>
+          <p>Favourite Developer</p>
+          <p>Favourite Platform</p>
+          <p>Most Played Genre</p>
+          <p>Most Played Developer</p>
+          <p>Most Played Platform</p>
+
         </div>
       </div>
     </div>
