@@ -14,6 +14,7 @@ export default function DetailsPage({}) {
   const { id, game_pk } = useParams(); //takes a parameter specifically from a URL
   const [detailedGame, setDetailedGame] = useState(null);
   const [screenshots, setScreenShots] = useState(null);
+  const [playlists, setPlaylists] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
   const steamSearchUrl = `https://store.steampowered.com/search/?term=${encodeURIComponent(
@@ -33,16 +34,24 @@ export default function DetailsPage({}) {
   };
 
   const handlePlaylistClick = async () => {
-    playlistButtonClick(detailedGame);
-    setClicked(true);
+    // playlistButtonClick(detailedGame);
+    // setClicked(true);
     console.log(detailedGame);
-    const body = { userID: 1, gameID: detailedGame.id, title: "Completed" };
-    const response = await axios.put(
-      "http://localhost:8080/playlist/add",
-      body
-    );
-    console.log("Response from server:", response);
+    const body = { userID: 1, game_id: detailedGame.id, title: "Completed" };
+    // const response = await axios.put(
+    //   "http://localhost:8080/playlist/add",
+    //   body
+    // );
+    // console.log("Response from server:", response);
   };
+
+  // req.body.game_id,
+  // req.body.title,
+  // req.body.description,
+  // req.body.release_date,
+  // req.body.metacritic_score,
+  // req.body.cover_image_url,
+  // req.body.website
 
   const isGameInPlaylist = useMemo(() => {
     /*
@@ -91,8 +100,20 @@ export default function DetailsPage({}) {
       }
     };
 
+    const fetchPlaylists = async () => {
+      const body = { userID: 1 };
+      const response = await axios.get(
+        "http://localhost:8080/playlist/getPlaylists",
+        body
+      );
+      console.log("Response from playlists:", response);
+    };
+
     fetchData(gameURL).then((data) => setDetailedGame(data));
     fetchData(screenshotsURL).then((data) => setScreenShots(data));
+    fetchPlaylists().then((data) => {
+      setPlaylists(data);
+    });
   }, [id, game_pk]);
 
   console.log("Received game data:", detailedGame); // For debugging

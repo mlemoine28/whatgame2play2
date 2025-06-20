@@ -28,8 +28,8 @@ app.use(cors());
  const getPlaylists = (req, res) => {
  const con = setUpConnection();
  let sql = `SELECT * FROM playlists
- WHERE userID = ?`;
- const values = [req.body.userID];
+ WHERE user_id = ?`;
+ const values = [req.body.user_id];
  
  con.query(sql, values, (err, rows) => {
   con.destroy();

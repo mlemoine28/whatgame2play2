@@ -8,22 +8,14 @@ const addGame = (req, res) => {
  const con = setUpConnection();
  
  let sql = `INSERT INTO game
- (title,
- description,
- release_date,
- metacritic_score,
- cover_image_url,
- website 
+ (game_id,
+  playlist_id
  )
- VALUES (?, ?, ?, ?, ?, ?)`; //These values will directly be taken from the table in workbench. Must match exactly what the columns are in the table.
+ VALUES (?, ?)`; //These values will directly be taken from the table in workbench. Must match exactly what the columns are in the table.
 
  const values = [
-   req.body.title,
-   req.body.description,
-   req.body.release_date,
-   req.body.metacritic_score,
-   req.body.cover_image_url,
-   req.body.website
+  req.body.game_id,
+  req.body.playlist_id,
  ];
 
  con.query(sql, values, (err, rows) => {
