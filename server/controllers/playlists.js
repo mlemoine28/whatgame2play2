@@ -11,7 +11,7 @@ app.use(cors());
  let sql = `INSERT INTO playlists (user_id, name) VALUES (?, ?)`;
 
  const values = [
-    req.body.user_id,
+    req.body.userID,
     req.body.name
  ];
 
@@ -29,7 +29,8 @@ app.use(cors());
  const con = setUpConnection();
  let sql = `SELECT * FROM playlists
  WHERE user_id = ?`;
- const values = [req.body.user_id];
+ console.log("User ID:", req); // Debugging line to check userID
+ const values = [req.query.userID];
  
  con.query(sql, values, (err, rows) => {
   con.destroy();

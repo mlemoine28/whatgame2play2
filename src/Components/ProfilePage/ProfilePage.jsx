@@ -17,17 +17,22 @@ function ProfilePage() {
 
   const fetchAPI = async () => {
     const body = {
-      userID: 1,
-      email: "test@email.com",
-      username: "Dude Guy",
-      favouriteGameID: 250,
+      userID: 2,
     };
-    await axios.put("http://localhost:8080/profile/add", body);
+    const response = await axios.get(
+      "http://localhost:8080/playlist/getPlaylists?userID=2",
+      body
+    );
+    console.log("Response from server:", response);
+    // Handle the response data as needed
   };
 
-  // useEffect(() => {
-  //   fetchAPI();
-  // }, []);
+  useEffect(() => {
+    async function asyncAPICall() {
+      await fetchAPI();
+    }
+    asyncAPICall();
+  }, []);
 
   return (
     <div>
