@@ -64,8 +64,8 @@ export default function MiniCardDisplay({
               handleClick={handleMoreDetails}
             ></ButtonDetails>
 
-            <FormSubmit>
-              
+            <FormSubmit
+              placeholder="Add to Playlist">
             </FormSubmit>
             {/* <ButtonList
               label={isGameInPlaylist || clicked ? "Added! ✓" : buttonText}

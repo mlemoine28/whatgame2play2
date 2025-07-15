@@ -7,7 +7,9 @@ import Button from "react-bootstrap/Button";
 import ButtonBack from "../Button/ButtonBack";
 import { Spinner } from "react-bootstrap";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
+import FormSubmit from "../FormSubmit/FormSubmit";
 import axios from "axios";
+
 
 export default function DetailsPage({}) {
   const navigate = useNavigate();
@@ -133,7 +135,16 @@ export default function DetailsPage({}) {
       ) : (
         <div>
           <div className={styles.buttoncontainer2}>
-            <Button
+
+            {<FormSubmit
+              placeholder="Add to Playlist"></FormSubmit>
+            
+            
+            
+            
+            
+            
+            /* <Button
               className={styles.buttonPlaylist}
               variant="primary"
               size="sm"
@@ -147,7 +158,7 @@ export default function DetailsPage({}) {
               <div style={{ width: "6rem" }}>
                 {isGameInPlaylist || clicked ? "✓ Added!" : "+ Add To Playlist"}
               </div>
-            </Button>
+            </Button> */}
             <ButtonBack
               className={styles.backButton}
               label="Back"
