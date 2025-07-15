@@ -29,7 +29,7 @@ app.use(cors());
  const con = setUpConnection();
  let sql = `SELECT * FROM playlists
  WHERE user_id = ?`;
- console.log("User ID:", req); // Debugging line to check userID
+console.log("User ID:", req.query.userID); // Debugging line to check userID
  const values = [req.query.userID];
  
  con.query(sql, values, (err, rows) => {
