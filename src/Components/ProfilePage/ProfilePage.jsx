@@ -4,6 +4,8 @@ import NavItem from "../NavBar/NavItem";
 import styles from "./ProfilePage.module.css";
 import axios from "axios";
 import FormSubmit from "../FormSubmit/FormSubmit"; // adjust path as needed
+import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
+
 
 function ProfilePage() {
   const location = useLocation();

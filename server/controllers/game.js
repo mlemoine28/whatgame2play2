@@ -1,3 +1,5 @@
+const setUpConnection = require("../utils/setUpConnection.js"); // make sure this is imported
+
 const addGame = (req, res) => {
   const con = setUpConnection();
 
@@ -33,4 +35,8 @@ const addGame = (req, res) => {
       res.status(500).json({ error: "Failed to add game" });
     }
   });
+};
+
+module.exports = {
+  addGame,
 };
