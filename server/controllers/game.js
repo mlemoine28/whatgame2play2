@@ -1,34 +1,36 @@
-const express = require("express");
-const cors = require("cors");
-const setUpConnection = require("../utils/setUpConnection.js"); // Import the database connection setup
-const app = express();
-app.use(cors()); // ALWAYS TAKE THESE FIRST 5 LINES WHENEVER YOU USE MYSQL TABLES. EVERY FILE IN THE CONTROLLERS FOLDER WILL BE A TABLE FROM MYSQL.
-
 const addGame = (req, res) => {
- const con = setUpConnection();
- 
- let sql = `INSERT INTO game
- (game_id,
-  playlist_id
- )
- VALUES (?, ?)`; //These values will directly be taken from the table in workbench. Must match exactly what the columns are in the table.
+  const con = setUpConnection();
 
- const values = [
-  req.body.game_id,
-  req.body.playlist_id,
- ];
+  const {
+    game_id,
+    name,
+    released,
+    metacritic,
+    background_image,
+    playtime,
+  } = req.body;
 
- con.query(sql, values, (err, rows) => {
- 
-   con.destroy();
-   if (!err) {
-     res.send(JSON.stringify(rows));
-   } else {
-     console.log("Error while performing Query.", err);
-   }
- });
-};
+  const sql = `
+    INSERT IGNORE INTO game (game_id, name, released, metacritic, background_image, playtime)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `;
 
-module.exports = {
- addGame,
+  const values = [
+    game_id,
+    name,
+    released,
+    metacritic,
+    background_image,
+    playtime,
+  ];
+
+  con.query(sql, values, (err, rows) => {
+    con.destroy();
+    if (!err) {
+      res.status(201).json({ message: "Game added (or already exists)" });
+    } else {
+      console.log("Error adding game:", err);
+      res.status(500).json({ error: "Failed to add game" });
+    }
+  });
 };

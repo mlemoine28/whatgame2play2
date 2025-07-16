@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
 import usePlaylistCheck from "../Button/UsePlaylistCheck/usePlaylistCheck";
 
+
 export default function MiniCardDisplay({
   detailedGame,
   handleMoreDetails,
@@ -19,10 +20,37 @@ export default function MiniCardDisplay({
   const { playlist, playlistButtonClick } = usePlaylist();
   const isGameInPlaylist = usePlaylistCheck(playlist, detailedGame);
   const [clicked, setClicked] = useState(false);
+  const { userPlaylists } = usePlaylist();
 
   const handlePlaylistButtonClick = (detailedGame) => {
     playlistButtonClick(detailedGame);
     setClicked(true);
+  };
+
+  const handleDropdownChange = async (selectedOption) => {
+    const playlistId = selectedOption.value;
+
+    try {
+      // 1️⃣ Add game to `game` table first (safe to do even if it exists)
+      await axios.post("http://localhost:8080/game/add", {
+        game_id: detailedGame.id,
+        name: detailedGame.name,
+        released: detailedGame.released,
+        metacritic: detailedGame.metacritic,
+        background_image: detailedGame.background_image,
+        playtime: detailedGame.playtime,
+      });
+
+      // 2️⃣ Then link game to selected playlist
+      await axios.post("http://localhost:8080/playlist/addGameToPlaylist", {
+        playlist_id: playlistId,
+        game_id: detailedGame.id,
+      });
+
+      console.log(`Added "${detailedGame.name}" to playlist ${playlistId}`);
+    } catch (err) {
+      console.error("Error adding game to playlist:", err);
+    }
   };
 
   return (
@@ -65,8 +93,11 @@ export default function MiniCardDisplay({
             ></ButtonDetails>
 
             <FormSubmit
-              placeholder="Add to Playlist">
-            </FormSubmit>
+              options={userPlaylists} // 👈 your playlists from context
+              placeholder="Add to Playlist"
+              selectedAnswers={null}
+              handleChange={handleDropdownChange}
+            />
             {/* <ButtonList
               label={isGameInPlaylist || clicked ? "Added! ✓" : buttonText}
               handleClick={() => handlePlaylistButtonClick(detailedGame)}
