@@ -13,3 +13,31 @@
 .profileContainer {
   color: white;
 }
+
+.playlistList {
+  margin-top: 1rem;
+}
+
+.playlistItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #234;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.playlistItem button {
+  background-color: #c00;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.playlistItem button:hover {
+  background-color: #a00;
+}

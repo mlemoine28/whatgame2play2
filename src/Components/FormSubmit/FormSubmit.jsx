@@ -26,31 +26,36 @@ function FormSubmit({
   placeholder={placeholder}
   isSearchable
   isMulti={true}
+  menuPortalTarget={document.body} // ← this is key
   styles={{
     control: (base) => ({
       ...base,
-      backgroundColor: "#345", // Dark background for the select box
-      color: "blue", // Text color
-      borderColor: "#555", // Border color
+      backgroundColor: "#345",
+      color: "blue",
+      borderColor: "#555",
+      zIndex: 2, // This can help but the portal is the key
+    }),
+    menuPortal: (base) => ({
+      ...base,
+      zIndex: 9999, // ← this is what ensures it overlays everything
     }),
     menu: (base) => ({
       ...base,
-      backgroundColor: "#345", // Dark background for the options menu
+      backgroundColor: "#345",
       color: "white",
     }),
     singleValue: (base) => ({
       ...base,
-      color: "green", // Selected option color
+      color: "green",
     }),
-
     multiValue: (base) => ({
       ...base,
-      backgroundColor: "green", // Dark background for selected items
+      backgroundColor: "green",
       color: "white",
     }),
     multiValueLabel: (base) => ({
       ...base,
-      color: "white", // Text color for selected item labels
+      color: "white",
     }),
     option: (base, { isFocused, isSelected }) => ({
       ...base,
@@ -62,7 +67,7 @@ function FormSubmit({
     }),
     placeholder: (base) => ({
       ...base,
-      color: "grey", // Lighter color for placeholder text
+      color: "grey",
     }),
   }}
 />

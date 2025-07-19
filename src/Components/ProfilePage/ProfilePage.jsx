@@ -6,7 +6,6 @@ import axios from "axios";
 import FormSubmit from "../FormSubmit/FormSubmit"; // adjust path as needed
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
 
-
 function ProfilePage() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -86,16 +85,15 @@ function ProfilePage() {
             </button>
           </div>
 
-          {/* ✅ Playlist selection dropdown (FormSubmit component) */}
-          <div className={styles.playlistDropdown}>
-            <FormSubmit
-              options={playlists}
-              placeholder="Select a playlist"
-              selectedAnswers={null}
-              handleChange={(selected) => {
-                console.log("Selected playlist:", selected);
-              }}
-            />
+          <div className={styles.playlistList}>
+            {playlists.map((playlist) => (
+              <div key={playlist.value} className={styles.playlistItem}>
+                <span>{playlist.label}</span>
+                <button onClick={() => handleRemovePlaylist(playlist.value)}>
+                  Remove
+                </button>
+              </div>
+            ))}
           </div>
 
           <br />
