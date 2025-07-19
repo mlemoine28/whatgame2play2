@@ -42,7 +42,25 @@ console.log("User ID:", req.query.userID); // Debugging line to check userID
 });
 };
 
+const deletePlaylist = (req, res) => {
+  const con = setUpConnection();
+  const playlistId = req.params.playlist_id;
+
+  const sql = `DELETE FROM playlists WHERE playlist_id = ?`;
+
+  con.query(sql, [playlistId], (err, result) => {
+    con.destroy();
+    if (!err) {
+      res.status(200).json({ message: "Playlist deleted successfully." });
+    } else {
+      console.error("Error deleting playlist:", err);
+      res.status(500).json({ error: "Failed to delete playlist." });
+    }
+  });
+};
+
 module.exports = {
   addToPlaylist,
   getPlaylists,
+  deletePlaylist,
 };

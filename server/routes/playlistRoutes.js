@@ -1,16 +1,10 @@
 const express = require("express");
-const { addToPlaylist, getPlaylists } = require("../controllers/playlists.js");
-// This is the playlist route file, which handles requests related to playlists.
+const { addToPlaylist, getPlaylists, deletePlaylist } = require("../controllers/playlists.js");
+
 const router = express.Router();
 
 router.post("/add", addToPlaylist);
 router.get("/getPlaylists", getPlaylists);
+router.delete("/delete/:playlist_id", deletePlaylist);
 
-module.exports = router
-
-
-
-
-
-
-
+module.exports = router;

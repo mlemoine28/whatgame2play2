@@ -9,7 +9,7 @@ import { Spinner } from "react-bootstrap";
 import { usePlaylist } from "../../assets/Contexts/PlaylistContext";
 import FormSubmit from "../FormSubmit/FormSubmit";
 import axios from "axios";
-
+import usePlaylistCheck from "../Button/UsePlaylistCheck/usePlaylistCheck";
 
 export default function DetailsPage({}) {
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ export default function DetailsPage({}) {
   const [screenshots, setScreenShots] = useState(null);
   const [playlists, setPlaylists] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { userPlaylists } = usePlaylist();
   const location = useLocation();
   const steamSearchUrl = `https://store.steampowered.com/search/?term=${encodeURIComponent(
     detailedGame?.name
@@ -26,6 +27,32 @@ export default function DetailsPage({}) {
   const [clicked, setClicked] = useState(false);
   const { playlistButtonClick, playlist } = usePlaylist();
   const game = location.state?.game;
+
+  const handleDropdownChange = async (selectedOption) => {
+    const playlistId = selectedOption.value;
+
+    try {
+      // 1️⃣ Add game to `game` table first (safe to do even if it exists)
+      await axios.post("http://localhost:8080/game/add", {
+        game_id: detailedGame.id,
+        name: detailedGame.name,
+        released: detailedGame.released,
+        metacritic: detailedGame.metacritic,
+        background_image: detailedGame.background_image,
+        playtime: detailedGame.playtime,
+      });
+
+      // 2️⃣ Then link game to selected playlist
+      await axios.post("http://localhost:8080/playlist/addGameToPlaylist", {
+        playlist_id: playlistId,
+        game_id: detailedGame.id,
+      });
+
+      console.log(`Added "${detailedGame.name}" to playlist ${playlistId}`);
+    } catch (err) {
+      console.error("Error adding game to playlist:", err);
+    }
+  };
 
   const backButtonClick = () => {
     if (location.state?.from) {
@@ -135,16 +162,15 @@ export default function DetailsPage({}) {
       ) : (
         <div>
           <div className={styles.buttoncontainer2}>
+            {
+              <FormSubmit
+                options={userPlaylists} // 👈 your playlists from context
+                placeholder="Add to Playlist"
+                selectedAnswers={null}
+                handleChange={handleDropdownChange}
+              />
 
-            {<FormSubmit
-              placeholder="Add to Playlist"></FormSubmit>
-            
-            
-            
-            
-            
-            
-            /* <Button
+              /* <Button
               className={styles.buttonPlaylist}
               variant="primary"
               size="sm"
@@ -158,7 +184,8 @@ export default function DetailsPage({}) {
               <div style={{ width: "6rem" }}>
                 {isGameInPlaylist || clicked ? "✓ Added!" : "+ Add To Playlist"}
               </div>
-            </Button> */}
+            </Button> */
+            }
             <ButtonBack
               className={styles.backButton}
               label="Back"

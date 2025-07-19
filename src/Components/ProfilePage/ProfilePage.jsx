@@ -31,7 +31,7 @@ function ProfilePage() {
       );
       const formatted = response.data.map((p) => ({
         label: p.name,
-        value: p.id,
+        value: p.playlist_id,
       }));
       setPlaylists(formatted);
     } catch (err) {
@@ -51,6 +51,34 @@ function ProfilePage() {
       fetchAPI(); // Refresh playlist list
     } catch (err) {
       console.error("Error creating playlist:", err);
+    }
+  };
+
+  const handleDeletePlaylist = async (playlistId) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this playlist?"
+    );
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch(
+        `http://localhost:8080/playlist/delete/${playlistId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (response.ok) {
+        alert("Playlist deleted successfully.");
+        // Refresh playlists list if needed
+        console.log("Deleting playlist id:", playlistId);
+        fetchAPI();
+      } else {
+        const error = await response.json();
+        alert("Error deleting playlist: " + error.error);
+      }
+    } catch (err) {
+      console.error("Failed to delete playlist", err);
     }
   };
 
@@ -89,8 +117,8 @@ function ProfilePage() {
             {playlists.map((playlist) => (
               <div key={playlist.value} className={styles.playlistItem}>
                 <span>{playlist.label}</span>
-                <button onClick={() => handleRemovePlaylist(playlist.value)}>
-                  Remove
+                <button onClick={() => handleDeletePlaylist(playlist.value)}>
+                  Delete
                 </button>
               </div>
             ))}
